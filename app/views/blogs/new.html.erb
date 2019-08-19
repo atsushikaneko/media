@@ -1,2 +1,15 @@
 <h1>Blogs#new</h1>
 <p>Find me in app/views/blogs/new.html.erb</p>
+<div>
+<%= form_for @blog do |f| %>
+<%= f.text_field :title %>
+<%= f.text_field :content %>
+<%= f.text_field :category %>
+<%= f.submit "Post Blog!!!!!", class: "btn btn-primary" %>
+ <span class="picture">
+    <%= f.file_field :picture %>
+  </span>
+<% end %>
+
+
+</div>

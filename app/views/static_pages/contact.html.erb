@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all',
+                               'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application',
+                               'data-turbolinks-track': 'reload' %>
+    <title>Sample Blog</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+  </head>
+  <body>
+    <header><%= image_tag "http://atsnow.chillout.jp/test 2.jpg" %></header>
+    <div class="contents container">
+      <div class="row">
+          <div class="main col-lg-6">
+            aaaa
+            <div class="articles row">
+                <div class="kiji col-xs-12 col-lg-6">記事１</div>
+                <div class="kiji col-xs-12 col-lg-6">記事２</div>
+                <div class="kiji col-xs-12 col-lg-6">記事３</div>
+                <div class="kiji col-xs-12 col-lg-6">記事４</div>
+                <div class="kiji col-xs-12 col-lg-6">記事５</div>
+                <div class="kiji col-xs-12 col-lg-6">記事６</div>
+                <div class="kiji col-xs-12 col-lg-6">記事７</div>
+                <div class="kiji col-xs-12 col-lg-6">記事８</div>
+                <div class="kiji pagenate col-xs-12">ページネート</div>
+            </div>
+          </div>
+          <div class="sidebar col-lg-6">
+            aaaaaaa
+            <div class="sides row">
+              <div class="side koukoku1 col-xs-12">広告１広告１広告１</div>
+              <div class="side search col-xs-12">検索検索検索</div>
+              <div class="side categories col-xs-12">カテゴリカテゴリカテゴリ</div>
+            </div>
+          </div>
+      </div>
+    </div>
+    <div class="pagetop"></div>
+    <footer></footer>
+  </body>
