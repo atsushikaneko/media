@@ -1,8 +1,7 @@
 class StaticPagesController < ApplicationController
   
   def home
-    @blogs = Blog.all
-    @most_viewed = Blog.order('impressions_count DESC').take(10)
+    @blogs = Blog.paginate(page: params[:page], per_page: 10)
   end
 
   def about

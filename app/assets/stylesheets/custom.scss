@@ -106,7 +106,6 @@ header{
 .side{
   margin:30px 20px 0px 20px  ;
   
-  
 }
 
 .koukoku1{
@@ -124,28 +123,39 @@ header{
 }
 
 .categories li{
-  position: relative;
-  font-size: 15px;
+  width:100%;
+  font-size: 16px;
   border-bottom: 0.5px dotted gray;
-  margin-bottom: 5px;
+  margin-bottom: 2px;
 }
 
 .categories li:hover{
   opacity: 0.6;
 }
 
-.categories .fas{
-  position: absolute;
-  position:block;
-  width: 100%;
-  text-align: right;
-  z-index: 5;
+.categories .hidari{
+  float:left;
+  width: 80%;
+  margin-bottom: 5px;
 }
 
-.categories .fas:hover{
-  position:block;
-  position: relative;
-  left: 2px;
+.categories .fas{
+  width: 20%;
+  text-align: right;
+  z-index: 5;
+  margin-bottom: 5px;
+}
+
+section .test1{
+  float:left;
+  width: 50%;
+}
+
+section .test2{
+  float:left;
+  width: 50%;
+  text-align:right;
+  color:red;
 }
 
 .archives{
