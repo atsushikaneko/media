@@ -25,6 +25,9 @@
   </header>
   <div class="contents container">　　　　　　　　　　　 
     <div class="row">
+       <% flash.each do |message_type, message| %>
+       <div class="alert alert-<%= message_type %>"><%= message %></div>
+       <% end %>
       <%= yield %>
       <div class="sidebar col-lg-4">
         <div class="sides row">　　　　　　　　 
@@ -60,5 +63,5 @@
     </div>
   </div>
   <div class="pagetop"></div>
-  <footer></footer>
+  <footer>  <%= debug(params) if Rails.env.development? %></footer>
 </body>
