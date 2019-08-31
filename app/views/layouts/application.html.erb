@@ -23,11 +23,11 @@
       <h3 class="title2">using Ruby on Rails</h3>
     </div>
   </header>
-  <div class="contents container">　　　　　　　　　　　 
-    <div class="row">
-       <% flash.each do |message_type, message| %>
+         <% flash.each do |message_type, message| %>
        <div class="alert alert-<%= message_type %>"><%= message %></div>
        <% end %>
+  <div class="contents container">　　　　　　　　　　　 
+    <div class="row">
       <%= yield %>
       <div class="sidebar col-lg-4">
         <div class="sides row">　　　　　　　　 
