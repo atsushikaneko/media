@@ -19,8 +19,18 @@ class BlogsController < ApplicationController
   
   
   def edit
+    @blog = Blog.find(params[:id])
   end
 
+  def update
+    @blog = Blog.find(params[:id])
+    if @blog.update_attributes(blog_params)
+      redirect_to @blog
+    else
+      render "edit"
+    end
+  end
+  
   def index
   end
 
