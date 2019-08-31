@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">　　　　　　　　　
+  <meta name="viewport" content="width=device-width, initial-scale=1">　　　　　　　　　 
   <%= csrf_meta_tags %>
   <%= stylesheet_link_tag    'application', media: 'all',
                                'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application',
-                               'data-turbolinks-track': 'reload' %>　　　　　　　　　　　
+                               'data-turbolinks-track': 'reload' %>　　　　　　　　　　　 
   <title>Sample Blog</title>
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -23,9 +23,11 @@
       <h3 class="title2">using Ruby on Rails</h3>
     </div>
   </header>
-         <% flash.each do |message_type, message| %>
-       <div class="alert alert-<%= message_type %>"><%= message %></div>
-       <% end %>
+  <% flash.each do |message_type, message| %>
+  <div class="alert alert-<5126f23f161d83fa3ef675ebad0ae0dc />">
+    <%= message %>
+  </div>
+  <% end %>
   <div class="contents container">　　　　　　　　　　　 
     <div class="row">
       <%= yield %>
@@ -38,7 +40,10 @@
             <ul>
               <% Blog.pluck("category").uniq.each do |category|%>
               <li>
-                <p class="hidari"><%= category %></p><p class="fas fa-chevron-right"></p>
+                <p class="hidari">
+                  <%= category %>
+                </p>
+                <p class="fas fa-chevron-right"></p>
               </li>
               <% end %>
             </ul>
@@ -63,5 +68,7 @@
     </div>
   </div>
   <div class="pagetop"></div>
-  <footer>  <%= debug(params) if Rails.env.development? %></footer>
+  <footer>
+    <%= debug(params) if Rails.env.development? %>
+  </footer>
 </body>
