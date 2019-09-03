@@ -17,12 +17,13 @@
   <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
 </head>
 <body class="bodyid">
-  <header>
+    <%= render partial:'layouts/header' %>
+  <div class="picture">
     <div class="opacity">
       <h1 class="title">Sample Blog</h1>
       <h3 class="title2">using Ruby on Rails</h3>
     </div>
-  </header>
+  </div>
   <% flash.each do |message_type, message| %>
   <div class="alert alert-<5126f23f161d83fa3ef675ebad0ae0dc />">
     <%= message %>
