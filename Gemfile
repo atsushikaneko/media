@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails',        '5.1.6'
+gem 'twitter'
 gem 'impressionist'
 gem 'bcrypt',         '3.1.12'
 gem 'faker',  '1.9.1'
