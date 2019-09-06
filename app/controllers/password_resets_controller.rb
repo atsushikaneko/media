@@ -1,5 +1,5 @@
 class PasswordResetsController < ApplicationController
-　before_action :get_user,   only: [:edit, :update]
+  before_action :get_user,   only: [:edit, :update]
   before_action :valid_user, only: [:edit, :update]
   before_action :check_expiration, only: [:edit, :update]  
  
@@ -38,11 +38,9 @@ class PasswordResetsController < ApplicationController
   
   
   private
-  
     def user_params
       params.require(:user).permit(:password, :password_confirmation)
     end
-    
 
     def get_user
       @user = User.find_by(email: params[:email])
@@ -55,7 +53,6 @@ class PasswordResetsController < ApplicationController
         redirect_to root_url
       end
     end
-    
     
     def check_expiration
       if @user.password_reset_expired?
