@@ -5,7 +5,6 @@
     <%= form_for(@user, url: password_reset_path(params[:id])) do |f| %>
 
       <%= hidden_field_tag :email, @user.email %>
-
       <%= f.label :password %>
       <%= f.password_field :password, class: 'form-control' %>
 
