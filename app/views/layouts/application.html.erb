@@ -33,9 +33,8 @@
             <%= yield %>
               <div class="sidebar col-lg-4">
                 <div class="sides row">
-                  <div class="side koukoku1 col-xs-12">広告</div>
+                  <div class="side koukoku1 col-xs-12"></div>
                   <div class="side search col-xs-12">
-                    <p>検索</p>
                     <%= form_tag("/search",:method => 'get') do %>
                       <%= text_field_tag :search %>
                         <%= submit_tag 'Search', :name => nil %>
@@ -54,7 +53,6 @@
                         <% end %>
                     </ul>
                   </div>
-                  <div class="side archives col-xs-12">アーカイブ</div>
                   <div class="side ranking col-xs-12">
                     <h3>人気記事</h3>
                     <ul>
@@ -66,7 +64,6 @@
                   </div>
                   <div class="side recent col-xs-12">最近の投稿</div>
                   <div class="side otoiawase col-xs-12">お問い合わせ</div>
-                  <div class="side koukoku2 col-xs-12">広告２</div>
                 </div>
               </div>
           </div>

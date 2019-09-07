@@ -32,6 +32,7 @@ class BlogsController < ApplicationController
   end
   
   def index
+    @blogs = Blog.paginate(page: params[:page], per_page: 10)
   end
 
   def show
