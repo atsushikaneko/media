@@ -1,0 +1,19 @@
+<div class="main col-lg-8">
+  <div class="articles row">
+    <% @blogs.each do |blog|%>
+    <div class="kiji col-xs-12 col-lg-6">
+      <div class="shadow">
+        <div class="kiji-photo" style="background-image: url(<%= blog.picture.url %>); background-size: contain;"></div>
+        <p class="kiji-category">
+          <%= blog.category %>
+        </p>
+        <p class="kiji-title">
+          <%= blog.title %>
+        </p>
+        <%= link_to("","/blogs/#{blog.id}",class:"kiji-link") %>
+        <!-- ここを有効にすると、めっちゃ読み込むようになる-->
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>

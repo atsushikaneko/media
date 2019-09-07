@@ -38,11 +38,17 @@ class BlogsController < ApplicationController
   @blog = Blog.find(params[:id])
   @images = @blog.images
   end
-  
-end
+
+
+  def search
+    #Viewのformで取得したパラメータをモデルに渡す
+    @blogs = Blog.search(params[:search])
+  end  
 
 
 private
   def blog_params
     params.require(:blog).permit(:title,:content,:category,:picture, images_attributes:{ picture:[]} )
   end
+  
+end

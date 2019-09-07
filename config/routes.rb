@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
   
   get 'password_resets/new'
-
   get 'password_resets/edit'
 
-  get 'sessions/new'
+  get "/search", to: "blogs#search"
 
   root "static_pages#home"
   get "/about",   to: "static_pages#about"
