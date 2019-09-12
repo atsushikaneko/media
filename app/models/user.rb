@@ -3,6 +3,8 @@ class User < ApplicationRecord
   before_save   :downcase_email
   before_create :create_activation_digest
   
+  has_many :blogs, dependent: :destroy
+  
   
   before_save { self.email = email.downcase }
   validates :name, presence: true, length: { maximum: 50 }
