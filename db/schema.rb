@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190912143852) do
+ActiveRecord::Schema.define(version: 20190913224930) do
 
   create_table "blogs", force: :cascade do |t|
     t.integer "user_id"
@@ -69,6 +69,7 @@ ActiveRecord::Schema.define(version: 20190912143852) do
     t.datetime "activated_at"
     t.string "reset_digest"
     t.datetime "reset_sent_at"
+    t.string "remember_digest"
   end
 
 end
