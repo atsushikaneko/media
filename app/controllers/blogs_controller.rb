@@ -2,16 +2,16 @@ class BlogsController < ApplicationController
   
   
   def new
-    @blog = User.first.blogs.build
+    @blog = current_user.blogs.build
     #@blog.images.build
   end
   
   
   def create
-    @blog = User.first.blogs.build(blog_params)
+    @blog = current_user.blogs.build(blog_params)
     if @blog.save
       flash[:success] = "Blog created!"
-      redirect_to User.first
+      redirect_to current_user
     else
       render 'new'
     end  
