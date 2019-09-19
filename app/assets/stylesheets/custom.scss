@@ -73,7 +73,14 @@
 
 
 /*メイン*/
-
+.serviceTop-header{
+  padding-top:20px;
+  padding-bottom:5px;
+  font-family:Noto-Sans;
+  font-weight:700;
+  font-size:25px;
+  border-bottom:1px rgb(191, 206, 211) solid;
+}
 
 .kiji{
   padding:20px 20px;
@@ -131,9 +138,7 @@
 
 .side{
   padding:30px 30px 0px 30px  ;
-  
 }
-
 
 
 .koukoku1{
@@ -144,11 +149,17 @@
 }
 
 .search{
-  height: 100px;
 }
 
 .categories{
-  height: 300px;
+}
+
+.categories h4{
+  height:40px;
+  padding-top: 10px;
+  padding-left: 5px;
+  color: lightgray;
+  background-color: black;
 }
 
 .categories li{
@@ -188,14 +199,71 @@ section .test2{
 }
 
 .ranking{
-  height: 300px;
+}
+
+.ranking h4{
+  height:40px;
+  padding-top: 10px;
+  padding-left: 5px;
+  color: lightgray;
+  background-color: black;
+}
+
+.ranking li{
+  width:100%;
+  font-size: 16px;
+  border-bottom: 0.5px dotted gray;
+  margin-bottom: 2px;
+}
+
+.ranking li:hover{
+  opacity: 0.6;
+}
+
+.ranking .hidari{
+  float:left;
+  width: 80%;
+  margin-bottom: 5px;
+}
+
+.ranking .fas{
+  width: 20%;
+  text-align: right;
+  z-index: 5;
+  margin-bottom: 5px;
 }
 
 .recent{
-  height: 300px;
 }
 
 .otoiawase{
-  height: 300px;
 }
 
+
+/*新規投稿フォーム*/
+.blog-new-form .title-form{
+  width:100%;
+  height:40px;
+  margin-top:20px;
+  margin-bottom:20px;
+}
+
+.blog-new-form .category-form{
+  width:100%;
+  height:40px;
+  margin-bottom:20px;
+}
+
+.blog-new-form .content-form{
+  width:100%;
+  height:1000px;
+  margin-top:20px;
+  margin-bottom:20px;
+}
+
+/*記事詳細*/
+.blog-show .thumbnail{
+  height: 400px;
+  width: 100%;
+  background-size:cover;
+}

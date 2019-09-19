@@ -7,7 +7,7 @@
       <% end %>
     </div>
     <div class="side categories">
-      <h3>カテゴリー</h3>
+      <h4>カテゴリー</h4>
       <ul>
         <% Blog.pluck("category").uniq.each do |category|%>
           <li>
@@ -20,12 +20,14 @@
       </ul>
     </div>
     <div class="side ranking">
-      <h3>人気記事</h3>
+      <h4>人気記事</h4>
       <ul>
-        <% @most_viewed.each do |blog|%>
+        <% @most_viewed[0..9].each do |blog|%>
           <li>
-            <%= blog.content %> <span class="fas fa-chevron-right"></span> </li>
-          <% end %>
+            <div class="hidari"><%= blog.title %></div> 
+            <p class="fas fa-chevron-right"></p>
+          </li>
+        <% end %>
       </ul>
     </div>
     <div class="side recent">最近の投稿</div>

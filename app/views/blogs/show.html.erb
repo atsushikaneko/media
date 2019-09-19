@@ -1,28 +1,15 @@
-<div class="main col-lg-8">
-  <div class="breadcrumb"></div>
-  <div class="content">
-    <main>
+<div class="row">
+  <div class="blog-show col-lg-8">
+    <div class="breadcrumb"></div>
+    <div class="content">
       <article>
-        <header>
-          <p></p>
-          <h1><%= @blog.title %></h1>
-          <figure></figure>
-          <div class="sns">
-            <ul>
-              <li>twitter</li>
-              <li>facebook</li>
-            </ul>
-          </div>
-        </header>
-        
-        <section>
-          <div class="test1">111111</div>
-          <div class="test2">22222</div>
-        </section>
+         <div class="thumbnail" style="background-image: url(<%= @blog.picture.url %>)"></div>
+         <h1><%= @blog.title %></h1>
+         <div><%= @blog.content %></div>
       </article>
-      
-      
-    </main>
-    
+    </div>
   </div>
-</div>  
+  <div class="ssidebar col-lg-4">
+  <%= render 'shared/right_menu' %> <!-- ライトメニューです -->
+  </div>
+</div>
