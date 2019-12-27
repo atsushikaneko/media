@@ -9,8 +9,6 @@
       </article>
     </div>
     <div>
-  <h4>コメント</h4>
-  <div>
     <h4>コメント</h4>
     <div id="comments_area"><!-- #① -->
       <!-- 投稿されたコメント一覧をブログの詳細ページに表示するためのrender -->
@@ -19,7 +17,7 @@
     <% if logged_in? %>
       <!-- コメント入力欄をブログの詳細ページに表示するためのrender -->
       <%= render partial: 'comments/form', locals: { comment: @comment, blog: @blog } %>
-    <% end %> 
+    <% end %>
   </div>　
   </div>
   <div class="ssidebar col-lg-4">
