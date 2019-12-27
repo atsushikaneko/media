@@ -15,3 +15,6 @@
 //= require bootstrap
 //= require turbolinks
 //= require_tree .
+
+# app/views/layouts/application.html.erb
+<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>

@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
+  # app/assets/javascripts/application.js
+  //= require rails-ujs
+  //= require jquery
+  //= require activestorage
+  //= require jquery_ujs
+  //= require turbolinks
+  //= require_tree .
   <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all',  'data-turbolinks-track': 'reload' %>
@@ -8,9 +15,9 @@
     <title>Sample Blog</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    
+
     <!-- font awesome -->
-    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet"> 
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
 </head>
 <body class="bodyid">
   <%= render partial:'layouts/header' %>
