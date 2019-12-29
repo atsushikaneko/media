@@ -1,11 +1,11 @@
 class CommentsController < ApplicationController
 
-def created
+def create
   @blog = Blog.find(params[:blog_id])
   @comment = @blog.comments.build(comment_params)
   @comment.user_id = current_user.id
   if @comment.save
-    render 'index.js.erb'
+    render :index
   end
 end
 
