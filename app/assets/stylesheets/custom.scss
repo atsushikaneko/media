@@ -284,7 +284,7 @@ body {
   font: 15px/1.25 'Alef';
   color: #111;
 }
-form {
+.form_area {
   margin: 70px auto;
   background: #2a3644;
   width: 347px;
@@ -296,7 +296,7 @@ form {
   -o-border-radius: 6px;
   border-radius: 6px;
 }
-form > h1 {
+.form_area > h1 {
   color: #f4f4f4;
   text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.7);
   font-weight: 400;

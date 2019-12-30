@@ -24,46 +24,8 @@
     </div>
   </div>
 
-  <!-- モーダルを開くボタン・リンク -->
-<div class="container">
-    <div class="row my-3">
-        <h1>モーダルを開く</h1>
-    </div>
-    <div class="row mb-5">
-        <div class="col-2">
-            <button type="button" class="btn btn-primary mb-12" data-toggle="modal" data-target="#testModal">ボタンで開く</button>
-        </div>
-        <div class="col-2">
-            <a class="btn btn-primary" data-toggle="modal" data-target="#testModal">リンクボタンで開く</a>
-        </div>
-    </div>
-</div>
-
-<!-- ボタン・リンククリック後に表示される画面の内容 -->
-<div class="modal fade" id="testModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-
-  <h1>Login</h1>
-
-  <%= form_for(:session, url: login_path) do |f| %>
-  <%= f.email_field :email, placeholder:"Username",class: 'form-control' %>
-  <%= f.password_field :password, placeholder:"Password", class: 'form-control' %>
-  <%= link_to "(forgot password)", new_password_reset_path %>
-  <%= f.submit "Log in", class: "btn btn-primary" %>
-
-  <%= f.label :remember_me, class: "checkbox inline" do %>
-<%= f.check_box :remember_me %>
-<span>Remember me on this computer</span>
-<% end %>
-  <% end %>
-  <span> New user? <%= link_to "Sign up now!", signup_path %> </span>
 
 
-            </div>
-        </div>
-    </div>
-</div>
 
 
 </div>
