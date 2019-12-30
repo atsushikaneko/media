@@ -28,44 +28,30 @@
 </header>
 
 
-<!-- ボタン・リンククリック後に表示される画面の内容 -->
-<div class="modal fade"  id="testModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
-    <div class="modal-dialog">
-
+<!-- ボタン・リンククリック後に表示されるログインモーダル -->
+<div class="modal fade" id="testModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
   <div class="form_area">
-  <h1>ログイン</h1>
-  <%= form_for(:session, url: login_path) do |f| %>
-  <%= f.email_field :email, placeholder:"メールアドレス", class: "form_input" %>
-  <%= f.password_field :password, placeholder:"パスワード", class: "form_input" %>
-  <%= link_to "パスワードを忘れた場合", new_password_reset_path %>
-  <%= f.submit "ログイン", class: "form_button" %>
-
-  <%= f.label :remember_me, class: "checkbox inline" do %>
-<%= f.check_box :remember_me %>
-<span>ログイン状態を保持する</span>
-<% end %>
-  <% end %>
-  <a data-toggle="modal" data-target="#signupModal"> 新規登録</a>
-</div>
-
-        </div>
-    </div>
-
-
-    <!-- 新規登録モーダル　-->
-    <div class="modal fade"  id="signupModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
-        <div class="modal-dialog">
-
-      <div class="form_area">
-      <h1>アカウント作成</h1>
-      <%= form_for User.new do |f| %>
-      <%= f.text_field :name , placeholder:"ユーザー名", class: "form_input"%>
+    <h1>ログイン</h1>
+    <%= form_for(:session, url: login_path) do |f| %>
       <%= f.email_field :email, placeholder:"メールアドレス", class: "form_input" %>
-      <%= f.password_field :password , placeholder:"パスワード", class: "form_input"%>
-      <%= f.password_field :password_confirmation , placeholder:"パスワード確認", class: "form_input"%>
-      <%= f.submit "登録する" , class: "form_button"%>
-      <% end %>
-    </div>
-
-            </div>
-        </div>
+        <%= f.password_field :password, placeholder:"パスワード", class: "form_input" %>
+          <%= link_to "パスワードを忘れた場合", new_password_reset_path %>
+            <%= f.submit "ログイン", class: "form_button" %>
+              <%= f.label :remember_me, class: "checkbox inline" do %>
+                <%= f.check_box :remember_me %> <span>ログイン状態を保持する</span>
+                  <% end %>
+                    <% end %> <a data-toggle="modal" data-target="#signupModal"> 新規登録</a> </div>
+</div>
+<!-- 新規登録モーダル　-->
+<div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+  <div class="form_area">
+    <h1>アカウント作成</h1>
+    <%= form_for User.new do |f| %>
+      <%= f.text_field :name , placeholder:"ユーザー名", class: "form_input"%>
+        <%= f.email_field :email, placeholder:"メールアドレス", class: "form_input" %>
+          <%= f.password_field :password , placeholder:"パスワード", class: "form_input"%>
+            <%= f.password_field :password_confirmation , placeholder:"パスワード確認", class: "form_input"%>
+              <%= f.submit "登録する" , class: "form_button"%>
+                <% end %>
+  </div>
+</div>
