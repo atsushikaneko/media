@@ -29,9 +29,9 @@
 
 
 <!-- ボタン・リンククリック後に表示される画面の内容 -->
-<div class="modal fade" id="testModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+<div class="modal fade"  id="testModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
     <div class="modal-dialog">
-        <div class="modal-content">
+
   <div class="form_area">
   <h1>Login</h1>
   <%= form_for(:session, url: login_path) do |f| %>
@@ -48,6 +48,5 @@
   <span> New user? <%= link_to "Sign up now!", signup_path %> </span>
 </div>
 
-            </div>
         </div>
     </div>
