@@ -1,0 +1,18 @@
+<%= form_with(model: [blog, comment], remote: true ) do |form| %>
+  <div>
+    <%= form.text_area :content, id: "input-text" %>
+    <p id="counter">0文字</p>
+  </div>
+  <div class="actions">
+    <%= form.submit "コメントをする" %>
+  </div>
+<% end %>
+
+<script type="text/javascript">
+  $(function(){
+ $("#input-text").on("keyup", function() {
+   let countNum = String($(this).val().length);
+   $("#counter").text(countNum + "文字");
+ });
+});
+</script>

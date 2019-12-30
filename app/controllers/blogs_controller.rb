@@ -1,12 +1,12 @@
 class BlogsController < ApplicationController
-  
-  
+
+
   def new
     @blog = current_user.blogs.build
     #@blog.images.build
   end
-  
-  
+
+
   def create
     @blog = current_user.blogs.build(blog_params)
     if @blog.save
@@ -14,10 +14,10 @@ class BlogsController < ApplicationController
       redirect_to current_user
     else
       render 'new'
-    end  
+    end
   end
-  
-  
+
+
   def edit
     @blog = Blog.find(params[:id])
   end
@@ -30,7 +30,7 @@ class BlogsController < ApplicationController
       render "edit"
     end
   end
-  
+
   def index
     @blogs = Blog.paginate(page: params[:page], per_page: 10)
   end
@@ -38,18 +38,20 @@ class BlogsController < ApplicationController
   def show
   @blog = Blog.find(params[:id])
   @images = @blog.images
+  @comment = Comment.new
+  @comments = @blog.comments
   end
 
 
   def search
     #Viewのformで取得したパラメータをモデルに渡す
     @blogs = Blog.search(params[:search])
-  end  
+  end
 
 
 private
   def blog_params
     params.require(:blog).permit(:title,:content,:category,:picture, images_attributes:{ picture:[]} )
   end
-  
+
 end
