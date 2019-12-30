@@ -45,8 +45,27 @@
 <span>ログイン状態を保持する</span>
 <% end %>
   <% end %>
-  <span> <%= link_to "新規登録", signup_path %> </span>
+  <a data-toggle="modal" data-target="#signupModal"> 新規登録</a>
 </div>
 
         </div>
     </div>
+
+
+    <!-- 新規登録モーダル　-->
+    <div class="modal fade"  id="signupModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+        <div class="modal-dialog">
+
+      <div class="form_area">
+      <h1>アカウント作成</h1>
+      <%= form_for User.new do |f| %>
+      <%= f.text_field :name , placeholder:"ユーザー名", class: "form_input"%>
+      <%= f.email_field :email, placeholder:"メールアドレス", class: "form_input" %>
+      <%= f.password_field :password , placeholder:"パスワード", class: "form_input"%>
+      <%= f.password_field :password_confirmation , placeholder:"パスワード確認", class: "form_input"%>
+      <%= f.submit "登録する" , class: "form_button"%>
+      <% end %>
+    </div>
+
+            </div>
+        </div>
