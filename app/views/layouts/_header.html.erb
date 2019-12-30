@@ -20,7 +20,7 @@
             </ul>
           </li>
         <% else %>
-          <li><a data-toggle="modal" data-target="#testModal">ログイン</a></li>
+          <li><a data-toggle="modal" data-target="#testModal" >ログイン</a></li>
         <% end %>
       </ul>
     </nav>
@@ -33,19 +33,19 @@
     <div class="modal-dialog">
 
   <div class="form_area">
-  <h1>Login</h1>
+  <h1>ログイン</h1>
   <%= form_for(:session, url: login_path) do |f| %>
-  <%= f.email_field :email, placeholder:"Username",class: 'form-control' %>
-  <%= f.password_field :password, placeholder:"Password", class: 'form-control' %>
-  <%= link_to "(forgot password)", new_password_reset_path %>
-  <%= f.submit "Log in", class: "btn btn-primary" %>
+  <%= f.email_field :email, placeholder:"メールアドレス", class: "form_input" %>
+  <%= f.password_field :password, placeholder:"パスワード", class: "form_input" %>
+  <%= link_to "パスワードを忘れた場合", new_password_reset_path %>
+  <%= f.submit "ログイン", class: "form_button" %>
 
   <%= f.label :remember_me, class: "checkbox inline" do %>
 <%= f.check_box :remember_me %>
-<span>Remember me on this computer</span>
+<span>ログイン状態を保持する</span>
 <% end %>
   <% end %>
-  <span> New user? <%= link_to "Sign up now!", signup_path %> </span>
+  <span> <%= link_to "新規登録", signup_path %> </span>
 </div>
 
         </div>
