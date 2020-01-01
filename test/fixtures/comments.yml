@@ -2,10 +2,10 @@
 
 one:
   content: MyText
-  post: one
+  blog: one
   user: one
 
 two:
   content: MyText
-  post: two
+  blog: two
   user: two
