@@ -1,24 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-  # app/assets/javascripts/application.js
-  //= require jquery
-  //= require rails-ujs
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%= favicon_link_tag('favicon.ico') %>
+    <title><%= yield(:title) %> | Simple Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all',  'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-
     <!-- /jQueryを読み込む -->
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-
     <!-- /スクリプトを読み込む -->
         <%= javascript_include_tag 'application' %>
-
-       <title><%= yield(:title) %> | Simple Blog</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-
     <!-- font awesome -->
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
 </head>
