@@ -53,7 +53,7 @@ end
 
 # beforeアクション
 
-# ログイン済みユーザーかどうか確認
+# ログインしてない場合、そのURLを保存して、ログインフォームに飛ばす
 def logged_in_user
   unless logged_in?
     store_location
