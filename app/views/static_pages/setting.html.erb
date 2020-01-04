@@ -1,0 +1,7 @@
+<% provide(:title, "管理ページ") %>
+<% @blogs = current_user.blogs %>
+<% @blogs.each do |blog|%>
+  <%= blog.title %>
+    <%= blog.title %>
+    <%= link_to '削除', blog_path(blog), method: :delete %>
+<% end %>
