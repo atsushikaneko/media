@@ -1,5 +1,22 @@
 class BlogsController < ApplicationController
 
+  def index
+    @blogs = Blog.paginate(page: params[:page], per_page: 10)
+  end
+
+  def show
+  @blog = Blog.find(params[:id])
+  @images = @blog.images
+  @comment = Comment.new
+  @comments = @blog.comments
+  end
+
+  def destroy
+  @blog = Blog.find(params[:id])
+  @blog.destroy
+  flash[:info] = "記事を削除しました。"
+  redirect_to setting_path
+  end
 
   def new
     @blog = current_user.blogs.build
@@ -29,17 +46,6 @@ class BlogsController < ApplicationController
     else
       render "edit"
     end
-  end
-
-  def index
-    @blogs = Blog.paginate(page: params[:page], per_page: 10)
-  end
-
-  def show
-  @blog = Blog.find(params[:id])
-  @images = @blog.images
-  @comment = Comment.new
-  @comments = @blog.comments
   end
 
 

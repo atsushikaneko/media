@@ -1,0 +1,47 @@
+<% provide(:title, "管理ページ") %>
+
+  <div class="container">
+      <div class="row">
+  		<div class="col-xs-12">
+  		  <h3>管理ページ</h3>
+  			<!-- tabs -->
+  			<div class="tabbable tabs-left">
+  				<ul class="nav nav-tabs">
+  					<li class="active"><a href="#home" data-toggle="tab">あなたの記事一覧</a></li>
+  					<li><a href="#about" data-toggle="tab">お気に入りの記事</a></li>
+  					<li><a href="#services" data-toggle="tab">購読中のブログ</a></li>
+  					<li><a href="#contact" data-toggle="tab">ブログテーマの変更</a></li>
+  				</ul>
+  				<div class="tab-content">
+  					<div class="tab-pane active" id="home">
+                <div>
+                <% @blogs = current_user.blogs %>
+                <% @blogs.each do |blog|%>
+                  <%= blog.title %>
+                    <%= blog.title %>
+                    <%= link_to '削除', blog_path(blog), method: :delete %>
+                <% end %>
+  						</div>
+  					</div>
+  					<div class="tab-pane" id="about">
+  						<div class="">
+                <div>お気に入りのブログをリスト化します</div>
+              	</div>
+  					</div>
+
+  					<div class="tab-pane" id="services">
+
+                <div>購読中のブログをリスト化します</div>
+
+  					</div>
+
+  					<div class="tab-pane" id="contact">
+                <div>ブログテーマの選択機能を作ります</div>
+
+  					</div>
+  				</div>
+  			</div>
+  			<!-- /tabs -->
+  		</div>
+  	</div>
+  </div>
