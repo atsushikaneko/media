@@ -9,7 +9,7 @@
   				<ul class="nav nav-tabs">
   					<li class="active"><a href="#home" data-toggle="tab">あなたの記事一覧</a></li>
   					<li><a href="#about" data-toggle="tab">お気に入りの記事</a></li>
-  					<li><a href="#services" data-toggle="tab">購読中のブログ</a></li>
+  					<li><a href="#services" data-toggle="tab">購読中のユーザー</a></li>
   					<li><a href="#contact" data-toggle="tab">ブログテーマの変更</a></li>
   				</ul>
   				<div class="tab-content">
@@ -30,8 +30,21 @@
   					</div>
 
   					<div class="tab-pane" id="services">
+              <ul>
 
-                <div>購読中のブログをリスト化します</div>
+                <div>購読中のユーザーをリスト化します</div>
+                <div><% current_user.following.each do |user|%>
+                <li><%= user.name %>
+                  <%= form_for(current_user.active_relationships.find_by(followed_id: user.id),
+             html: { method: :delete }) do |f| %>
+            <%= f.submit "Unfollow", class: "btn" %>
+             <% end %>
+               </li>
+               </div>
+                <%end%>
+                </ul>
+
+
 
   					</div>
 
