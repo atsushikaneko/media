@@ -14,7 +14,7 @@ class BlogsController < ApplicationController
   def destroy
   @blog = Blog.find(params[:id])
   @blog.destroy
-  #flash[:info] = "記事を削除しました。"
+  flash[:info] = "記事を削除しました。"
   redirect_to setting_path
   end
 
