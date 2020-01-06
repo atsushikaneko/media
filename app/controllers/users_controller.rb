@@ -68,17 +68,18 @@ end
 
 # beforeアクション
 
-# ログインしてない場合、そのURLを保存して、ログインフォームに飛ばす
-def logged_in_user
-  unless logged_in?
-    store_location
-    flash[:danger] = "Please log in."
-    redirect_to login_url
-  end
-end
-
 #パラメータのユーザーIDがログインユーザーと一致しなかったらrootURLにリダイレクト
 def correct_user
   @user = User.find(params[:id])
   redirect_to(root_url)
 end
+
+#logged_in_userメソッドはapplication_controllerに移動
+# ログインしてない場合、そのURLを保存して、ログインフォームに飛ばす
+#def logged_in_user
+#  unless logged_in?
+#    store_location
+#    flash[:danger] = "Please log in."
+#    redirect_to login_url
+#  end
+#end
