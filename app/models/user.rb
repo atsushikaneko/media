@@ -6,7 +6,17 @@ class User < ApplicationRecord
   has_many :blogs, dependent: :destroy
   has_many :comments, dependent: :destroy
 
-#フォロー機能関係
+ #以下いいね機能関係
+ has_many :favorites
+ has_many :fav_blogs, through: :favorites, source: :blog
+
+ def like(blog)
+  favorites.find_or_create_by(blog_id: blog.id)
+ end
+ #以上いいね機能関係
+
+
+ #フォロー機能関係
   has_many :active_relationships, class_name:  "Relationship",
                                   foreign_key: "follower_id",
                                   dependent:   :destroy

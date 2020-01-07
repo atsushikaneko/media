@@ -3,6 +3,10 @@ class Blog < ApplicationRecord
   has_many :comments, dependent: :destroy
   accepts_nested_attributes_for :images
 
+  #いいね機能関係
+  has_many :favorites
+  has_many :users, through: :favorites
+
   mount_uploader :picture, PictureUploader
   is_impressionable counter_cache: true
 
