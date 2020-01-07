@@ -12,31 +12,31 @@ class UserTest < ActiveSupport::TestCase
     assert @user.valid?
   end
 
-  #名前がないと通さないか
+  #名前がないと弾くか
   test "name should be present" do
     @user.name = ""
     assert_not @user.valid?
   end
 
-  #メルアドがないと通さないか
+  #メルアドがないと弾くか
   test "email should be present" do
     @user.email = "     "
     assert_not @user.valid?
   end
 
-  #パスワードがスペース6文字の場合、通さないか
+  #パスワードがスペース6文字の場合、　弾くか
   test "password should be present (nonblank)" do
     @user.password = @user.password_confirmation = " " * 6
     assert_not @user.valid?
   end
 
-  #パスワードが6文字未満の場合、通さないか
+  #パスワードが6文字未満の場合、弾くか
   test "password should have a minimum length" do
     @user.password = @user.password_confirmation = "a" * 5
     assert_not @user.valid?
   end
 
-  #重複したメールアドレスを通さないか
+  #重複したメールアドレスを弾くか
   test "email addresses should be unique" do
     duplicate_user = @user.dup
     duplicate_user.email = @user.email.upcase
@@ -44,13 +44,13 @@ class UserTest < ActiveSupport::TestCase
     assert_not duplicate_user.valid?
   end
 
-  #長過ぎるユーザーネームを通さないか
+  #長過ぎるユーザーネームを弾くか
    test "name should not be too long" do
      @user.name = "a" * 51
      assert_not @user.valid?
    end
 
-   #長過ぎるメルアドが通さないか
+   #長過ぎるメルアドを弾くか
    test "email should not be too long" do
      @user.email = "a" * 244 + "@example.com"
      assert_not @user.valid?
@@ -66,7 +66,7 @@ class UserTest < ActiveSupport::TestCase
      end
    end
 
-   #無効なメールフォーマットが通さないか
+   #無効なメールフォーマットを弾くか
    test "email validation should reject invalid addresses" do
      invalid_addresses = %w[user@example,com user_at_foo.org user.name@example.
                             foo@bar_baz.com foo@bar+baz.com]
@@ -75,5 +75,17 @@ class UserTest < ActiveSupport::TestCase
        assert_not @user.valid?, "#{invalid_address.inspect} should be invalid"
      end
    end
+
+  #followメソッド、unfollowメソッドが機能しているか
+  test "should follow and unfollow a user" do
+    michael  = users(:michael)
+    archer   = users(:archer)
+    assert_not michael.following?(archer)
+    michael.follow(archer)
+    assert michael.following?(archer)
+    assert archer.followers.include?(michael)
+    michael.unfollow(archer)
+    assert_not michael.following?(archer)
+  end
 
 end
