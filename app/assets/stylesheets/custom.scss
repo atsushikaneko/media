@@ -133,7 +133,11 @@ footer ul li {
   background-color:white;
 }
 
+/* news-box*/
 
+.news-box{
+  padding: 0 30px 0 30px;
+}
 
 /*メイン*/
 .serviceTop-header{
@@ -145,10 +149,9 @@ footer ul li {
   border-bottom:1px rgb(191, 206, 211) solid;
 }
 
-.kiji{
-  padding:20px 20px;
-  height: 25%;
-  border:0 solid gray ;
+.kiji{  /*レスポンシブの箱として機能*/
+  height: 360px;
+  padding: 30px 0 0 0;  /*30つけないとタブのとこと被るので*/
 }
 
 .kiji:hover{
@@ -156,9 +159,12 @@ footer ul li {
 }
 
 .shadow{
-  margin: 10px;
-  box-shadow:0px 0px 4px;
+  margin:5px 5px;
+  box-shadow: 2px 1px 1px 3px rgba(204,204,204,0.6);
   position: relative;
+  border-radius: 10px 10px 10px 10px;
+  height: 95%;
+
 }
 
 .kiji-category{
@@ -195,6 +201,8 @@ footer ul li {
 .pagenate{
   height: 200px;
 }
+
+
 
 
 /* サイドバー*/

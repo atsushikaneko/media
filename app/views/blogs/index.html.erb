@@ -7,7 +7,6 @@
     <div class="serviceTop-header">話題のブログ＆ニュース</div>
     <div class="articles row">
 
-
     <div class="news-box">
                 <div class="tab" role="tabpanel">
                     <!-- Nav tabs -->
@@ -22,18 +21,38 @@
                     <!-- Tab panes -->
                     <div class="tab-content tabs">
                         <div role="tabpanel" class="tab-pane fade in active" id="Section1">
-                            <h3>Section-1</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras nec urna aliquam, ornare eros vel, malesuada lorem. Nullam faucibus lorem at eros consectetur lobortis. Maecenas nec nibh congue, placerat sem id, rutrum velit. Phasellus porta enim at facilisis condimentum. Maecenas pharetra dolor vel elit tempor pellentesque sed sed eros. Aenean vitae mauris tincidunt, imperdiet orci semper, rhoncus ligula. Vivamus scelerisque.  </p>
+                        <!--  panes1 -->
+
+                          <% @blogs.each do |blog|%>
+                          <div class="kiji col-xs-12 col-lg-4">
+                            <div class="shadow">
+                              <div class="kiji-photo" style="background-image: url(<%= blog.picture.url %>); background-size: cover;"></div>
+                              <p class="kiji-category">
+                                <%= blog.category %>
+                              </p>
+                              <p class="kiji-title">
+                                <%= blog.title %>
+                              </p>
+                              <%= link_to("","/blogs/#{blog.id}",class:"kiji-link") %>
+                            </div>
+                          </div>
+                          <% end %>
+                          <div class="pagenate col-xs-12">
+                            <%= will_paginate @blogs, :previous_label => ' &lt 前へ', :next_label => '次へ &gt' %>
+                          </div>
                         </div>
                         <div role="tabpanel" class="tab-pane fade" id="Section2">
+                          <!--  panes2 -->
                             <h3>Section-2</h3>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras nec urna aliquam, ornare eros vel, malesuada lorem. Nullam faucibus lorem at eros consectetur lobortis. Maecenas nec nibh congue, placerat sem id, rutrum velit. Phasellus porta enim at facilisis condimentum. Maecenas pharetra dolor vel elit tempor pellentesque sed sed eros. Aenean vitae mauris tincidunt, imperdiet orci semper, rhoncus ligula. Vivamus scelerisque.  </p>
                         </div>
                         <div role="tabpanel" class="tab-pane fade" id="Section3">
+                          <!--  panes3 -->
                             <h3>Section-3</h3>
                             <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras nec urna aliquam, ornare eros vel, malesuada lorem. Nullam faucibus lorem at eros consectetur lobortis. Maecenas nec nibh congue, placerat sem id, rutrum velit. Phasellus porta enim at facilisis condimentum. Maecenas pharetra dolor vel elit tempor pellentesque sed sed eros. Aenean vitae mauris tincidunt, imperdiet orci semper, rhoncus ligula. Vivamus scelerisque. </p>
                         </div>
                         <div role="tabpanel" class="tab-pane fade" id="Section4">
+                            <!--  panes4 -->
                             <h3>Section-4</h3>
                             <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras nec urna aliquam, ornare eros vel, malesuada lorem. Nullam faucibus lorem at eros consectetur lobortis. Maecenas nec nibh congue, placerat sem id, rutrum velit. Phasellus porta enim at facilisis condimentum. Maecenas pharetra dolor vel elit tempor pellentesque sed sed eros. Aenean vitae mauris tincidunt, imperdiet orci semper, rhoncus ligula. Vivamus scelerisque. </p>
                         </div>
@@ -41,25 +60,6 @@
                 </div>
    </div>
 
-
-
-      <% @blogs.each do |blog|%>
-      <div class="kiji col-xs-12 col-lg-4">
-        <div class="shadow">
-          <div class="kiji-photo" style="background-image: url(<%= blog.picture.url %>); background-size: cover;"></div>
-          <p class="kiji-category">
-            <%= blog.category %>
-          </p>
-          <p class="kiji-title">
-            <%= blog.title %>
-          </p>
-          <%= link_to("","/blogs/#{blog.id}",class:"kiji-link") %>
-        </div>
-      </div>
-      <% end %>
-      <div class="pagenate col-xs-12">
-        <%= will_paginate @blogs, :previous_label => ' &lt 前へ', :next_label => '次へ &gt' %>
-      </div>
     </div>
   </div>
 </div>
