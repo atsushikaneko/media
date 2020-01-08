@@ -2,21 +2,29 @@ class User < ApplicationRecord
   attr_accessor :remember_token, :activation_token, :reset_token
   before_save   :downcase_email
   before_create :create_activation_digest
+  before_save { self.email = email.downcase }
+  validates :name, presence: true, length: { maximum: 50 }
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  validates :email, presence: true, length: { maximum: 255 },
+                    format: { with: VALID_EMAIL_REGEX },
+                    uniqueness: { case_sensitive: false }
+  validates :password, presence: true, length: { minimum: 6 } , allow_nil: true
+
 
   has_many :blogs, dependent: :destroy
   has_many :comments, dependent: :destroy
 
- #以下いいね機能関係
- has_many :favorites
- has_many :fav_blogs, through: :favorites, source: :blog
+  #以下いいね機能
+  has_many :favorites
+  has_many :fav_blogs, through: :favorites, source: :blog
 
- def like(blog)
-  favorites.find_or_create_by(blog_id: blog.id)
- end
- #以上いいね機能関係
+  def like(blog)
+   favorites.find_or_create_by(blog_id: blog.id)
+  end
+  #以上いいね機能
 
 
- #フォロー機能関係
+ #以下フォロー機能
   has_many :active_relationships, class_name:  "Relationship",
                                   foreign_key: "follower_id",
                                   dependent:   :destroy
@@ -26,13 +34,23 @@ class User < ApplicationRecord
   has_many :following, through: :active_relationships,  source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
 
-  before_save { self.email = email.downcase }
-  validates :name, presence: true, length: { maximum: 50 }
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  validates :email, presence: true, length: { maximum: 255 },
-                    format: { with: VALID_EMAIL_REGEX },
-                    uniqueness: { case_sensitive: false }
-  validates :password, presence: true, length: { minimum: 6 } , allow_nil: true
+  # ユーザーをフォローする
+  def follow(other_user)
+    following << other_user
+  end
+
+  # ユーザーをフォロー解除する
+  def unfollow(other_user)
+    active_relationships.find_by(followed_id: other_user.id).destroy
+  end
+
+  # 現在のユーザーがフォローしてたらtrueを返す
+  def following?(other_user)
+    following.include?(other_user)
+  end
+  #以上フォロー機能
+
+
 
   has_secure_password
 
@@ -50,6 +68,10 @@ class User < ApplicationRecord
     self.remember_token = User.new_token
     update_attribute(:remember_digest, User.digest(remember_token))
   end
+
+    def forget
+      update_attribute(:remember_digest, nil)
+    end
 
   def authenticated?(attribute, token)
     digest = send("#{attribute}_digest")
@@ -73,25 +95,8 @@ class User < ApplicationRecord
     reset_sent_at < 2.hours.ago
   end
 
-  def forget
-    update_attribute(:remember_digest, nil)
-  end
 
 
-  # ユーザーをフォローする
-  def follow(other_user)
-    following << other_user
-  end
-
-  # ユーザーをフォロー解除する
-  def unfollow(other_user)
-    active_relationships.find_by(followed_id: other_user.id).destroy
-  end
-
-  # 現在のユーザーがフォローしてたらtrueを返す
-  def following?(other_user)
-    following.include?(other_user)
-  end
 
   private
     # メールアドレスをすべて小文字にする
