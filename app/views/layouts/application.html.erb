@@ -18,18 +18,13 @@
 </head>
 <body class="bodyid">
   <%= render partial:'layouts/header' %>
-  <%= render partial:'layouts/hero' %>
 
 
-    <div class="alert alert-<5126f23f161d83fa3ef675ebad0ae0dc />">
-      <% flash.each do |message_type, message| %>
-        <%= message %>
-      <% end %>
-    </div>
 
-    <div class="contents container">
+
       <%= yield %>
-    </div>
+
+
     <div class="pagetop"></div>
     <footer>
       <%= render 'layouts/footer' %>

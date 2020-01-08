@@ -1,4 +1,6 @@
-<div class="main col-lg-8">
+<% provide(:title, "ログイン") %>
+<div class="contents container">
+  <div class="main col-lg-8">
   <%= form_for(:session, url: login_path) do |f| %>
   <%= f.label :email %>
   <%= f.email_field :email, class: 'form-control' %>
@@ -11,7 +13,8 @@
 <span>Remember me on this computer</span>
 <% end %>
   <% end %>
-  <p>New user? 
+  <p>New user?
     <%= link_to "Sign up now!", signup_path %>
   </p>
+</div>
 </div>

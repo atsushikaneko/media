@@ -1,4 +1,6 @@
-<div class="main col-lg-8">
+<% provide(:title, "トップページ") %>
+<div class="contents container">
+  <div class="main col-lg-8">
   <div class="articles row">
     <% @blogs.each do |blog|%>
     <div class="kiji col-xs-12 col-lg-6">
@@ -19,4 +21,5 @@
       <%= will_paginate @blogs, :previous_label => ' &lt 前へ', :next_label => '次へ &gt' %>
     </div>
   </div>
+</div>
 </div>
