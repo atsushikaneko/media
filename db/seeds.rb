@@ -45,14 +45,14 @@ User.create!(name:  "Example User",
                activated_at: Time.zone.now)
 end
 
-# マイクロポスト
+# 記事
 users = User.order(:created_at).take(6)
 50.times do
   content = Faker::Lorem.sentence(5)
-  users.each { |user| user.blogs.create!(title: "seedsより",content: content) }
+  users.each { |user| user.blogs.create!(title: "made from seeds",content: content,category: "made from seeds", picture: open("#{Rails.root}/app/assets/images/seeds/image#{rand(1..20)}.jpg")) }
 end
 
-# リレーションシップ
+# フォロー関係
 users = User.all
 user  = users.first
 following = users[2..50]

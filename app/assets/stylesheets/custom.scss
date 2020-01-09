@@ -170,6 +170,7 @@ footer ul li {
 .kiji-category{
   position: absolute;
   top:0px;
+  left: 5px;
   background-color:rgba(0,0,0,0.5);
   color:white;
   font-size: 15px;
@@ -178,14 +179,22 @@ footer ul li {
 }
 
 .kiji-photo{
-  height:200px;
+  height:230px;
+  border-radius: 10px 10px 0px 0px;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
 }
 
 .kiji-title{
+  padding-top: 10px;
+  padding-left: 10px;
   font-size: 20px;
+}
+
+.kiji-user{
+text-align: right;
+padding-right: 10px;
 }
 
 .kiji-link{
