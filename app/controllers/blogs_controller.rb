@@ -1,7 +1,9 @@
 class BlogsController < ApplicationController
 
   def index
-    @blogs = Blog.paginate(page: params[:page], per_page: 10)
+    @blogs = Blog.all.unscope(:order) #なぜか一度unscopeで並び順をリセットしないといけないみたい
+    @polular_blogs = @blogs.order('impressions_count DESC')
+    @recent_blogs = @blogs.order('created_at ASC')
   end
 
   def show

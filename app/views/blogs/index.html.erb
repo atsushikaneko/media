@@ -21,11 +21,11 @@
                     <!-- Tab panes -->
                     <div class="tab-content tabs">
                         <!--  panes1 -->
-                        <%= render "top"%>
+                        <%= render "top",blogs: @polular_blogs %>
                         </div>
                         <div role="tabpanel" class="tab-pane fade" id="Section2">
                           <!--  panes2 -->
-                          <%= render "top"%>
+                          <%= render "top",blogs: @recent_blogs %>
                         </div>
                         <div role="tabpanel" class="tab-pane fade" id="Section3">
                           <!--  panes3 -->
