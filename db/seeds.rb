@@ -27,6 +27,7 @@
 # ユーザー
 User.create!(name:  "Example User",
              email: "example@railstutorial.org",
+             blogtitle: "ブログタイトルがここにきます",
              password:              "foobar",
              password_confirmation: "foobar",
             # admin:     true,
@@ -49,7 +50,7 @@ end
 users = User.order(:created_at).take(6)
 50.times do
   content = Faker::Lorem.sentence(5)
-  users.each { |user| user.blogs.create!(title: "made from seeds",content: content,category: "seeds", picture: open("#{Rails.root}/app/assets/images/seeds/image#{rand(1..20)}.jpg")) }
+  users.each { |user| user.blogs.create!(title: "記事のタイトル",content: content,category: "カテゴリー", picture: open("#{Rails.root}/app/assets/images/seeds/image#{rand(1..31)}.jpg")) }
 end
 
 # フォロー関係

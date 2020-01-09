@@ -23,7 +23,7 @@
                         <div role="tabpanel" class="tab-pane fade in active" id="Section1">
                         <!--  panes1 -->
 
-                          <% @blogs.each do |blog|%>
+                          <% @blogs[1..6].each do |blog|%>
                           <div class="kiji col-xs-12 col-lg-4">
                             <div class="shadow">
                               <div class="kiji-photo" style="background-image: url(<%= blog.picture.url %>); background-size: cover;"></div>
