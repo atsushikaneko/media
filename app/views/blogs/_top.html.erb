@@ -10,7 +10,7 @@
         <%= blog.title %>
       </p>
       <div class="kiji-time">
-        <%= time_ago_in_words(blog.created_at)%>
+        <%= "#{time_ago_in_words(blog.created_at)}前"%>
       </div>
       <div class="kiji-blogtitle">
         <%= blog.user.blogtitle %>
