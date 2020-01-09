@@ -9,6 +9,9 @@
       <p class="kiji-title">
         <%= blog.title %>
       </p>
+      <div class="kiji-time">
+        <%= time_ago_in_words(blog.created_at)%>
+      </div>
       <div class="kiji-blogtitle">
         <%= blog.user.blogtitle %>
       </div>

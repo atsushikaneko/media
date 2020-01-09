@@ -190,10 +190,14 @@ footer ul li {
 }
 
 .kiji-title{
-  padding-top: 10px;
-  padding-left: 10px;
+  padding: 10px 0 0 10px;
+  margin-bottom: 0;
   font-size: 17px;
   font-weight: 600;
+}
+
+.kiji-time{
+  text-align:right;
 }
 
 .kiji-blogtitle{
@@ -259,7 +263,7 @@ align-items: center;
   text-align: right;
 }
 
- 
+ /*ぺーじねーしょん*/
  /*ページネーション自体のデザイン*/
  .pagination>li>a {
    border: none;     /*枠線をなくす*/
