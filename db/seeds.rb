@@ -27,6 +27,7 @@
 # ユーザー
 User.create!(name:  "Example User",
              email: "example@railstutorial.org",
+             blogtitle: "ブログタイトルがここにきます",
              password:              "foobar",
              password_confirmation: "foobar",
             # admin:     true,
@@ -39,20 +40,21 @@ User.create!(name:  "Example User",
   password = "password"
   User.create!(name:  name,
                email: email,
+               blogtitle: "ブログタイトルがここにきます",
                password:              password,
                password_confirmation: password,
                activated: true,
                activated_at: Time.zone.now)
 end
 
-# マイクロポスト
+# 記事
 users = User.order(:created_at).take(6)
 50.times do
   content = Faker::Lorem.sentence(5)
-  users.each { |user| user.blogs.create!(title: "seedsより",content: content) }
+  users.each { |user| user.blogs.create!(title: "記事のタイトル",content: content,category: "カテゴリー", picture: open("#{Rails.root}/app/assets/images/seeds/image#{rand(1..31)}.jpg")) }
 end
 
-# リレーションシップ
+# フォロー関係
 users = User.all
 user  = users.first
 following = users[2..50]

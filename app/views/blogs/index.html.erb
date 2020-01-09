@@ -1,27 +1,59 @@
 <% provide(:title, "トップページ") %>
+<%= render partial:'layouts/hero' %>
+<div class="contents container">
+  <%= render partial:'shared/flash' %>
 <div class="row">
   <div class="main col-lg-12">
-    <div class="serviceTop-header">新着記事</div>
+    <div class="serviceTop-header">話題のブログ＆ニュース</div>
     <div class="articles row">
 
+    <div class="news-box">
+                <div class="tab" role="tabpanel">
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active"><a href="#Section1" aria-controls="home" role="tab" data-toggle="tab"><i class="fas fa-fire"></i>話題の記事</a></li>
+                        <li role="presentation"><a href="#Section2" aria-controls="profile" role="tab" data-toggle="tab"><i class="fa fa-envelope"></i>最新の記事</a></li>
+                        <li role="presentation"><a href="#Section3" aria-controls="messages" role="tab" data-toggle="tab"><i class="fab fa-yahoo"></i>Yahooニュース</a></li>
+                        <li role="presentation"><a href="#Section4" aria-controls="messages" role="tab" data-toggle="tab"><i class="fab fa-twitter"></i>Twitter</a></li>
+                        <li role="presentation"><a href="#Section5" aria-controls="messages" role="tab" data-toggle="tab"><i class="fab fa-youtube"></i>Youtube</a></li>
+                        <li role="presentation"><a href="#Section6" aria-controls="messages" role="tab" data-toggle="tab"><i class="fab fa-instagram"></i>Instagram</a></li>
+                    </ul>
+                    <!-- Tab panes -->
+                    <div class="tab-content tabs">
 
-      <% @blogs.each do |blog|%>
-      <div class="kiji col-xs-12 col-lg-4">
-        <div class="shadow">
-          <div class="kiji-photo" style="background-image: url(<%= blog.picture.url %>); background-size: cover;"></div>
-          <p class="kiji-category">
-            <%= blog.category %>
-          </p>
-          <p class="kiji-title">
-            <%= blog.title %>
-          </p>
-          <%= link_to("","/blogs/#{blog.id}",class:"kiji-link") %>
-        </div>
-      </div>
-      <% end %>
-      <div class="pagenate col-xs-12">
-        <%= will_paginate @blogs, :previous_label => ' &lt 前へ', :next_label => '次へ &gt' %>
-      </div>
+                        <div role="tabpanel" class="tab-pane fade" id="Section1">
+                        <%= render "top",blogs: @polular_blogs %>
+                        </div>
+
+                        <div role="tabpanel" class="tab-pane fade" id="Section2">
+                          <%= render "top",blogs: @recent_blogs %>
+                          </div>
+
+                        <div role="tabpanel" class="tab-pane fade" id="Section3">
+                            <h3>Section-3</h3>
+                            <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras nec urna aliquam, ornare eros vel, malesuada lorem. Nullam faucibus lorem at eros consectetur lobortis. Maecenas nec nibh congue, placerat sem id, rutrum velit. Phasellus porta enim at facilisis condimentum. Maecenas pharetra dolor vel elit tempor pellentesque sed sed eros. Aenean vitae mauris tincidunt, imperdiet orci semper, rhoncus ligula. Vivamus scelerisque. </p>
+                        </div>
+
+                        <div role="tabpanel" class="tab-pane fade" id="Section4">
+                            <h3>Section-4</h3>
+                            <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras nec urna aliquam, ornare eros vel, malesuada lorem. Nullam faucibus lorem at eros consectetur lobortis. Maecenas nec nibh congue, placerat sem id, rutrum velit. Phasellus porta enim at facilisis condimentum. Maecenas pharetra dolor vel elit tempor pellentesque sed sed eros. Aenean vitae mauris tincidunt, imperdiet orci semper, rhoncus ligula. Vivamus scelerisque. </p>
+                        </div>
+
+                        <div role="tabpanel" class="tab-pane fade" id="Section5">
+                            <h3>Section-5</h3>
+                            <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras nec urna aliquam, ornare eros vel, malesuada lorem. Nullam faucibus lorem at eros consectetur lobortis. Maecenas nec nibh congue, placerat sem id, rutrum velit. Phasellus porta enim at facilisis condimentum. Maecenas pharetra dolor vel elit tempor pellentesque sed sed eros. Aenean vitae mauris tincidunt, imperdiet orci semper, rhoncus ligula. Vivamus scelerisque. </p>
+                        </div>
+
+                        <div role="tabpanel" class="tab-pane fade" id="Section6">
+                            <h3>Section-6</h3>
+                            <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras nec urna aliquam, ornare eros vel, malesuada lorem. Nullam faucibus lorem at eros consectetur lobortis. Maecenas nec nibh congue, placerat sem id, rutrum velit. Phasellus porta enim at facilisis condimentum. Maecenas pharetra dolor vel elit tempor pellentesque sed sed eros. Aenean vitae mauris tincidunt, imperdiet orci semper, rhoncus ligula. Vivamus scelerisque. </p>
+                        </div>
+
+                    </div>
+                </div>
+   </div>
+
     </div>
   </div>
+</div>
 </div>

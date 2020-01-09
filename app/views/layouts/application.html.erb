@@ -8,9 +8,9 @@
     <%= stylesheet_link_tag    'application', media: 'all',  'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <!-- /jQueryを読み込む -->
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <!-- /スクリプトを読み込む -->
-        <%= javascript_include_tag 'application' %>
+    <%= javascript_include_tag 'application' %>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <!-- font awesome -->
@@ -18,23 +18,13 @@
 </head>
 <body class="bodyid">
   <%= render partial:'layouts/header' %>
-    <div class="picture">
-      <div class="opacity">
-        <h1 class="title">Simple Blog</h1>
-        <h3 class="title2">powered by Ruby on Rails</h3>
-      </div>
-    </div>
-    <div class="alert alert-<5126f23f161d83fa3ef675ebad0ae0dc />">
-      <% flash.each do |message_type, message| %>
-        <%= message %>
-      <% end %>
-    </div>
-    <div class="contents container">
+
       <%= yield %>
-      <%= render 'layouts/footer' %>
-    </div>
+
+
     <div class="pagetop"></div>
     <footer>
+      <%= render 'layouts/footer' %>
       <%= debug(params) if Rails.env.development? %>
     </footer>
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

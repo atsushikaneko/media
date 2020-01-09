@@ -1,9 +1,12 @@
 <% provide(:title, "ユーザー登録") %>
+<div class="contents container">
 <div class="main col-lg-8">
-  <h1>Sign up</h1>
+  <h1>ユーザー登録</h1>
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
-      <%= form_for User.new , url: signup_path do |f| %>
+      <%= render partial:'shared/flash' %>
+      <div>
+      <%= form_for @user , url: signup_path do |f| %>
       <%= f.label :name %>
       <%= f.text_field :name %>
       <%= f.label :email %>
@@ -14,6 +17,8 @@
       <%= f.password_field :password_confirmation %>
       <%= f.submit "Create my account", class: "btn btn-primary" %>
       <% end %>
+      </div>
     </div>
   </div>
+</div>
 </div>

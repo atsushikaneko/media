@@ -1,4 +1,6 @@
 <% provide(:title, "新規投稿") %>
+<div class="contents container">
+  <%= render partial:'shared/flash' %>
 <div class="blog-new-form">
   <%= form_for @blog do |f| %>
   <%= f.text_field :title,class:"title-form",placeholder:"タイトル" %><br>
@@ -7,4 +9,5 @@
   <%= f.text_area :content,class:"content-form" %>
   <%= f.submit "公開する", class: "btn btn-primary" %>
   <% end %>
+</div>
 </div>
