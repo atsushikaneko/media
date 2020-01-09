@@ -23,9 +23,9 @@
                         <div role="tabpanel" class="tab-pane fade in active" id="Section1">
                         <!--  panes1 -->
 
-                          <% @blogs[1..6].each do |blog|%>
+                          <% @blogs[1..3].each do |blog|%>
                           <div class="kiji col-xs-12 col-lg-4">
-                            <div class="shadow">
+                            <div class="kiji-shadow">
                               <div class="kiji-photo" style="background-image: url(<%= blog.picture.url %>); background-size: cover;"></div>
                               <p class="kiji-category">
                                 <%= blog.category %>
@@ -33,13 +33,28 @@
                               <p class="kiji-title">
                                 <%= blog.title %>
                               </p>
-                              <p class="kiji-user">
-                                <%= blog.user.name %>
-                              </p>
+                              <div class="kiji-blogtitle">
+                                <%= blog.user.blogtitle %>
+                              </div>
                               <%= link_to("","/blogs/#{blog.id}",class:"kiji-link") %>
                             </div>
                           </div>
                           <% end %>
+
+                            <% @blogs[4..9].each do |blog|%>
+                            <div class="smallkiji col-xs-12 col-lg-6">
+                              <div class="smallkiji-shadow">
+                                <p class="smallkiji-title">
+                                  <%= blog.title %>
+                                </p>
+                                <p class="smallkiji-blogtitle">
+                                  <%= blog.user.blogtitle %>
+                                </p>
+                                </div>
+                                </div>
+                              <% end %>
+
+
                           <div class="pagenate col-xs-12">
                             <%= will_paginate @blogs, :previous_label => ' &lt 前へ', :next_label => '次へ &gt' %>
                           </div>

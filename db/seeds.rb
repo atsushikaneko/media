@@ -40,6 +40,7 @@ User.create!(name:  "Example User",
   password = "password"
   User.create!(name:  name,
                email: email,
+               blogtitle: "ブログタイトルがここにきます",
                password:              password,
                password_confirmation: password,
                activated: true,
