@@ -155,7 +155,7 @@ footer ul li {
 }
 
 .kiji:hover{
- opacity: 0.7;
+ opacity: 0.7
 }
 
 .shadow{
@@ -164,7 +164,10 @@ footer ul li {
   position: relative;
   border-radius: 10px 10px 10px 10px;
   height: 95%;
+}
 
+.shadow:hover{
+  background-color: rgba(211,222,241,0.5);
 }
 
 .kiji-category{

@@ -49,7 +49,7 @@ end
 users = User.order(:created_at).take(6)
 50.times do
   content = Faker::Lorem.sentence(5)
-  users.each { |user| user.blogs.create!(title: "made from seeds",content: content,category: "made from seeds", picture: open("#{Rails.root}/app/assets/images/seeds/image#{rand(1..20)}.jpg")) }
+  users.each { |user| user.blogs.create!(title: "made from seeds",content: content,category: "seeds", picture: open("#{Rails.root}/app/assets/images/seeds/image#{rand(1..20)}.jpg")) }
 end
 
 # フォロー関係
