@@ -15,28 +15,40 @@
                         <li role="presentation"><a href="#Section2" aria-controls="profile" role="tab" data-toggle="tab"><i class="fa fa-envelope"></i>最新の記事</a></li>
                         <li role="presentation"><a href="#Section3" aria-controls="messages" role="tab" data-toggle="tab"><i class="fab fa-yahoo"></i>Yahooニュース</a></li>
                         <li role="presentation"><a href="#Section4" aria-controls="messages" role="tab" data-toggle="tab"><i class="fab fa-twitter"></i>Twitter</a></li>
-                        <li role="presentation"><a href="#Section4" aria-controls="messages" role="tab" data-toggle="tab"><i class="fab fa-youtube"></i>Youtube</a></li>
-                        <li role="presentation"><a href="#Section4" aria-controls="messages" role="tab" data-toggle="tab"><i class="fab fa-instagram"></i>Instagram</a></li>
+                        <li role="presentation"><a href="#Section5" aria-controls="messages" role="tab" data-toggle="tab"><i class="fab fa-youtube"></i>Youtube</a></li>
+                        <li role="presentation"><a href="#Section6" aria-controls="messages" role="tab" data-toggle="tab"><i class="fab fa-instagram"></i>Instagram</a></li>
                     </ul>
                     <!-- Tab panes -->
                     <div class="tab-content tabs">
-                        <!--  panes1 -->
+
+                        <div role="tabpanel" class="tab-pane fade" id="Section1">
                         <%= render "top",blogs: @polular_blogs %>
                         </div>
+
                         <div role="tabpanel" class="tab-pane fade" id="Section2">
-                          <!--  panes2 -->
                           <%= render "top",blogs: @recent_blogs %>
-                        </div>
+                          </div>
+
                         <div role="tabpanel" class="tab-pane fade" id="Section3">
-                          <!--  panes3 -->
                             <h3>Section-3</h3>
                             <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras nec urna aliquam, ornare eros vel, malesuada lorem. Nullam faucibus lorem at eros consectetur lobortis. Maecenas nec nibh congue, placerat sem id, rutrum velit. Phasellus porta enim at facilisis condimentum. Maecenas pharetra dolor vel elit tempor pellentesque sed sed eros. Aenean vitae mauris tincidunt, imperdiet orci semper, rhoncus ligula. Vivamus scelerisque. </p>
                         </div>
+
                         <div role="tabpanel" class="tab-pane fade" id="Section4">
-                            <!--  panes4 -->
                             <h3>Section-4</h3>
                             <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras nec urna aliquam, ornare eros vel, malesuada lorem. Nullam faucibus lorem at eros consectetur lobortis. Maecenas nec nibh congue, placerat sem id, rutrum velit. Phasellus porta enim at facilisis condimentum. Maecenas pharetra dolor vel elit tempor pellentesque sed sed eros. Aenean vitae mauris tincidunt, imperdiet orci semper, rhoncus ligula. Vivamus scelerisque. </p>
                         </div>
+
+                        <div role="tabpanel" class="tab-pane fade" id="Section5">
+                            <h3>Section-5</h3>
+                            <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras nec urna aliquam, ornare eros vel, malesuada lorem. Nullam faucibus lorem at eros consectetur lobortis. Maecenas nec nibh congue, placerat sem id, rutrum velit. Phasellus porta enim at facilisis condimentum. Maecenas pharetra dolor vel elit tempor pellentesque sed sed eros. Aenean vitae mauris tincidunt, imperdiet orci semper, rhoncus ligula. Vivamus scelerisque. </p>
+                        </div>
+
+                        <div role="tabpanel" class="tab-pane fade" id="Section6">
+                            <h3>Section-6</h3>
+                            <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras nec urna aliquam, ornare eros vel, malesuada lorem. Nullam faucibus lorem at eros consectetur lobortis. Maecenas nec nibh congue, placerat sem id, rutrum velit. Phasellus porta enim at facilisis condimentum. Maecenas pharetra dolor vel elit tempor pellentesque sed sed eros. Aenean vitae mauris tincidunt, imperdiet orci semper, rhoncus ligula. Vivamus scelerisque. </p>
+                        </div>
+
                     </div>
                 </div>
    </div>
