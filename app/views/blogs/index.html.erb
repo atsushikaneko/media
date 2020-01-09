@@ -20,49 +20,12 @@
                     </ul>
                     <!-- Tab panes -->
                     <div class="tab-content tabs">
-                        <div role="tabpanel" class="tab-pane fade in active" id="Section1">
                         <!--  panes1 -->
-
-                          <% @blogs[1..3].each do |blog|%>
-                          <div class="kiji col-xs-12 col-lg-4">
-                            <div class="kiji-shadow">
-                              <div class="kiji-photo" style="background-image: url(<%= blog.picture.url %>); background-size: cover;"></div>
-                              <p class="kiji-category">
-                                <%= blog.category %>
-                              </p>
-                              <p class="kiji-title">
-                                <%= blog.title %>
-                              </p>
-                              <div class="kiji-blogtitle">
-                                <%= blog.user.blogtitle %>
-                              </div>
-                              <%= link_to("","/blogs/#{blog.id}",class:"kiji-link") %>
-                            </div>
-                          </div>
-                          <% end %>
-
-                            <% @blogs[4..9].each do |blog|%>
-                            <div class="smallkiji col-xs-12 col-lg-6">
-                              <div class="smallkiji-shadow">
-                                <p class="smallkiji-title">
-                                  <%= blog.title %>
-                                </p>
-                                <p class="smallkiji-blogtitle">
-                                  <%= blog.user.blogtitle %>
-                                </p>
-                                </div>
-                                </div>
-                              <% end %>
-
-
-                          <div class="pagenate col-xs-12">
-                            <%= will_paginate @blogs, :previous_label => ' &lt 前へ', :next_label => '次へ &gt' %>
-                          </div>
+                        <%= render "top"%>
                         </div>
                         <div role="tabpanel" class="tab-pane fade" id="Section2">
                           <!--  panes2 -->
-                            <h3>Section-2</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras nec urna aliquam, ornare eros vel, malesuada lorem. Nullam faucibus lorem at eros consectetur lobortis. Maecenas nec nibh congue, placerat sem id, rutrum velit. Phasellus porta enim at facilisis condimentum. Maecenas pharetra dolor vel elit tempor pellentesque sed sed eros. Aenean vitae mauris tincidunt, imperdiet orci semper, rhoncus ligula. Vivamus scelerisque.  </p>
+                          <%= render "top"%>
                         </div>
                         <div role="tabpanel" class="tab-pane fade" id="Section3">
                           <!--  panes3 -->
