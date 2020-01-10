@@ -12,6 +12,9 @@
 
 
 /*ヘッダー*/
+header{
+  position: relative;
+}
 
 #logo {
   float: left;
@@ -30,6 +33,13 @@
 
 .navbar{
   background-color: rgba(0,0,0,0.8);
+}
+
+/*フラッシュ*/
+.flash{
+  position: absolute;
+  top: 70px;
+  left: 20px;
 }
 
 /*ヒーロー*/
@@ -441,10 +451,8 @@ section .test2{
   background-size:cover;
 }
 
-.article{
-  height: 100000px;
-  text-align: center;
-  padding: 1000px 1000px;
+.content{
+  min-height: 700px;
 }
 
 
