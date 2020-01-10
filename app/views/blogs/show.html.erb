@@ -1,4 +1,7 @@
 <% provide(:title, "記事詳細") %>
+<div class="bloghead">
+  <h1><%= @blog.user.blogtitle %></h1>
+</div>
 <div class="contents container">
   <%= render partial:'shared/flash' %>
 <div class="row">
@@ -6,8 +9,9 @@
     <div class="breadcrumb"></div>
     <div class="content">
       <article>
+        <h1><%= @blog.title %></h1>
+        <p><%=@blog.created_at.strftime("%Y年%m月%d日") %></p>
          <div class="thumbnail" style="background-image: url(<%= @blog.picture.url %>)"></div>
-         <h1><%= @blog.title %></h1>
          <div><%= simple_format(h(@blog.content)) %></div>
       </article>
     </div>
