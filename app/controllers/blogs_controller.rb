@@ -30,7 +30,7 @@ class BlogsController < ApplicationController
   def create
     @blog = current_user.blogs.build(blog_params)
     if @blog.save
-      flash[:success] = "Blog created!"
+      flash[:success] = "記事を投稿しました。"
       redirect_to current_user
     else
       render 'new'
