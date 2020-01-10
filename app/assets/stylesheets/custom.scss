@@ -291,6 +291,19 @@ align-items: center;
    border-radius: 15px;    /*角を丸くする*/
  }
 
+/*　ブログ（users/show) */
+.bloghead{
+  background-image: url(sunset.jpg);
+  height: 500px;
+  background-size:cover;
+  display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.bloghead h1{
+  color: white;
+}
 
 
 
