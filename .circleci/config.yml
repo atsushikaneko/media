@@ -1,57 +1,65 @@
-# Ruby CircleCI 2.0 configuration file
-#
-# Check https://circleci.com/docs/2.0/language-ruby/ for more details
-#
-version: 2
-jobs:
-  build:
+version: 2.1
+
+orbs:
+  ruby-orbs: sue445/ruby-orbs@1.4.3
+  reviewdog: yasuhiroki/reviewdog@0.0.3
+
+executors:
+  default:
+    working_directory: ~/workspace
     docker:
-      # specify the version you desire here
-      - image: circleci/ruby:2.4.1-node-browsers
+      - image: circleci/ruby:2.6.1-node-browsers
+        environment:
+          RAILS_ENV: test
 
-      # Specify service dependencies here if necessary
-      # CircleCI maintains a library of pre-built images
-      # documented at https://circleci.com/docs/2.0/circleci-images/
-      # - image: circleci/postgres:9.4
-
-    working_directory: ~/repo
-
+commands:
+  lint:
+    parameters:
+      lint_result_file_path:
+        description: Lint result file path
+        type: string
     steps:
       - checkout
-
-      # Download and cache dependencies
-      - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "Gemfile.lock" }}
-            # fallback to using the latest cache if no exact match is found
-            - v1-dependencies-
-
       - run:
-          name: install dependencies
-          command: |
-            bundle install --jobs=4 --retry=3 --path vendor/bundle
-
-      - save_cache:
-          paths:
-            - ./vendor/bundle
-          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
-
-      # Database setup
-      - run: bundle exec rake db:create
-      - run: bundle exec rake db:schema:load
-
-  # run tests!
-      - run: bundle check --path=vendor/bundle || bundle install --path=vendor/bundle --jobs=4 --retry=3
-      - run: mkdir ~/reports
-      - run:
-          command: bundle exec rake test TESTOPTS="--ci-dir=~/reports"
-          when: always
-      - store_test_results:
-          path: ~/reports
-
-      # collect reports
-      - store_test_results:
-          path: /tmp/test-results
+          name: Rubocop update
+          command: gem update rubocop
+      - run: rubocop --out <<parameters.lint_result_file_path>> || true
       - store_artifacts:
-          path: /tmp/test-results
-          destination: test-results
+          path: <<parameters.lint_result_file_path>>
+
+jobs:
+  rails_minitest:
+    executor:
+      name: default
+    steps:
+      - checkout
+      - ruby-orbs/bundle-install:
+          bundle_clean: true
+          bundle_extra_args: ''
+          bundle_gemfile: Gemfile
+          bundle_jobs: 4
+          bundle_path: vendor/bundle
+          bundle_retry: 3
+          cache_key_prefix: v1-bundle
+          restore_bundled_with: true
+      # 初期設定
+      - run:
+          name: Database setup
+          command: |
+            bundle exec rails db:create
+            bundle exec rails db:migrate
+      - run:
+          name: Rails Minitest
+          command: bundle exec rake test
+
+workflows:
+  continuous-integration:
+    jobs:
+      - rails_minitest
+      - reviewdog/reviewdog:
+          linter_image: cagedata/rubocop
+          reviewdog_format_option: '-f=rubocop'
+          run_linter_steps:
+            - lint:
+                lint_result_file_path: lint_result.txt
+          lint_result_file_path: lint_result.txt
