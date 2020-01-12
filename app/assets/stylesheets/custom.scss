@@ -12,6 +12,9 @@
 
 
 /*ヘッダー*/
+header{
+  position: relative;
+}
 
 #logo {
   float: left;
@@ -30,6 +33,13 @@
 
 .navbar{
   background-color: rgba(0,0,0,0.8);
+}
+
+/*フラッシュ*/
+.flash{
+  position: absolute;
+  top: 70px;
+  left: 20px;
 }
 
 /*ヒーロー*/
@@ -291,6 +301,19 @@ align-items: center;
    border-radius: 15px;    /*角を丸くする*/
  }
 
+/*　ブログ（users/show) */
+.bloghead{
+  background-image: url(sunset.jpg);
+  height: 500px;
+  background-size:cover;
+  display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.bloghead h1{
+  color: white;
+}
 
 
 
@@ -426,6 +449,10 @@ section .test2{
   height: 400px;
   width: 100%;
   background-size:cover;
+}
+
+.content{
+  min-height: 700px;
 }
 
 

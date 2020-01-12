@@ -22,13 +22,22 @@
     <div class="side ranking">
       <h4>人気記事</h4>
       <ul>
-        <% @most_viewed[0..9].each do |blog|%>
+        <% @most_viewed[0..7].each do |blog|%>
           <li>
-            <div class="hidari"><%= blog.title %></div> 
+            <div class="hidari"><%= blog.title %></div>
             <p class="fas fa-chevron-right"></p>
           </li>
         <% end %>
       </ul>
     </div>
-    <div class="side recent">最近の投稿</div>
-    <div class="side otoiawase">お問い合わせ</div>
+    <div class="side ranking">
+      <h4>新着記事</h4>
+      <ul>
+        <% @most_viewed[0..7].each do |blog|%>
+          <li>
+            <div class="hidari"><%= blog.title %></div>
+            <p class="fas fa-chevron-right"></p>
+          </li>
+        <% end %>
+      </ul>
+    </div>
