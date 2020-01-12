@@ -40,20 +40,14 @@ jobs:
       - run: bundle exec rake db:create
       - run: bundle exec rake db:schema:load
 
-      # run tests!
+  # run tests!
+      - run: bundle check --path=vendor/bundle || bundle install --path=vendor/bundle --jobs=4 --retry=3
+      - run: mkdir ~/reports
       - run:
-          name: run tests
-          command: |
-            mkdir /tmp/test-results
-            TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | \
-              circleci tests split --split-by=timings)"
-
-            bundle exec rspec \
-              --format progress \
-              --format RspecJunitFormatter \
-              --out /tmp/test-results/rspec.xml \
-              --format progress \
-              $TEST_FILES
+          command: bundle exec rake test TESTOPTS="--ci-dir=~/reports"
+          when: always
+      - store_test_results:
+          path: ~/reports
 
       # collect reports
       - store_test_results:
