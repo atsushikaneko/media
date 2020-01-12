@@ -1,61 +1,46 @@
-version: 2.1
-
-executors:
-  default:
-    working_directory: ~/workspace
+#!/bin/bash -eo pipefail
+bundle exec rails test
+Could not find CFPropertyList-2.3.6 in any of the sources
+Run `bundle install` to install missing gems.
+Exited with code 1
+.circleci/config.yml
+version: 2
+jobs:
+  build:
     docker:
       - image: circleci/ruby:2.6.1-node-browsers
         environment:
           RAILS_ENV: test
-
-commands:
-  lint:
-    parameters:
-      lint_result_file_path:
-        description: Lint result file path
-        type: string
     steps:
+      # コードのチェックアウト
       - checkout
+
+      # bundle installのキャシュがあればそれを取ってくる
+      - restore_cache:
+          keys:
+            - gem-cache-{{ arch }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+            - gem-cache-{{ arch }}-{{ .Branch }}
+            - gem-cache
+
+      # bundle installの実行
       - run:
-          name: Rubocop update
-          command: gem update rubocop
-      - run: rubocop --out <<parameters.lint_result_file_path>> || true
-      - store_artifacts:
-          path: <<parameters.lint_result_file_path>>
+          name: Bundle Install
+          command: bundle check --path=vendor/bundle || bundle install --path vendor/bundle --clean --jobs 4 --retry 3
 
-jobs:
-  rails_minitest:
-    executor:
-      name: default
-    steps:
-      - checkout
-      - ruby-orbs/bundle-install:
-          bundle_clean: true
-          bundle_extra_args: ''
-          bundle_gemfile: Gemfile
-          bundle_jobs: 4
-          bundle_path: vendor/bundle
-          bundle_retry: 3
-          cache_key_prefix: v1-bundle
-          restore_bundled_with: true
+      # bundle installのデータをキャッシュ
+      - save_cache:
+          key: gem-cache-{{ arch }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+          paths:
+            - ./vendor/bundle
+
       # 初期設定
       - run:
           name: Database setup
           command: |
             bundle exec rails db:create
             bundle exec rails db:migrate
-      - run:
-          name: Rails Minitest
-          command: bundle exec rake test
 
-workflows:
-  continuous-integration:
-    jobs:
-      - rails_minitest
-      - reviewdog/reviewdog:
-          linter_image: cagedata/rubocop
-          reviewdog_format_option: '-f=rubocop'
-          run_linter_steps:
-            - lint:
-                lint_result_file_path: lint_result.txt
-          lint_result_file_path: lint_result.txt
+      # テストの実行
+      - run:
+          name: Rails Test
+          command: bundle exec rake test
