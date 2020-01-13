@@ -1,11 +1,11 @@
 michael:
   name: Michael Example
   email: michael@example.com
-  blogtitle: test
   password_digest: <%= User.digest('password') %>
   #admin: true
   activated: true
   activated_at: <%= Time.zone.now %>
+  blogtitle: test
 
 archer:
   name: Sterling Archer
