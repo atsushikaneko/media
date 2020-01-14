@@ -68,11 +68,13 @@ end
 
 # beforeアクション
 
+# 正しいユーザーかどうか確認
 #パラメータのユーザーIDがログインユーザーと一致しなかったらrootURLにリダイレクト
 def correct_user
   @user = User.find(params[:id])
-  redirect_to(root_url)
+  redirect_to(root_url) unless @user == current_user
 end
+
 
 #logged_in_userメソッドはapplication_controllerに移動
 # ログインしてない場合、そのURLを保存して、ログインフォームに飛ばす

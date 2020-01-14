@@ -460,6 +460,15 @@ section .test2{
 
 /*管理ページのレフトメニュー*/
 /* Starter CSS for Flyout Menu */
+.tab-pane{
+  padding: 0 0 0 250px;
+
+}
+
+.tab-pane a{
+  display: inline;
+}
+
 .tabs-left > .nav-tabs {
   border-bottom: 0;
 }
