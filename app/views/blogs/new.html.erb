@@ -1,7 +1,7 @@
 <% provide(:title, "新規投稿") %>
 <div class="contents container">
 <div class="blog-new-form">
-  <%= form_for @blog do |f| %>
+  <%= form_for [@blog.user,@blog] do |f| %>
   <%= f.text_field :title,class:"title-form",placeholder:"タイトル" %><br>
   <%= f.text_field :category ,class:"category-form",placeholder:"カテゴリー"%>
   <%= f.file_field :picture,class:"picture-form" %>
