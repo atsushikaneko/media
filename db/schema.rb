@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200109005836) do
+ActiveRecord::Schema.define(version: 20200115014821) do
 
   create_table "blogs", force: :cascade do |t|
     t.integer "user_id"
@@ -101,6 +101,8 @@ ActiveRecord::Schema.define(version: 20200109005836) do
     t.datetime "reset_sent_at"
     t.string "remember_digest"
     t.string "blogtitle"
+    t.text "profile_text"
+    t.text "profile_image"
   end
 
 end

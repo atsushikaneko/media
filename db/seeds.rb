@@ -32,7 +32,9 @@ User.create!(name:  "Example User",
              password_confirmation: "foobar",
             # admin:     true,
              activated: true,
-             activated_at: Time.zone.now)
+             activated_at: Time.zone.now,
+             profile_text: "プロフィール文章がここにきます",
+             profile_image: open("#{Rails.root}/app/assets/images/profile.jpg"))
 
 99.times do |n|
   name  = Faker::Name.name
@@ -44,14 +46,16 @@ User.create!(name:  "Example User",
                password:              password,
                password_confirmation: password,
                activated: true,
-               activated_at: Time.zone.now)
+               activated_at: Time.zone.now,
+               profile_text: "プロフィール文章がここにきます",
+               profile_image: open("#{Rails.root}/app/assets/images/profile.jpg"))
 end
 
 # 記事
 users = User.order(:created_at).take(6)
 50.times do
-  content = Faker::Lorem.sentence(5)
-  users.each { |user| user.blogs.create!(title: "記事のタイトル",content: content,category: "カテゴリー", picture: open("#{Rails.root}/app/assets/images/seeds/image#{rand(1..31)}.jpg")) }
+  content = "記事文章がここにきます"
+  users.each { |user| user.blogs.create!(title: "記事タイトルがここにきます",content: content,category: "カテゴリーがここにきます", picture: open("#{Rails.root}/app/assets/images/seeds/image#{rand(1..31)}.jpg")) }
 end
 
 # フォロー関係
