@@ -102,7 +102,7 @@ ActiveRecord::Schema.define(version: 20200115014821) do
     t.string "remember_digest"
     t.string "blogtitle"
     t.text "profile_text"
-    t.text "profile_image"
+    t.string "profile_image"
   end
 
 end

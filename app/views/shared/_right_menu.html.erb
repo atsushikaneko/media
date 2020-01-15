@@ -1,5 +1,9 @@
-
-    <div class="side koukoku1"></div>
+    <div class="profile side">
+    <p class="profile-image" style="background-image: url(<%= @user.profile_image.url %>); background-size: cover;"></p>
+    <p><%= @user.name %></p>
+    <p><%= @user.profile_text %></p>
+    <p><%= link_to "プロフィールを編集する",(edit_user_path @user) if current_user == @user %></p>
+    </div>
     <div class="side search">
       <%= form_tag("/search",:method => 'get') do %>
     　<%= text_field_tag :search %>
