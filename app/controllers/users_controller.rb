@@ -37,7 +37,7 @@ class UsersController < ApplicationController
     if @user.update_attributes(user_params)
       redirect_to @user
     else
-      flash[:info] = "更新できてない"  #検証用
+      flash[:info] = "更新が失敗しました"  #検証用
       render "edit"
     end
   end

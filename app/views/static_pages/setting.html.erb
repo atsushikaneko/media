@@ -28,10 +28,10 @@
                 <% @blogs = current_user.blogs %>
                 <li>
                     <% @blogs.each do |blog|%>
-                    <span><%= link_to blog.title, blog_path(blog) %></span>
+                    <span><%= link_to blog.title, user_blog_path(blog.user,blog) %></span>
                     <span><%= "|投稿日: #{blog.created_at.strftime("%Y/%m/%d(#{%w(日 月 火 水 木 金 土)[blog.created_at.wday]})")}|" %></span>
-                    <span><%= link_to '削除', blog_path(blog), method: :delete %></span>
-                    <span><%= link_to '編集', edit_blog_path(blog) %></span>
+                    <span><%= link_to '削除', user_blog_path(blog.user,blog), method: :delete %></span>
+                    <span><%= link_to '編集', edit_user_blog_path(blog.user,blog) %></span>
                 </li>
                 <br>
                 <br>
