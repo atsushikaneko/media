@@ -22,7 +22,7 @@
     </div>
     <% if logged_in? %>
       <!-- コメント入力欄をブログの詳細ページに表示するためのrender -->
-      <%= render partial: 'comments/form', locals: { comment: @comment, blog: @blog } %>
+      <%= render partial: 'comments/form', locals: { comment: @comment, blog: @blog, user:@blog.user } %>
     <% end %>
   </div>　
   </div>

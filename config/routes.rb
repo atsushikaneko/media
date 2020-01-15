@@ -15,11 +15,12 @@ Rails.application.routes.draw do
   get "/signup", to: "users#new"
   post '/signup',  to: 'users#create'
 
-  resources :blogs do
-    resources :comments
-  end
 
-  resources :users
+  resources :users do
+    resources :blogs do
+      resources :comments
+    end
+  end
 
   get "/tweet", to: "tweets#update"
 
