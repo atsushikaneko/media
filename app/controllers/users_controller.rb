@@ -9,6 +9,8 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @blogs = @user.blogs.paginate(page: params[:page])
+    @polular_blogs = Blog.where(user_id:@user.id).unscope(:order).order('impressions_count DESC')
+    @recent_blogs = Blog.where(user_id:@user.id).unscope(:order).order('created_at DESC')
   end
 
 
