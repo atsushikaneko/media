@@ -1,6 +1,7 @@
 <% provide(:title, "記事詳細") %>
 <div class="bloghead">
   <h1><%= @blog.user.blogtitle %></h1>
+  <%= link_to("", "#{user_path(@blog.user)}",class:"bloghead-link") %>
 </div>
 <div class="contents container">
 <div class="row">

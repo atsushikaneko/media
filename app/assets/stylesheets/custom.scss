@@ -308,12 +308,23 @@ align-items: center;
   display: flex;
 justify-content: center;
 align-items: center;
+position: relative;
 }
 
 .bloghead h1{
   color: white;
+
 }
 
+.bloghead-link{
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index:5;
+}
 
 
 /* サイドバー*/
