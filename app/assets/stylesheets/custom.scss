@@ -141,6 +141,7 @@ footer ul li {
   margin-top:100px;
   padding-top:15px;
   background-color:white;
+  min-height: 1000px;
 }
 
 /* news-box*/
@@ -460,9 +461,12 @@ section .test2{
 }
 
 .content{
-  min-height: 700px;
+  min-height: 1000px;
 }
 
+.content p{
+  display: inline;
+}
 
 /*管理ページ*/
 
