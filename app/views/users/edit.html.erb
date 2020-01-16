@@ -1,5 +1,4 @@
 <% provide(:title, "ユーザー情報編集") %>
-<%= render partial:'shared/flash' %>
 <div class="contents container">
 <div class="main col-lg-8">
   <div class="row">
@@ -9,7 +8,13 @@
       <%= f.text_field :name %>
       <%= f.label :email %>
       <%= f.email_field :email %>
-      <%= f.submit "Create my account", class: "btn btn-primary" %>
+      <%= f.label :blogtitle %>
+      <%= f.text_field :blogtitle %>
+      <%= f.label :profile_text %>
+      <%= f.text_field :profile_text %>
+      <%= f.label :profile_image %>
+      <%= f.file_field :profile_image,class:"picture-form" %>
+      <%= f.submit "更新する", class: "btn btn-primary" %>
       <% end %>
     </div>
   </div>

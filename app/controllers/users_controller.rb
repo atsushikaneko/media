@@ -9,6 +9,8 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @blogs = @user.blogs.paginate(page: params[:page])
+    @polular_blogs = Blog.where(user_id:@user.id).unscope(:order).order('impressions_count DESC')
+    @recent_blogs = Blog.where(user_id:@user.id).unscope(:order).order('created_at DESC')
   end
 
 
@@ -37,7 +39,7 @@ class UsersController < ApplicationController
     if @user.update_attributes(user_params)
       redirect_to @user
     else
-      flash[:info] = "更新できてない"  #検証用
+      flash[:info] = "更新が失敗しました"  #検証用
       render "edit"
     end
   end
@@ -62,17 +64,19 @@ end
 
 private
 def user_params
-  params.require(:user).permit(:name, :email, :password, :password_confirmation)
+  params.require(:user).permit(:name, :email, :password, :password_confirmation,:blogtitle, :profile_text, :profile_image)
 end
 
 
 # beforeアクション
 
+# 正しいユーザーかどうか確認
 #パラメータのユーザーIDがログインユーザーと一致しなかったらrootURLにリダイレクト
 def correct_user
   @user = User.find(params[:id])
-  redirect_to(root_url)
+  redirect_to(root_url) unless @user == current_user
 end
+
 
 #logged_in_userメソッドはapplication_controllerに移動
 # ログインしてない場合、そのURLを保存して、ログインフォームに飛ばす

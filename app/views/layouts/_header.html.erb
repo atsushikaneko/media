@@ -3,7 +3,7 @@
     <%= link_to "Simple Blog Platform", root_path, id: "logo" %>
     <nav>
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "記事を書く", new_blog_path %></li>
+        <li><%= link_to "記事を書く", (new_user_blog_path current_user)if current_user %></li>
         <li><%= link_to "サイトトップ", root_path %></li>
         <li><%= link_to "ヘルプ", help_path %></li>
         <% if logged_in? %>

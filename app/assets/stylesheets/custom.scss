@@ -183,11 +183,10 @@ footer ul li {
 .kiji-category{
   position: absolute;
   top:0px;
-  left: 5px;
+  left: 10px;
   background-color:rgba(0,0,0,0.5);
   color:white;
   font-size: 15px;
-  width:100px;
   text-align:center;
 }
 
@@ -220,7 +219,7 @@ align-items: center;
   font-size: 13px;
   position: absolute;
   bottom: 0;
-  height: 35px;
+  height: 30px;
   width: 100%;
   border-radius: 0px 0px 10px 10px;
   background-color: rgba(200, 200, 200, 0.2);
@@ -309,12 +308,23 @@ align-items: center;
   display: flex;
 justify-content: center;
 align-items: center;
+position: relative;
 }
 
 .bloghead h1{
   color: white;
+
 }
 
+.bloghead-link{
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index:5;
+}
 
 
 /* サイドバー*/
@@ -324,11 +334,9 @@ align-items: center;
 }
 
 
-.koukoku1{
-  background-image: url(koukoku.jpg);
-  background-size: 100% 100%;
+.profile-image{
   height: 250px;
-  margin:30px 30px ;
+
 }
 
 .search{
@@ -460,6 +468,15 @@ section .test2{
 
 /*管理ページのレフトメニュー*/
 /* Starter CSS for Flyout Menu */
+.tab-pane{
+  padding: 0 0 0 250px;
+
+}
+
+.tab-pane a{
+  display: inline;
+}
+
 .tabs-left > .nav-tabs {
   border-bottom: 0;
 }

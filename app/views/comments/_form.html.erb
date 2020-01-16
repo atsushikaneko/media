@@ -1,4 +1,4 @@
-<%= form_with(model: [blog, comment], remote: true ) do |form| %>
+<%= form_with(model: [user, blog, comment], remote: true ) do |form| %>
   <div>
     <%= form.text_area :content, id: "input-text" %>
     <p id="counter">0文字</p>

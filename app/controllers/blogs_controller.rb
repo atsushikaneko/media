@@ -9,6 +9,9 @@ class BlogsController < ApplicationController
 
   def show
   @blog = Blog.find(params[:id])
+  @user = User.find(params[:user_id])
+  @polular_blogs = Blog.where(user_id:@user.id).unscope(:order).order('impressions_count DESC')
+  @recent_blogs = Blog.where(user_id:@user.id).unscope(:order).order('created_at DESC')
   @images = @blog.images
   @comment = Comment.new
   @comments = @blog.comments
@@ -45,7 +48,7 @@ class BlogsController < ApplicationController
   def update
     @blog = Blog.find(params[:id])
     if @blog.update_attributes(blog_params)
-      redirect_to @blog
+      redirect_to [@blog.user,@blog]
     else
       render "edit"
     end

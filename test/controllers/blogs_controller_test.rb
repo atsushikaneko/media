@@ -6,6 +6,7 @@ class BlogsControllerTest < ActionDispatch::IntegrationTest
     @blog = blogs(:blog1)
   end
 
+
    #ブログ投稿画面は表示するか
    test "should get new" do
     get signup_path
@@ -14,19 +15,19 @@ class BlogsControllerTest < ActionDispatch::IntegrationTest
 
   #ブログ編集画面は表示するか
   test "should get edit" do
-    get edit_blog_path @blog
+    get edit_user_blog_path @blog.user,@blog
     assert_response :success
   end
 
   #ブログ一覧画面は表示するか
   test "should get index" do
-    get blogs_path
+    get root_path
     assert_response :success
   end
 
   #ブログ詳細画面は表示するか
   test "should get show" do
-    get blog_path @blog
+    get user_blog_path @blog.user,@blog
     assert_response :success
   end
 

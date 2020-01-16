@@ -7,21 +7,34 @@
   			<!-- tabs -->
   			<div class="tabbable tabs-left">
   				<ul class="nav nav-tabs">
-  					<li class="active"><a href="#home" data-toggle="tab">あなたの記事一覧</a></li>
+            <li class="active"><a href="#profile" data-toggle="tab">ユーザー情報</a></li>
+  					<li><a href="#home" data-toggle="tab">あなたの記事一覧</a></li>
   					<li><a href="#about" data-toggle="tab">お気に入りの記事</a></li>
   					<li><a href="#services" data-toggle="tab">購読中のユーザー</a></li>
-            <li><a href="#profile" data-toggle="tab">プロフィールの変更</a></li>
   					<li><a href="#theme" data-toggle="tab">ブログテーマの変更</a></li>
   				</ul>
   				<div class="tab-content">
-  					<div class="tab-pane active" id="home">
+            <div class="tab-pane active" id="profile">
+                <h1>ユーザー情報</h1>
+                <p><%= "ユーザー名: #{current_user.name}" %></p>
+                <p><%= "Eメール: #{current_user.email}" %></p>
+                <p><%= "ブログ名: #{current_user.blogtitle}" %></p>
+                <p><%= "ID: #{current_user.id}" %></p>
+                <p><%= link_to 'ユーザー情報の編集', edit_user_path(current_user) %></p>
+            </div>
+
+  					<div class="tab-pane" id="home">
                 <ul>
                 <% @blogs = current_user.blogs %>
                 <li>
                     <% @blogs.each do |blog|%>
-                    <%= blog.title %>
-                    <%= link_to '削除', blog_path(blog), method: :delete %>
+                    <span><%= link_to blog.title, user_blog_path(blog.user,blog) %></span>
+                    <span><%= "|投稿日: #{blog.created_at.strftime("%Y/%m/%d(#{%w(日 月 火 水 木 金 土)[blog.created_at.wday]})")}|" %></span>
+                    <span><%= link_to '削除', user_blog_path(blog.user,blog), method: :delete %></span>
+                    <span><%= link_to '編集', edit_user_blog_path(blog.user,blog) %></span>
                 </li>
+                <br>
+                <br>
                 <% end %>
   						</ul>
   					</div>
@@ -45,10 +58,6 @@
             <%end%>
             </li>
                 </ul>
-              </div>
-
-              <div class="tab-pane" id="profile">
-                  <div>プロフィール変更機能を作ります</div>
               </div>
 
               <div class="tab-pane" id="theme">
