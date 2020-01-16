@@ -11,7 +11,7 @@
       <article>
         <h1><%= @blog.title %></h1>
         <p><i class="fas fa-edit"></i><%=@blog.created_at.strftime("%Y年%m月%d日") %></p>
-         <div class="thumbnail" style="background-image: url(<%= @blog.picture.url %>)"></div>
+         <div class="thumbnail" style="background-image: url(<%= @blog.picture.url %>); background-size:cover;"></div>
          <div><%= simple_format(h(@blog.content)) %></div>
       </article>
     </div>
