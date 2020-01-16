@@ -1,4 +1,4 @@
-<% provide(:title, "ユーザーページ") %>
+<% provide(:title, @user.blogtitle) %>
 <div class="bloghead">
   <h1><%= @user.blogtitle %></h1>
   <%= link_to("", "#{user_path(@user)}",class:"bloghead-link") %>
