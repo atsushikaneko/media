@@ -44,6 +44,15 @@ class UsersController < ApplicationController
     end
   end
 
+  def category
+    @user = User.find(params[:id])
+    thecategory = params[:category]
+    @polular_blogs = Blog.where(user_id:@user.id).unscope(:order).order('impressions_count DESC')
+    @recent_blogs = Blog.where(user_id:@user.id).unscope(:order).order('created_at DESC')
+    @category_blogs = Blog.where(user_id:@user.id,category: thecategory).unscope(:order).order('created_at DESC').paginate(page: params[:page])
+  end
+
+
 #ユーザーフォロー機能関係
 def following
   @title = "Following"
@@ -64,7 +73,7 @@ end
 
 private
 def user_params
-  params.require(:user).permit(:name, :email, :password, :password_confirmation,:blogtitle, :profile_text, :profile_image)
+  params.require(:user).permit(:name, :email, :password, :password_confirmation,:blogtitle, :profile_text, :profile_image, :category)
 end
 
 
