@@ -46,10 +46,9 @@ class UsersController < ApplicationController
 
   def category
     @user = User.find(params[:id])
-    thecategory = params[:category]
+    @category_blogs = Blog.where(user_id:@user.id,category: params[:category]).unscope(:order).order('created_at DESC').paginate(page: params[:page])
     @polular_blogs = Blog.where(user_id:@user.id).unscope(:order).order('impressions_count DESC')
     @recent_blogs = Blog.where(user_id:@user.id).unscope(:order).order('created_at DESC')
-    @category_blogs = Blog.where(user_id:@user.id,category: thecategory).unscope(:order).order('created_at DESC').paginate(page: params[:page])
   end
 
 

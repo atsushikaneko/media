@@ -16,7 +16,7 @@
         <% @user.blogs.pluck("category").uniq.each do |category|%>
           <li>
             <p class="hidari">
-              <%= category %>
+              <%= link_to category,"/users/#{@user.id}/category/#{category}",style:"color:#333333;" %>
             </p>
             <p class="fas fa-chevron-right"></p>
           </li>
