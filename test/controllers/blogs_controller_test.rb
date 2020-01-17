@@ -4,6 +4,7 @@ class BlogsControllerTest < ActionDispatch::IntegrationTest
 
   def setup
     @blog = blogs(:blog1)
+    @user = users(:michael)
   end
 
 
@@ -13,11 +14,6 @@ class BlogsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  #ブログ編集画面は表示するか
-  test "should get edit" do
-    get edit_user_blog_path @blog.user,@blog
-    assert_response :success
-  end
 
   #ブログ一覧画面は表示するか
   test "should get index" do
