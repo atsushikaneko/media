@@ -47,7 +47,7 @@ group :production do
 end
 
 group :production, :staging do
-    gem 'unicorn'
+    gem 'unicorn', '5.4.1'
 end	
 
 # Windows環境ではtzinfo-dataというgemを含める必要があります
