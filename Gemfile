@@ -42,9 +42,13 @@ group :test do
 end
 
 group :production do
-  gem 'pg', '0.20.0'	  gem 'mysql2'
-  gem 'fog', '1.42'	  gem 'fog-aws'
+  gem 'mysql2'
+  gem 'fog-aws'
 end
+
+group :production, :staging do
+    gem 'unicorn'
+end	
 
 group :production, :staging do
     gem 'unicorn'
