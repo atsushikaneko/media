@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 20190913224930) do
 
-  create_table "blogs", force: :cascade do |t|
+  create_table "blogs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "user_id"
     t.text "content"
     t.text "title"
@@ -24,14 +24,14 @@ ActiveRecord::Schema.define(version: 20190913224930) do
     t.index ["user_id", "created_at"], name: "index_blogs_on_user_id_and_created_at"
   end
 
-  create_table "images", force: :cascade do |t|
+  create_table "images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "blog_id"
     t.text "picture"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "impressions", force: :cascade do |t|
+  create_table "impressions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "impressionable_type"
     t.integer "impressionable_id"
     t.integer "user_id"
@@ -50,14 +50,14 @@ ActiveRecord::Schema.define(version: 20190913224930) do
     t.index ["controller_name", "action_name", "request_hash"], name: "controlleraction_request_index"
     t.index ["controller_name", "action_name", "session_hash"], name: "controlleraction_session_index"
     t.index ["impressionable_type", "impressionable_id", "ip_address"], name: "poly_ip_index"
-    t.index ["impressionable_type", "impressionable_id", "params"], name: "poly_params_request_index"
+    t.index ["impressionable_type", "impressionable_id", "params"], name: "poly_params_request_index", length: { params: 255 }
     t.index ["impressionable_type", "impressionable_id", "request_hash"], name: "poly_request_index"
     t.index ["impressionable_type", "impressionable_id", "session_hash"], name: "poly_session_index"
-    t.index ["impressionable_type", "message", "impressionable_id"], name: "impressionable_type_message_index"
+    t.index ["impressionable_type", "message", "impressionable_id"], name: "impressionable_type_message_index", length: { message: 255 }
     t.index ["user_id"], name: "index_impressions_on_user_id"
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text "name"
     t.text "email"
     t.text "category"

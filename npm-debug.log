@@ -1,0 +1,62 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/bin/npm', 'install', 'yarn' ]
+2 info using npm@1.3.6
+3 info using node@v0.10.48
+4 verbose readDependencies using package.json deps
+5 verbose cache add [ 'yarn', null ]
+6 verbose cache add name=undefined spec="yarn" args=["yarn",null]
+7 verbose parsed url { protocol: null,
+7 verbose parsed url   slashes: null,
+7 verbose parsed url   auth: null,
+7 verbose parsed url   host: null,
+7 verbose parsed url   port: null,
+7 verbose parsed url   hostname: null,
+7 verbose parsed url   hash: null,
+7 verbose parsed url   search: null,
+7 verbose parsed url   query: null,
+7 verbose parsed url   pathname: 'yarn',
+7 verbose parsed url   path: 'yarn',
+7 verbose parsed url   href: 'yarn' }
+8 silly lockFile d19a2519-yarn yarn
+9 verbose lock yarn /root/.npm/d19a2519-yarn.lock
+10 silly lockFile d19a2519-yarn yarn
+11 silly lockFile d19a2519-yarn yarn
+12 verbose addNamed [ 'yarn', '' ]
+13 verbose addNamed [ null, '*' ]
+14 silly lockFile d5475ddd-yarn yarn@
+15 verbose lock yarn@ /root/.npm/d5475ddd-yarn.lock
+16 silly addNameRange { name: 'yarn', range: '*', hasData: false }
+17 verbose url raw yarn
+18 verbose url resolving [ 'https://registry.npmjs.org/', './yarn' ]
+19 verbose url resolved https://registry.npmjs.org/yarn
+20 info trying registry request attempt 1 at 08:19:11
+21 http GET https://registry.npmjs.org/yarn
+22 info retry will retry, error on last attempt: Error: UNABLE_TO_GET_ISSUER_CERT_LOCALLY
+23 info trying registry request attempt 2 at 08:19:21
+24 http GET https://registry.npmjs.org/yarn
+25 info retry will retry, error on last attempt: Error: UNABLE_TO_GET_ISSUER_CERT_LOCALLY
+26 info trying registry request attempt 3 at 08:20:21
+27 http GET https://registry.npmjs.org/yarn
+28 silly lockFile d5475ddd-yarn yarn@
+29 silly lockFile d5475ddd-yarn yarn@
+30 error Error: UNABLE_TO_GET_ISSUER_CERT_LOCALLY
+30 error     at SecurePair.<anonymous> (tls.js:1430:32)
+30 error     at SecurePair.emit (events.js:92:17)
+30 error     at SecurePair.maybeInitFinished (tls.js:1029:10)
+30 error     at CleartextStream.read [as _read] (tls.js:521:13)
+30 error     at CleartextStream.Readable.read (_stream_readable.js:341:10)
+30 error     at EncryptedStream.write [as _write] (tls.js:418:25)
+30 error     at doWrite (_stream_writable.js:226:10)
+30 error     at writeOrBuffer (_stream_writable.js:216:5)
+30 error     at EncryptedStream.Writable.write (_stream_writable.js:183:11)
+30 error     at write (_stream_readable.js:602:24)
+31 error If you need help, you may report this log at:
+31 error     <http://github.com/isaacs/npm/issues>
+31 error or email it to:
+31 error     <npm-@googlegroups.com>
+32 error System Linux 4.14.138-89.102.amzn1.x86_64
+33 error command "node" "/usr/bin/npm" "install" "yarn"
+34 error cwd /var/www/rails/media
+35 error node -v v0.10.48
+36 error npm -v 1.3.6
+37 verbose exit [ 1, true ]
