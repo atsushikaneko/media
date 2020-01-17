@@ -22,7 +22,7 @@ gem 'rake',         '13.0.1'
 
 group :development, :test do
   gem 'rb-readline'
-  gem 'sqlite3', '1.3.13'
+  gem 'sqlite3', '~> 1.3.6'
   gem 'byebug',  '9.0.6', platform: :mri
 end
 
