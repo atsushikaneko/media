@@ -21,10 +21,12 @@ test:
   database: db/test.sqlite3
 
 production:
-  <<: *default	  adapter: mysql2
+  <<: *default	  
+  adapter: mysql2
   database: db/production.sqlite3	  encoding: utf8
   database: media_production
   pool: 5
   username: root
   password:
   socket: /tmp/mysql.sock
+  
