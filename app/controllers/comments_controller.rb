@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  before_action :correct_user,   only: [:destroy]
 
 def create
   @blog = Blog.find(params[:blog_id])

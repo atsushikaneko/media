@@ -8,7 +8,7 @@
   <div class="main col-lg-8">
     <div class="articles row">
 
-      <% @blogs.each do |blog|%>
+      <% @category_blogs.each do |blog|%>
       <div class="kiji col-xs-12 col-lg-6">
         <div class="kiji-shadow">
           <div class="kiji-photo" style="background-image: url(<%= blog.picture.url %>); background-size: cover;"></div>
@@ -30,7 +30,7 @@
       <% end %>
 
       <div class="pagenate col-xs-12">
-        <%= will_paginate @blogs, :previous_label => ' &lt 前へ', :next_label => '次へ &gt' %>
+        <%= will_paginate @category_blogs, :previous_label => ' &lt 前へ', :next_label => '次へ &gt' %>
       </div>
     </div>
   </div>

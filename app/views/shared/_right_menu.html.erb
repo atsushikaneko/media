@@ -16,7 +16,7 @@
         <% @user.blogs.pluck("category").uniq.each do |category|%>
           <li>
             <p class="hidari">
-              <%= category %>
+              <%= link_to category,"/users/#{@user.id}/category/#{category}",style:"color:#333333;" %>
             </p>
             <p class="fas fa-chevron-right"></p>
           </li>
@@ -28,7 +28,7 @@
       <ul>
         <% @polular_blogs[0..7].each do |blog|%>
           <li>
-            <div class="hidari"><%= blog.title %></div>
+            <div class="hidari"><%= link_to blog.title,user_blog_path(@user,blog),style:"color:#333333;" %></div>
             <p class="fas fa-chevron-right"></p>
           </li>
         <% end %>
@@ -39,7 +39,7 @@
       <ul>
         <% @recent_blogs[0..7].each do |blog|%>
           <li>
-            <div class="hidari"><%= blog.title %></div>
+            <div class="hidari"><%= link_to blog.title,user_blog_path(@user,blog),style:"color:#333333;" %></div>
             <p class="fas fa-chevron-right"></p>
           </li>
         <% end %>

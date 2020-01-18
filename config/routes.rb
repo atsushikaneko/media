@@ -22,6 +22,8 @@ Rails.application.routes.draw do
     end
   end
 
+  get "/users/:id/category/:category", to: "users#category"
+
   get "/tweet", to: "tweets#update"
 
   get    '/login',   to: 'sessions#new'

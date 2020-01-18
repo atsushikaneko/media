@@ -1,4 +1,8 @@
 class BlogsController < ApplicationController
+  before_action :logged_in_user, only: [:edit,:update,
+                                        :new,:create,
+                                        :destroy,]
+  before_action :correct_user,   only: [:edit, :update]
 
   def index
     @blogs = Blog.all.unscope(:order) #なぜか一度unscopeで並び順をリセットしないといけないみたい
@@ -17,6 +21,7 @@ class BlogsController < ApplicationController
   @comments = @blog.comments
   end
 
+
   def destroy
   @blog = Blog.find(params[:id])
   @blog.destroy
@@ -24,11 +29,11 @@ class BlogsController < ApplicationController
   redirect_to setting_path
   end
 
+
   def new
     @blog = current_user.blogs.build
     #@blog.images.build
   end
-
 
   def create
     @blog = current_user.blogs.build(blog_params)
