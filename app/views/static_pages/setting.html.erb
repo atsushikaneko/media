@@ -69,16 +69,23 @@
   					</div>
 
   					<div class="tab-pane" id="services">
-                <div>購読中のユーザーをリスト化</div>
+              <div class="table-responsive">
+                <!--Table-->
+                <table class="table table-striped">
+                  <tbody>
 
-              <ul>
+
               <% current_user.following.each do |user|%>
-                <li>
-                <%= user.name %>
-                <%= (render 'users/follow_form',{user: user}) if current_user %>
+                <tr>
+                <td><%= user.name %></td>
+                <td><%= (render 'users/follow_form',{user: user}) if current_user %></td>
             <%end%>
-            </li>
-                </ul>
+
+               <tr>
+                </tbody>
+                </table>
+                </div>
+
               </div>
 
               <div class="tab-pane" id="theme">
