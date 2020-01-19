@@ -24,19 +24,43 @@
             </div>
 
   					<div class="tab-pane" id="home">
-                <ul>
-                <% @blogs = current_user.blogs %>
-                <li>
+
+              <div class="table-responsive">
+                <!--Table-->
+                <table class="table table-striped">
+
+                  <!--Table head-->
+                  <thead>
+                    <tr>
+                      <th>記事タイトル</th>
+
+                      <th>カテゴリ</th>
+                      <th></th>
+                      <th></th>
+                      <th>投稿時間</th>
+                    </tr>
+                  </thead>
+                  <!--Table head-->
+
+                  <!--Table body-->
+                  <tbody>
+                    <% @blogs = current_user.blogs %>
                     <% @blogs.each do |blog|%>
-                    <span><%= link_to blog.title, user_blog_path(blog.user,blog) %></span>
-                    <span><%= "|投稿日: #{blog.created_at.strftime("%Y/%m/%d(#{%w(日 月 火 水 木 金 土)[blog.created_at.wday]})")}|" %></span>
-                    <span><%= link_to '削除', user_blog_path(blog.user,blog), method: :delete %></span>
-                    <span><%= link_to '編集', edit_user_blog_path(blog.user,blog) %></span>
-                </li>
-                <br>
-                <br>
-                <% end %>
-  						</ul>
+                    <tr>
+                      <th scope="row"><%= link_to blog.title, user_blog_path(blog.user,blog) %></th>
+                      <td><%= blog.category %></td>
+                      <td><%= link_to '編集', edit_user_blog_path(blog.user,blog) %></td>
+                      <td><%= link_to '削除', user_blog_path(blog.user,blog), method: :delete %></td>
+                      <td><%= " #{blog.created_at.strftime("%Y/%m/%d(#{%w(日 月 火 水 木 金 土)[blog.created_at.wday]})")}" %></td>
+                    </tr>
+                    <% end %>
+
+                  </tbody>
+                  <!--Table body-->
+                </table>
+                <!--Table-->
+              </div>
+
   					</div>
   					<div class="tab-pane" id="about">
   						<div class="">
