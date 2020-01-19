@@ -19,7 +19,7 @@
     </div>
   </div>
   <% end %>
-     
+
     <% if blogs[3..8] %>
     <% blogs[3..8].each do |blog|%>
     <div class="smallkiji col-xs-12 col-lg-6">
@@ -30,7 +30,7 @@
         <p class="smallkiji-blogtitle">
           <%= blog.user.blogtitle %>
         </p>
-          <%= link_to("","/blogs/#{blog.id}",class:"smallkiji-link") %>
+          <%= link_to("","#{user_blog_path(blog.user,blog)}",class:"smallkiji-link") %>
         </div>
         </div>
       <% end %>
