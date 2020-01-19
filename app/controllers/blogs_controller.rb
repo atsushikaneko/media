@@ -19,7 +19,12 @@ class BlogsController < ApplicationController
   @images = @blog.images
   @comment = Comment.new
   @comments = @blog.comments
+  #以下で条件分岐しないと、例えば /users/1/blogs/5のとき
+  #user1がblog5を持ってなくてもとりあえず表示されちゃう
+  unless @user.blogs.include?(@blog)
+    redirect_to  user_path @user
   end
+end
 
 
   def destroy
