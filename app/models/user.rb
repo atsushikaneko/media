@@ -9,15 +9,13 @@ class User < ApplicationRecord
 
   mount_uploader :profile_image, PictureUploader
 
-  has_secure_password
-
-
   ##以下基本的なバリデーション
   validates :name, presence: true, length: { maximum: 50 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, length: { maximum: 255 },
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
+  has_secure_password
   validates :password, presence: true, length: { minimum: 6 } , allow_nil: true
   validates :blogtitle, presence: true, length: { maximum: 50 }
   ##以上基本的なバリデーション
@@ -42,6 +40,7 @@ class User < ApplicationRecord
                                    dependent:   :destroy
   has_many :following, through: :active_relationships,  source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
+
 
   # ユーザーをフォローする
   def follow(other_user)
