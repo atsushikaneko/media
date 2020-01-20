@@ -18,6 +18,10 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    if current_user
+      flash[:danger] = "すでにログインしています。"
+      redirect_to root_url
+    end
   end
 
   def create
