@@ -8,9 +8,9 @@
   			<div class="tabbable tabs-left">
   				<ul class="nav nav-tabs">
             <li class="active"><a href="#profile" data-toggle="tab">ユーザー情報</a></li>
-  					<li><a href="#home" data-toggle="tab">あなたの記事一覧</a></li>
-  					<li><a href="#about" data-toggle="tab">お気に入りの記事</a></li>
-  					<li><a href="#services" data-toggle="tab">購読中のユーザー</a></li>
+  					<li><a href="#home" data-toggle="tab">記事一覧</a></li>
+  					<li><a href="#about" data-toggle="tab">いいねした記事</a></li>
+  					<li><a href="#services" data-toggle="tab">購読中のブログ</a></li>
   					<li><a href="#theme" data-toggle="tab">ブログテーマの変更</a></li>
   				</ul>
   				<div class="tab-content">
@@ -72,13 +72,24 @@
               <div class="table-responsive">
                 <!--Table-->
                 <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th>ブログタイトル</th>
+                      <th>ユーザー名</th>
+                      <th></th>
+                      <th>購読日</th>
+                    </tr>
+                  </thead>
+
                   <tbody>
 
 
               <% current_user.following.each do |user|%>
                 <tr>
-                <td><%= user.name %></td>
+                <td><%= link_to user.blogtitle,user_path(user) %></td>
+                <td><%= link_to user.name,user_path(user) %></td>
                 <td><%= (render 'users/follow_form',{user: user}) if current_user %></td>
+                <td><%= " #{user.passive_relationships.find_by(follower_id:current_user.id).created_at.strftime("%Y/%m/%d(#{%w(日 月 火 水 木 金 土)[user.passive_relationships.find_by(follower_id:current_user.id).created_at.wday]})")}" %></td>
             <%end%>
 
                <tr>
