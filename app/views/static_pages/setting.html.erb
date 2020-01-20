@@ -72,13 +72,22 @@
               <div class="table-responsive">
                 <!--Table-->
                 <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th>ユーザー名</th>
+                      <th></th>
+                      <th>購読日</th>
+                    </tr>
+                  </thead>
+
                   <tbody>
 
 
               <% current_user.following.each do |user|%>
                 <tr>
-                <td><%= user.name %></td>
+                <td><%= link_to user.name,user_path(user) %></td>
                 <td><%= (render 'users/follow_form',{user: user}) if current_user %></td>
+                <td><%= " #{user.passive_relationships.find_by(follower_id:current_user.id).created_at.strftime("%Y/%m/%d(#{%w(日 月 火 水 木 金 土)[user.passive_relationships.find_by(follower_id:current_user.id).created_at.wday]})")}" %></td>
             <%end%>
 
                <tr>
