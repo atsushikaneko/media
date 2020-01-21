@@ -5,7 +5,7 @@
   <%= f.text_field :title,class:"title-form",placeholder:"タイトル" %><br>
   <%= f.text_field :category ,class:"category-form",placeholder:"カテゴリー"%>
   <%= f.file_field :picture,class:"picture-form" %>
-  <%= f.text_area :content,class:"content-form" %>
+  <%= f.text_area :content,class:"content-form",placeholder:"本文" %>
   <%= f.submit "公開する", class: "btn btn-primary" %>
   <% end %>
 </div>
