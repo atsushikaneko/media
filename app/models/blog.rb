@@ -6,8 +6,14 @@ class Blog < ApplicationRecord
   belongs_to :user
 
   #以下いいね機能
+  has_many :likes, dependent: :destroy
   has_many :favorites
   has_many :users, through: :favorites
+
+    #ユーザーIDをわたし、そのユーザーをlikeしてるかどうか
+  def like_user(user_id)
+  likes.find_by(user_id: user_id)
+  end
   #以上いいね機能
 
   mount_uploader :picture, PictureUploader

@@ -14,6 +14,9 @@
          <div class="thumbnail" style="background-image: url(<%= @blog.picture.url %>); background-size:cover;"></div>
          <div><%= simple_format(h(@blog.content)) %></div>
       </article>
+      <div id="likes_buttons_<%= @blog.id %>">
+      <%= render partial: 'likes/like', locals: { blog: @blog, likes: @likes} %>
+      </div>
     </div>
     <div>
     <h4>コメント</h4>

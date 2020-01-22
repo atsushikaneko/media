@@ -1,0 +1,41 @@
+<% if current_user %>
+
+  <% unless @blog.favorite_user(current_user.id).blank? %>
+    <%= link_to blog_favorite_path(blog_id: blog.id ,id: blog.favorites[0].id), method: :delete, remote: true do %>
+      <div class="vertical_favorite">
+        <i class="material-icons red-text">favorite</i>
+        <span class="red-text">
+          <%= blog.favorites_count %>
+        </span>
+      </div>
+    <% end %>
+  <% else %>
+    <%= link_to blog_favorites_path(blog.id), method: :blog, remote: true do %>
+      <div class="vertical_favorite">
+        <i class="material-icons grey-text text-darken-2">favorite_border</i>
+        <span class="grey-text text-darken-2">
+          <%= blog.favorites_count %>
+        </span>
+      </div>
+    <% end %>
+  <% end %>
+
+<% else %>
+
+  <% if blog.favorites_count > 0 %>
+    <div class="vertical_favorite">
+      <i class="material-icons red-text">favorite</i>
+      <span class="red-text">
+        <%= blog.favorites_count %>
+      </span>
+    </div>
+  <% else %>
+    <div class="vertical_favorite">
+      <i class="material-icons grey-text text-darken-2">favorite_border</i>
+      <span class="grey-text text-darken-2">
+        <%= blog.favorites_count %>
+      </span>
+    </div>
+  <% end %>
+
+<% end %>
