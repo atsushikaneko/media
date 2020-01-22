@@ -22,12 +22,10 @@ class User < ApplicationRecord
 
 
   ##以下いいね機能
-  has_many :favorites
-  has_many :fav_blogs, through: :favorites, source: :blog
-
-  def like(blog)
-   favorites.find_or_create_by(blog_id: blog.id)
-  end
+  has_many :likes, dependent: :destroy
+  has_many :fav_blogs, through: :likes, source: :blog
+  #has_many :favorites
+  #has_many :fav_blogs, through: :favorites, source: :blog
   ##以上いいね機能
 
 
