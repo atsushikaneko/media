@@ -21,10 +21,5 @@ class BlogsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  #ブログ詳細画面は表示するか
-  test "should get show" do
-    get user_blog_path @blog.user,@blog
-    assert_response :success
-  end
 
 end
