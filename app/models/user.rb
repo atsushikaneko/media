@@ -23,8 +23,9 @@ class User < ApplicationRecord
 
   ##以下いいね機能
   has_many :likes, dependent: :destroy
-  has_many :favorites
-  has_many :fav_blogs, through: :favorites, source: :blog
+  has_many :fav_blogs, through: :likes, source: :blog
+  #has_many :favorites
+  #has_many :fav_blogs, through: :favorites, source: :blog
   ##以上いいね機能
 
 

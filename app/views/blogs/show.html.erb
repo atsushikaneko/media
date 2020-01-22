@@ -14,12 +14,13 @@
          <div class="thumbnail" style="background-image: url(<%= @blog.picture.url %>); background-size:cover;"></div>
          <div><%= simple_format(h(@blog.content)) %></div>
       </article>
-      <div id="likes_buttons_<%= @blog.id %>">
-      <%= render partial: 'likes/like', locals: { blog: @blog, likes: @likes} %>
-      </div>
     </div>
-    <div>
-    <h4>コメント</h4>
+
+    <div id="likes_buttons_<%= @blog.id %>">
+    <%= render partial: 'likes/like', locals: { blog: @blog, likes: @likes} %>
+    </div>
+    <div class="comments_section">
+    <h4><i class="far fa-comment"></i>コメント</h4>
     <div id="comments_area"><!-- #① -->
       <!-- 投稿されたコメント一覧をブログの詳細ページに表示するためのrender -->
       <%= render partial: 'comments/index', locals: { comments: @comments } %>

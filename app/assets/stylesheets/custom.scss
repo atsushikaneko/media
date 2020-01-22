@@ -327,6 +327,18 @@ position: relative;
   z-index:5;
 }
 
+.comments_section{
+  border-top: 1px solid black;
+}
+
+.vertical_like{
+  font-size: 20px;
+}
+
+.material-icons.red-text{
+  color: red;
+}
+
 
 /* サイドバー*/
 
@@ -467,6 +479,7 @@ section .test2{
 .content p{
   display: inline;
 }
+
 
 /*管理ページ*/
 

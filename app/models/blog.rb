@@ -7,8 +7,9 @@ class Blog < ApplicationRecord
 
   #以下いいね機能
   has_many :likes, dependent: :destroy
-  has_many :favorites
-  has_many :users, through: :favorites
+  has_many :users, through: :likes
+  #has_many :favorites
+  #has_many :users, through: :favorites
 
     #ユーザーIDをわたし、そのユーザーをlikeしてるかどうか
   def like_user(user_id)
