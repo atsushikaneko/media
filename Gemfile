@@ -20,6 +20,7 @@ gem 'jquery-rails', '4.3.1'
 gem 'jbuilder',     '2.7.0'
 gem 'rake',         '13.0.1'
 gem 'whenever', require: false
+gem 'nokogiri'
 
 group :development, :test do
   gem 'rb-readline'
