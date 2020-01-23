@@ -27,25 +27,29 @@
                         <div role="tabpanel" class="tab-pane fade" id="Section2">
                           <%= render "top",blogs: @recent_blogs %>
                           </div>
-
                         <div role="tabpanel" class="tab-pane fade" id="Section3">
-                            <h3>Section-3</h3>
-                            <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras nec urna aliquam, ornare eros vel, malesuada lorem. Nullam faucibus lorem at eros consectetur lobortis. Maecenas nec nibh congue, placerat sem id, rutrum velit. Phasellus porta enim at facilisis condimentum. Maecenas pharetra dolor vel elit tempor pellentesque sed sed eros. Aenean vitae mauris tincidunt, imperdiet orci semper, rhoncus ligula. Vivamus scelerisque. </p>
-                        </div>
+                        <div>
+                          <ul>
+                          <% @yahoo_news.each do |news| %>
+                          <li><%= news.title %></li>
+                          <img src=<%= news.picture %> alt="">
+                          <li><%= news.time %></li>
+                          <li><%= news.media %></li>
+                          <% end %>
+                          </ul>
+                          </div>
+                       </div>
 
                         <div role="tabpanel" class="tab-pane fade" id="Section4">
-                            <h3>Section-4</h3>
-                            <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras nec urna aliquam, ornare eros vel, malesuada lorem. Nullam faucibus lorem at eros consectetur lobortis. Maecenas nec nibh congue, placerat sem id, rutrum velit. Phasellus porta enim at facilisis condimentum. Maecenas pharetra dolor vel elit tempor pellentesque sed sed eros. Aenean vitae mauris tincidunt, imperdiet orci semper, rhoncus ligula. Vivamus scelerisque. </p>
+                            <h3>twitterの人気ツイートをリスト化</h3>
                         </div>
 
                         <div role="tabpanel" class="tab-pane fade" id="Section5">
-                            <h3>Section-5</h3>
-                            <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras nec urna aliquam, ornare eros vel, malesuada lorem. Nullam faucibus lorem at eros consectetur lobortis. Maecenas nec nibh congue, placerat sem id, rutrum velit. Phasellus porta enim at facilisis condimentum. Maecenas pharetra dolor vel elit tempor pellentesque sed sed eros. Aenean vitae mauris tincidunt, imperdiet orci semper, rhoncus ligula. Vivamus scelerisque. </p>
+                            <h3>youtubeの人気動画をリスト化</h3>
                         </div>
 
                         <div role="tabpanel" class="tab-pane fade" id="Section6">
-                            <h3>Section-6</h3>
-                            <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras nec urna aliquam, ornare eros vel, malesuada lorem. Nullam faucibus lorem at eros consectetur lobortis. Maecenas nec nibh congue, placerat sem id, rutrum velit. Phasellus porta enim at facilisis condimentum. Maecenas pharetra dolor vel elit tempor pellentesque sed sed eros. Aenean vitae mauris tincidunt, imperdiet orci semper, rhoncus ligula. Vivamus scelerisque. </p>
+                            <h3>インスタの人気投稿をリスト化</h3>
                         </div>
 
                     </div>
