@@ -1,15 +1,4 @@
-desc "mode、visit, task, paymentをリセット"
-task :tesutodesu => :environment do
-  #ログ
-  logger = Logger.new 'log/midnight_reset.log'
-
-  #ここから処理を書いていく
-  User.find_each {|user| user.update!(blogtitle:"Here is Blog title")}
-
-  #デバッグのため
-  p "ここまでOK"
-end
-
+desc "yahooをスクレイピング"
 task :scrape => :environment do
   include ApplicationHelper
 
@@ -24,7 +13,8 @@ task :scrape => :environment do
   title = array[i][1]
   media = array[i][2]
   time = array[i][3]
-  Topic.create(picture:picture,title:title,media:media,time:time)
+  url = array[i][4]
+  Topic.create(picture:picture,title:title,media:media,time:time,url:url)
 end
 
    p "ここまでOK"
