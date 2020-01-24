@@ -2,12 +2,13 @@ class BlogsController < ApplicationController
   before_action :logged_in_user, only: [:edit,:update,
                                         :new,:create,
                                         :destroy,]
-  before_action :correct_user,   only: [:edit, :update]
+  before_action :correct_user_for_blogs,   only: [:edit, :update]
 
   def index
     @blogs = Blog.all.unscope(:order) #なぜか一度unscopeで並び順をリセットしないといけないみたい
     @polular_blogs = @blogs.order('impressions_count DESC')
     @recent_blogs = @blogs.order('created_at DESC')
+    @yahoo_news = Topic.all[0..9].reverse
   end
 
 

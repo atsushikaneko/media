@@ -27,25 +27,42 @@
                         <div role="tabpanel" class="tab-pane fade" id="Section2">
                           <%= render "top",blogs: @recent_blogs %>
                           </div>
-
                         <div role="tabpanel" class="tab-pane fade" id="Section3">
-                            <h3>Section-3</h3>
-                            <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras nec urna aliquam, ornare eros vel, malesuada lorem. Nullam faucibus lorem at eros consectetur lobortis. Maecenas nec nibh congue, placerat sem id, rutrum velit. Phasellus porta enim at facilisis condimentum. Maecenas pharetra dolor vel elit tempor pellentesque sed sed eros. Aenean vitae mauris tincidunt, imperdiet orci semper, rhoncus ligula. Vivamus scelerisque. </p>
-                        </div>
+
+                          <% index=1  %>
+                          <% @yahoo_news.each do |news| %>
+                          <div class="yahoo-topic">
+                          <div class="row">
+                          <div class="yahoo-photo-box col-lg-3 col-sm-12">
+                          <p class="yahoo-index yahoo-index<%=index%>"><%= index%></p>
+                          <img src=<%= news.picture %> class="yahoo-picture" alt="">
+                          <div class="yahoo-clear"></div>
+                          </div>
+                          <div class="yahoo-title-box col-lg-9 col-sm-12">
+                          <h4 class="yahoo-title"><%= news.title %></h4>
+                          <p class="yahoo-media"><i class="fas fa-globe"> </i><%= "#{news.media}"%> </p>
+                          <p class="yahoo-time"><i class="far fa-clock"> </i><%= "#{news.time}"%></p>
+                          <div class="yahoo-clear"></div>
+                          </div>
+                          <a class="yahoo-link" href=<%= news.url %>></a>
+                          </div>
+                          </div>
+                          <% index += 1 %>
+                          <% end %>
+
+
+                       </div>
 
                         <div role="tabpanel" class="tab-pane fade" id="Section4">
-                            <h3>Section-4</h3>
-                            <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras nec urna aliquam, ornare eros vel, malesuada lorem. Nullam faucibus lorem at eros consectetur lobortis. Maecenas nec nibh congue, placerat sem id, rutrum velit. Phasellus porta enim at facilisis condimentum. Maecenas pharetra dolor vel elit tempor pellentesque sed sed eros. Aenean vitae mauris tincidunt, imperdiet orci semper, rhoncus ligula. Vivamus scelerisque. </p>
+                            <h3>twitterの人気ツイートをリスト化</h3>
                         </div>
 
                         <div role="tabpanel" class="tab-pane fade" id="Section5">
-                            <h3>Section-5</h3>
-                            <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras nec urna aliquam, ornare eros vel, malesuada lorem. Nullam faucibus lorem at eros consectetur lobortis. Maecenas nec nibh congue, placerat sem id, rutrum velit. Phasellus porta enim at facilisis condimentum. Maecenas pharetra dolor vel elit tempor pellentesque sed sed eros. Aenean vitae mauris tincidunt, imperdiet orci semper, rhoncus ligula. Vivamus scelerisque. </p>
+                            <h3>youtubeの人気動画をリスト化</h3>
                         </div>
 
                         <div role="tabpanel" class="tab-pane fade" id="Section6">
-                            <h3>Section-6</h3>
-                            <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras nec urna aliquam, ornare eros vel, malesuada lorem. Nullam faucibus lorem at eros consectetur lobortis. Maecenas nec nibh congue, placerat sem id, rutrum velit. Phasellus porta enim at facilisis condimentum. Maecenas pharetra dolor vel elit tempor pellentesque sed sed eros. Aenean vitae mauris tincidunt, imperdiet orci semper, rhoncus ligula. Vivamus scelerisque. </p>
+                            <h3>インスタの人気投稿をリスト化</h3>
                         </div>
 
                     </div>

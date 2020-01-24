@@ -19,7 +19,7 @@
                 <p><%= "ユーザー名: #{current_user.name}" %></p>
                 <p><%= "Eメール: #{current_user.email}" %></p>
                 <p><%= "ブログ名: #{current_user.blogtitle}" %></p>
-                <p><%= "ID: #{current_user.id}" %></p>
+                <p><%= "会員ID: #{current_user.id}" %></p>
                 <p><%= link_to 'ユーザー情報の編集', edit_user_path(current_user) %></p>
             </div>
 
@@ -86,7 +86,7 @@
                     <% @blogs.each do |blog|%>
                     <tr>
                       <th scope="row"><%= link_to blog.title, user_blog_path(blog.user,blog) %></th>
-                      <td><%= blog.user.blogtitle %></td>
+                      <td><%= link_to blog.user.blogtitle,user_blog_path(blog.user,blog) %></td>
                       <td><%= blog.user.name %></td>
                       <td>  <div id="likes_buttons_<%= blog.id %>">
                         <%= render partial: 'likes/like', locals: { blog: blog, likes: @likes} %>

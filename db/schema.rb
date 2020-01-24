@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200122000548) do
+ActiveRecord::Schema.define(version: 20200123091824) do
 
   create_table "blogs", force: :cascade do |t|
     t.integer "user_id"
@@ -95,6 +95,16 @@ ActiveRecord::Schema.define(version: 20200122000548) do
     t.index ["followed_id"], name: "index_relationships_on_followed_id"
     t.index ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true
     t.index ["follower_id"], name: "index_relationships_on_follower_id"
+  end
+
+  create_table "topics", force: :cascade do |t|
+    t.string "title"
+    t.string "picture"
+    t.string "time"
+    t.string "media"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "url"
   end
 
   create_table "users", force: :cascade do |t|
