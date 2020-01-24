@@ -28,17 +28,29 @@
                           <%= render "top",blogs: @recent_blogs %>
                           </div>
                         <div role="tabpanel" class="tab-pane fade" id="Section3">
-                        <div>
-                          <ul>
+
+                          <% index=1  %>
                           <% @yahoo_news.each do |news| %>
-                          <li><%= news.title %></li>
-                          <img src=<%= news.picture %> alt="">
-                          <li><%= news.time %></li>
-                          <li><%= news.media %></li>
-                          <a href=<%= news.url %>>link</a>
-                          <% end %>
-                          </ul>
+                          <div class="yahoo-topic">
+                          <div class="row">
+                          <div class="yahoo-photo-box col-lg-3 col-sm-12">
+                          <p class="yahoo-index yahoo-index<%=index%>"><%= index%></p>
+                          <img src=<%= news.picture %> class="yahoo-picture" alt="">
+                          <div class="yahoo-clear"></div>
                           </div>
+                          <div class="yahoo-title-box col-lg-9 col-sm-12">
+                          <h4 class="yahoo-title"><%= news.title %></h4>
+                          <p class="yahoo-media"><i class="fas fa-globe"></i><%= "#{news.media}"%> </p>
+                          <p class="yahoo-time"><i class="far fa-clock"></i><%= "#{news.time}"%></p>
+                          <div class="yahoo-clear"></div>
+                          </div>
+                          <a class="yahoo-link" href=<%= news.url %>></a>
+                          </div>
+                          </div>
+                          <% index += 1 %>
+                          <% end %>
+
+
                        </div>
 
                         <div role="tabpanel" class="tab-pane fade" id="Section4">
