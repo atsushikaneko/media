@@ -9,6 +9,15 @@ class BlogsController < ApplicationController
     @polular_blogs = @blogs.order('impressions_count DESC')
     @recent_blogs = @blogs.order('created_at DESC')
     @yahoo_news = Topic.all[0..9].reverse
+    respond_to do |format|
+      format.html do
+          #html用の処理を書く
+      end
+      format.csv do
+    #csv用の処理を書く
+    send_data render_to_string, filename: "all_posts.csv", type: :csv
+      end
+    end
   end
 
 
