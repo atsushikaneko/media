@@ -133,7 +133,7 @@ footer ul li {
 
 /*ボディ*/
 .bodyid{
-  background-color:#F2F2F2;
+  
 }
 
 /* コンテンツ*/
@@ -343,13 +343,16 @@ position: relative;
 /* サイドバー*/
 
 .side{
-  padding:30px 30px 0px 30px  ;
+  margin:30px 30px 0px 30px;
+  border:1px solid lightgray;
 }
 
+.side-content-section{
+  margin: 10px 10px 10px 10px;
+}
 
 .profile-image{
   height: 250px;
-
 }
 
 .search{
@@ -358,12 +361,57 @@ position: relative;
 .categories{
 }
 
-.categories h4{
+.side-section-title{
+  margin: 0 0 0 0;
+  border:1px solid lightgray;
   height:40px;
-  padding-top: 10px;
   padding-left: 5px;
-  color: lightgray;
+  color: black;
+  text-align: center;
+  font: Avenir Next;
+  font-size: 25px;
+  font-weight: bold;
+  padding-top: 5px;
+}
+
+.side-content-section img{
+  width: 238px;
+  height: 150px;
+  object-fit: cover;
+  filter:brightness(50%);
+}
+
+.side-blog-box{
+  position: relative;
+  width: 238px;
+  margin: 0 auto;
+}
+
+.side-blog-title{
+  font-weight: bold;
+  color: white;
+  position: absolute;  /*要素を浮かす*/
+  /*relativeを指定した親要素を支点とした位置をすべて0に指定↓*/
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto; /*上下左右中央に*/
+  width: 220px; /*widthの指定は必須*/
+  height: 10px; /*heightの指定は必須*/
+}
+
+.side-index-box{
+  padding-top:3px;
+  color: white;
   background-color: black;
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  left: 0px;
+  top:0px;
+  text-align: center;
+  vertical-align: middle;
 }
 
 .categories li{
@@ -405,16 +453,8 @@ section .test2{
 .ranking{
 }
 
-.ranking h4{
-  height:40px;
-  padding-top: 10px;
-  padding-left: 5px;
-  color: lightgray;
-  background-color: black;
-}
 
 .ranking li{
-  width:100%;
   font-size: 16px;
   border-bottom: 0.5px dotted gray;
   margin-bottom: 2px;

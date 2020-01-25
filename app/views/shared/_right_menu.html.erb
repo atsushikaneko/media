@@ -6,13 +6,17 @@
     <%= render 'users/follow_form' if current_user %>
     </div>
     <div class="side search">
+      <h4 class="side-section-title">SEARCH</h4>
+      <div class="side-content-section">
       <%= form_tag("/search",:method => 'get') do %>
     　<%= text_field_tag :search %>
       <%= submit_tag 'Search', :name => nil %>
       <% end %>
+      </div>
     </div>
     <div class="side categories">
-      <h4>カテゴリー</h4>
+      <h4 class="side-section-title">CATEGORY</h4>
+      <div class="side-content-section">
       <ul>
         <% @user.blogs.pluck("category").uniq.each do |category|%>
           <li>
@@ -23,26 +27,39 @@
           </li>
           <% end %>
       </ul>
+      </div>
     </div>
     <div class="side ranking">
-      <h4>人気記事</h4>
+      <h4 class="side-section-title">POPULAR</h4>
+      <div class="side-content-section">
       <ul>
-        <% @polular_blogs[0..7].each do |blog|%>
-          <li>
-            <div class="hidari"><%= link_to blog.title,user_blog_path(@user,blog),style:"color:#333333;" %></div>
-            <p class="fas fa-chevron-right"></p>
+        <% index = 1 %>
+        <% @polular_blogs[0..4].each do |blog|%>
+          <li class="side-blog-box">
+            <p><img src="<%= blog.picture.url %>"></p>
+            <p class="side-blog-title"><%= blog.title %></p>
+            <a href="<%= user_blog_path(@user,blog)%>"></a>
+            <p class="side-index-box"><%= index %></p>
           </li>
+          <% index += 1 %>
         <% end %>
       </ul>
+      </div>
     </div>
     <div class="side ranking">
-      <h4>新着記事</h4>
-      <ul>
-        <% @recent_blogs[0..7].each do |blog|%>
-          <li>
-            <div class="hidari"><%= link_to blog.title,user_blog_path(@user,blog),style:"color:#333333;" %></div>
-            <p class="fas fa-chevron-right"></p>
-          </li>
-        <% end %>
-      </ul>
+      <h4 class="side-section-title">LATEST</h4>
+      <div class="side-content-section">
+        <ul>
+          <% index = 1 %>
+          <%  @recent_blogs[0..4].each do |blog|%>
+            <li class="side-blog-box">
+              <p><img src="<%= blog.picture.url %>"></p>
+              <p class="side-blog-title"><%= blog.title %></p>
+              <a href="<%= user_blog_path(@user,blog)%>"></a>
+              <p class="side-index-box"><%= index %></p>
+            </li>
+            <% index += 1 %>
+          <% end %>
+        </ul>
+      </div>
     </div>
