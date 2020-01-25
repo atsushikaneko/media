@@ -12,6 +12,7 @@
   					<li><a href="#about" data-toggle="tab">いいねした記事</a></li>
   					<li><a href="#services" data-toggle="tab">購読中のブログ</a></li>
   					<li><a href="#theme" data-toggle="tab">ブログテーマの変更</a></li>
+            <li><a href="#csv" data-toggle="tab">csv出力</a></li>
   				</ul>
   				<div class="tab-content">
             <div class="tab-pane active" id="profile">
@@ -138,6 +139,11 @@
               <div class="tab-pane" id="theme">
                   <div>ブログテーマの選択機能を作ります</div>
     					</div>
+
+              <div class="tab-pane" id="csv">
+                  <p>あなたの書いた全記事をcsv形式でダウンロードします。</p>
+                  <p><%= link_to "csv出力", user_blogs_path(current_user,format: :csv), class: "btn btn-primary" %></p>
+              </div>
 
   					</div>
   				</div>
