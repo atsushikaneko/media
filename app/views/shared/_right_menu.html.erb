@@ -1,16 +1,18 @@
     <div class="profile side">
-    <p class="profile-image" style="background-image: url(<%= @user.profile_image.url ? @user.profile_image.url : "../assets/profile.jpg" %>); background-size: cover;"></p>
-    <p><%= @user.name %></p>
+      <h4 class="side-section-title">PLOFILE</h4>
+    <img class="profile-image" src="<%= @user.profile_image.url ? @user.profile_image.url : "../assets/profile.jpg" %>" alt="">
+    <div class="profile-text"><p><%= @user.name %></p>
     <p><%= @user.profile_text %></p>
     <p><%= link_to "プロフィールを編集する",(edit_user_path @user) if current_user == @user %></p>
     <%= render 'users/follow_form' if current_user %>
     </div>
+  </div>
     <div class="side search">
       <h4 class="side-section-title">SEARCH</h4>
       <div class="side-content-section">
       <%= form_tag("/search",:method => 'get') do %>
     　<%= text_field_tag :search %>
-      <%= submit_tag 'Search', :name => nil %>
+      <%= submit_tag 'Search', :name => nil,class:"side-search-btn"%>
       <% end %>
       </div>
     </div>

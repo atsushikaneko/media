@@ -133,12 +133,12 @@ footer ul li {
 
 /*ボディ*/
 .bodyid{
-  
+
 }
 
 /* コンテンツ*/
 .contents{
-  margin-top:100px;
+  margin-top:15px;
   padding-top:15px;
   background-color:white;
   min-height: 1000px;
@@ -303,18 +303,38 @@ align-items: center;
 
 /*　ブログ（users/show) */
 .bloghead{
-  background-image: url(sunset.jpg);
+  background-image: url(cafe.jpg);
   height: 500px;
   background-size:cover;
   display: flex;
 justify-content: center;
 align-items: center;
 position: relative;
+z-index: 0;
+overflow: hidden;
 }
+
+.bloghead:before{
+content: '';
+background: inherit;
+-webkit-filter: blur(5px);
+-moz-filter: blur(5px);
+-o-filter: blur(5px);
+-ms-filter: blur(5px);
+filter: blur(5px);
+position: absolute;
+top: -5px;
+left: -5px;
+right: -5px;
+bottom: -5px;
+z-index: -1;
+}
+
+
 
 .bloghead h1{
   color: white;
-
+  font-family: 'Caveat', cursive;
 }
 
 .bloghead-link{
@@ -352,11 +372,34 @@ position: relative;
 }
 
 .profile-image{
-  height: 250px;
+  width:100%;
+  padding: 20px;
+}
+
+.profile-text{
+  padding: 0 20px 29px 20px;
+  word-break: break-word;
 }
 
 .search{
 }
+
+input[type="text"]{
+        width: 278px;
+        height: 30px;
+    }
+
+
+.side-search-btn{
+  display: block;
+  width: 278px;
+  margin-top: 10px;
+  background-color:  #1c4c94;
+  color: white;
+  font-size: 12px;
+  height: 30px;
+}
+
 
 .categories{
 }
@@ -364,18 +407,19 @@ position: relative;
 .side-section-title{
   margin: 0 0 0 0;
   border:1px solid lightgray;
+  border-bottom:2px solid lightgray;
   height:40px;
   padding-left: 5px;
   color: black;
   text-align: center;
-  font: Avenir Next;
-  font-size: 25px;
+  font-family: 'Cherry Swash', cursive;
+  font-size: 22px;
   font-weight: bold;
-  padding-top: 5px;
+  padding-top: 8px;
 }
 
 .side-content-section img{
-  width: 238px;
+  width: 260px;
   height: 150px;
   object-fit: cover;
   filter:brightness(50%);
@@ -383,8 +427,16 @@ position: relative;
 
 .side-blog-box{
   position: relative;
-  width: 238px;
+  width: 260px;
   margin: 0 auto;
+}
+
+.side-blog-box a{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .side-blog-title{
@@ -511,6 +563,11 @@ section .test2{
   width: 100%;
   background-size:cover;
 }
+
+.blog-text{
+  word-break: break-word;
+}
+
 
 .content{
   min-height: 1000px;
