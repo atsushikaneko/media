@@ -2,6 +2,7 @@
 <div class="contents container">
   <div class="user-edit-box">
 <h2 class="user-edit-title">ユーザー新規登録</h2>
+<p>すでにアカウントをお持ちの方は<%= link_to "こちら",login_path%></p>
 <div class="user-edit-forms-box">
       <%= form_for @user , url: signup_path do |f| %>
       <div class="user-edit-form-box">
