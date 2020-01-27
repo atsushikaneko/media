@@ -1,12 +1,13 @@
 <% provide(:title, "記事編集") %>
 <div class="contents container">
+<h2 class="blog-new-title">記事編集</h2>
 <div class="blog-new-form">
   <%= form_for [@blog.user,@blog] do |f| %>
   <%= f.text_field :title,class:"title-form",placeholder:"タイトル" %><br>
   <%= f.text_field :category ,class:"category-form",placeholder:"カテゴリー"%>
   <%= f.file_field :picture,class:"picture-form" %>
-  <%= f.text_area :content,class:"content-form" %>
-  <%= f.submit "公開する", class: "btn btn-primary" %>
+  <%= f.text_area :content,class:"content-form",placeholder:"本文" %>
+  <%= f.submit "更新する", class: "blog-new-btn" %>
   <% end %>
 </div>
 </div>

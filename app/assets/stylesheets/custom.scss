@@ -536,27 +536,42 @@ section .test2{
 }
 
 
-/*新規投稿フォーム*/
+/*ユーザー新規投稿フォーム*/
+.blog-new-title{
+  margin-top: 50px;
+}
+
 .blog-new-form .title-form{
+  border-radius: 5px;
   width:100%;
   height:40px;
-  margin-top:20px;
+  margin-top:10px;
   margin-bottom:20px;
 }
 
 .blog-new-form .category-form{
+  border-radius: 5px;
   width:100%;
   height:40px;
   margin-bottom:20px;
 }
 
 .blog-new-form .content-form{
+  border-radius: 5px;
   width:100%;
-  height:1000px;
+  height:350px;
   margin-top:20px;
   margin-bottom:20px;
 }
 
+.blog-new-btn{
+  border-radius: 5px;
+  width:100%;
+  background-color: #4ca4bc;
+  color: white;
+  height:50px;
+  font-weight: bold;
+}
 /*記事詳細*/
 .blog-show .thumbnail{
   height: 400px;
@@ -577,6 +592,76 @@ section .test2{
   display: inline;
 }
 
+/*ユーザー新規登録、編集*/
+.user-edit-box{
+  width: 800px;
+  margin: 0 auto;
+  background-color: #e8f4fc;
+  padding: 20px;
+  margin-top:50px;
+}
+
+.user-edit-forms-box{
+  background-color: #f8fcfc;
+  padding: 20px;
+}
+
+.user-edit-forms-box p{
+  margin-top:20px;
+  color: #446c7c;
+  font-weight: bold;
+}
+
+.user-edit-title{
+
+}
+
+.right-form{
+
+}
+
+.user-edit-name{
+  margin: 10px 0 10px 0;
+  border-radius: 3px;
+  display: inline-block;
+  width: 400px;
+}
+
+.user-edit-email{
+  margin: 10px 0 10px 0;
+  border-radius: 3px;
+  width: 500px;
+}
+
+.user-edit-title{
+  margin: 10px 0 10px 0;
+  border-radius: 3px;
+  width: 500px;
+}
+
+.user-edit-profile{
+  margin: 10px 0 10px 0;
+  border-radius: 3px;
+  height: 100px;
+  width: 500px;
+}
+
+.user-edit-forms-box span{
+ color: red; 
+}
+
+.user-edit-form-box{
+  border-bottom: 1px solid #50a4bc;
+}
+
+
+.user-edit-btn{
+  width: 100px;
+  margin: 20px auto;
+  display: block;
+
+
+}
 
 /*管理ページ*/
 
