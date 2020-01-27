@@ -133,12 +133,12 @@ footer ul li {
 
 /*ボディ*/
 .bodyid{
-  background-color:#F2F2F2;
+
 }
 
 /* コンテンツ*/
 .contents{
-  margin-top:100px;
+  margin-top:15px;
   padding-top:15px;
   background-color:white;
   min-height: 1000px;
@@ -303,18 +303,38 @@ align-items: center;
 
 /*　ブログ（users/show) */
 .bloghead{
-  background-image: url(sunset.jpg);
+  background-image: url(cafe.jpg);
   height: 500px;
   background-size:cover;
   display: flex;
 justify-content: center;
 align-items: center;
 position: relative;
+z-index: 0;
+overflow: hidden;
 }
+
+.bloghead:before{
+content: '';
+background: inherit;
+-webkit-filter: blur(5px);
+-moz-filter: blur(5px);
+-o-filter: blur(5px);
+-ms-filter: blur(5px);
+filter: blur(5px);
+position: absolute;
+top: -5px;
+left: -5px;
+right: -5px;
+bottom: -5px;
+z-index: -1;
+}
+
+
 
 .bloghead h1{
   color: white;
-
+  font-family: 'Caveat', cursive;
 }
 
 .bloghead-link{
@@ -343,27 +363,107 @@ position: relative;
 /* サイドバー*/
 
 .side{
-  padding:30px 30px 0px 30px  ;
+  margin:30px 30px 0px 30px;
+  border:1px solid lightgray;
 }
 
+.side-content-section{
+  margin: 10px 10px 10px 10px;
+}
 
 .profile-image{
-  height: 250px;
+  width:100%;
+  padding: 20px;
+}
 
+.profile-text{
+  padding: 0 20px 29px 20px;
+  word-break: break-word;
 }
 
 .search{
 }
 
+input[type="text"]{
+        width: 278px;
+        height: 30px;
+    }
+
+
+.side-search-btn{
+  display: block;
+  width: 278px;
+  margin-top: 10px;
+  background-color:  #1c4c94;
+  color: white;
+  font-size: 12px;
+  height: 30px;
+}
+
+
 .categories{
 }
 
-.categories h4{
+.side-section-title{
+  margin: 0 0 0 0;
+  border:1px solid lightgray;
+  border-bottom:2px solid lightgray;
   height:40px;
-  padding-top: 10px;
   padding-left: 5px;
-  color: lightgray;
+  color: black;
+  text-align: center;
+  font-family: 'Cherry Swash', cursive;
+  font-size: 22px;
+  font-weight: bold;
+  padding-top: 8px;
+}
+
+.side-content-section img{
+  width: 260px;
+  height: 150px;
+  object-fit: cover;
+  filter:brightness(50%);
+}
+
+.side-blog-box{
+  position: relative;
+  width: 260px;
+  margin: 0 auto;
+}
+
+.side-blog-box a{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.side-blog-title{
+  font-weight: bold;
+  color: white;
+  position: absolute;  /*要素を浮かす*/
+  /*relativeを指定した親要素を支点とした位置をすべて0に指定↓*/
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto; /*上下左右中央に*/
+  width: 220px; /*widthの指定は必須*/
+  height: 10px; /*heightの指定は必須*/
+}
+
+.side-index-box{
+  padding-top:3px;
+  color: white;
   background-color: black;
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  left: 0px;
+  top:0px;
+  text-align: center;
+  vertical-align: middle;
 }
 
 .categories li{
@@ -405,16 +505,8 @@ section .test2{
 .ranking{
 }
 
-.ranking h4{
-  height:40px;
-  padding-top: 10px;
-  padding-left: 5px;
-  color: lightgray;
-  background-color: black;
-}
 
 .ranking li{
-  width:100%;
   font-size: 16px;
   border-bottom: 0.5px dotted gray;
   margin-bottom: 2px;
@@ -444,33 +536,53 @@ section .test2{
 }
 
 
-/*新規投稿フォーム*/
+/*ユーザー新規投稿フォーム*/
+.blog-new-title{
+  margin-top: 50px;
+}
+
 .blog-new-form .title-form{
+  border-radius: 5px;
   width:100%;
   height:40px;
-  margin-top:20px;
+  margin-top:10px;
   margin-bottom:20px;
 }
 
 .blog-new-form .category-form{
+  border-radius: 5px;
   width:100%;
   height:40px;
   margin-bottom:20px;
 }
 
 .blog-new-form .content-form{
+  border-radius: 5px;
   width:100%;
-  height:1000px;
+  height:350px;
   margin-top:20px;
   margin-bottom:20px;
 }
 
+.blog-new-btn{
+  border-radius: 5px;
+  width:100%;
+  background-color: #4ca4bc;
+  color: white;
+  height:50px;
+  font-weight: bold;
+}
 /*記事詳細*/
 .blog-show .thumbnail{
   height: 400px;
   width: 100%;
   background-size:cover;
 }
+
+.blog-text{
+  word-break: break-word;
+}
+
 
 .content{
   min-height: 1000px;
@@ -480,6 +592,76 @@ section .test2{
   display: inline;
 }
 
+/*ユーザー新規登録、編集*/
+.user-edit-box{
+  width: 800px;
+  margin: 0 auto;
+  background-color: #e8f4fc;
+  padding: 20px;
+  margin-top:50px;
+}
+
+.user-edit-forms-box{
+  background-color: #f8fcfc;
+  padding: 20px;
+}
+
+.user-edit-forms-box p{
+  margin-top:20px;
+  color: #446c7c;
+  font-weight: bold;
+}
+
+.user-edit-title{
+
+}
+
+.right-form{
+
+}
+
+.user-edit-name{
+  margin: 10px 0 10px 0;
+  border-radius: 3px;
+  display: inline-block;
+  width: 400px;
+}
+
+.user-edit-email{
+  margin: 10px 0 10px 0;
+  border-radius: 3px;
+  width: 500px;
+}
+
+.user-edit-title{
+  margin: 10px 0 10px 0;
+  border-radius: 3px;
+  width: 500px;
+}
+
+.user-edit-profile{
+  margin: 10px 0 10px 0;
+  border-radius: 3px;
+  height: 100px;
+  width: 500px;
+}
+
+.user-edit-forms-box span{
+ color: red; 
+}
+
+.user-edit-form-box{
+  border-bottom: 1px solid #50a4bc;
+}
+
+
+.user-edit-btn{
+  width: 100px;
+  margin: 20px auto;
+  display: block;
+
+
+}
 
 /*管理ページ*/
 

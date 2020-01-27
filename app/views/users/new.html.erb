@@ -1,24 +1,58 @@
-<% provide(:title, "ユーザー登録") %>
+<% provide(:title, "ユーザー情報編集") %>
 <div class="contents container">
-<div class="main col-lg-8">
-  <h1>ユーザー登録</h1>
-  <div class="row">
-    <div class="col-md-6 col-md-offset-3">
-      <%= render partial:'shared/flash' %>
-      <div>
+  <div class="user-edit-box">
+<h2 class="user-edit-title">ユーザー新規登録</h2>
+<div class="user-edit-forms-box">
       <%= form_for @user , url: signup_path do |f| %>
-      <%= f.label :name %>
-      <%= f.text_field :name %>
-      <%= f.label :email %>
-      <%= f.email_field :email %>
-      <%= f.label :password %>
-      <%= f.password_field :password %>
-      <%= f.label :password_confirmation, "Confirmation" %>
-      <%= f.password_field :password_confirmation %>
-      <%= f.submit "Create my account", class: "btn btn-primary" %>
-      <% end %>
+      <div class="user-edit-form-box">
+        <p>ユーザーネーム<span>*</span></p>
+        <div class="right-form">
+        <%= f.text_field :name,class:"user-edit-name",placeholder:"ユーザーネーム"%><br>
+        </div>
       </div>
+
+      <div class="user-edit-form-box">
+        <p>メールアドレス<span>*</span></p>
+        <div class="right-form">
+      <%= f.email_field :email,class:"user-edit-email",placeholder:"メールアドレス" %><br>
+      </div>
+        </div>
+
+        <div class="user-edit-form-box">
+          <p>パスワード<span>*</span></p>
+          <div class="right-form">
+        <%= f.password_field :password,class:"user-edit-name",placeholder:"パスワード" %><br>
+        </div>
+          </div>
+
+          <div class="user-edit-form-box">
+            <p>パスワード(確認用)<span>*</span></p>
+            <div class="right-form">
+          <%=f.password_field :password_confirmation,class:"user-edit-name",placeholder:"パスワード(確認用)" %><br>
+          </div>
+            </div>
+
+<div class="user-edit-form-box">
+  <p>ブログのタイトル<span>*</span></p>
+  <div class="right-form">
+      <%= f.text_field :blogtitle,class:"user-edit-title",placeholder:"ブログのタイトル" %><br>
+      </div>
+        </div>
+
+<div class="user-edit-form-box">
+  <p>プロフィール文章</p>
+  <div class="right-form">
+      <%= f.text_area :profile_text,class:"user-edit-profile",placeholder:"プロフィール文章"%><br>
+      </div>
+        </div>
+
+<div class="user-edit-form-box">
+  <p>プロフィール画像</p>
+      <%= f.file_field :profile_image,class:"picture-form",placeholder:"プロフィール画像" %><br>
+      </div>
+      <%= f.submit "登録する", class:"user-edit-btn" %>
+      <% end %>
+
     </div>
-  </div>
-</div>
+    </div>
 </div>

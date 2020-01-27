@@ -1,8 +1,23 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="container">
+    <!-- 追記ここから-->
+<div class="navbar-header">
+
+  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+    <span class="sr-only">Toggle navigation</span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+  </button>
+  <!-- 追記ここまで-->
+
     <%= link_to "Simple Blog Platform", root_path, id: "logo" %>
+
+    <!-- 追記ここから-->
+ </div>
+ <!-- 追記ここまで-->
     <nav>
-      <ul class="nav navbar-nav navbar-right">
+      <ul id="navbar" class="nav navbar-nav navbar-right navbar-collapse collapse">
         <li><%= link_to "記事を書く", (new_user_blog_path current_user)if current_user %></li>
         <li><%= link_to "サイトトップ", root_path %></li>
         <li><%= link_to "ヘルプ", help_path %></li>

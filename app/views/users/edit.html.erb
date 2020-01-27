@@ -1,22 +1,44 @@
 <% provide(:title, "ユーザー情報編集") %>
 <div class="contents container">
-<div class="main col-lg-8">
-  <div class="row">
-    <div class="col-md-6 col-md-offset-3">
+  <div class="user-edit-box">
+<h2 class="user-edit-title">ユーザー情報編集</h2>
+<div class="user-edit-forms-box">
       <%= form_for @user do |f| %>
-      <%= f.label :name %>
-      <%= f.text_field :name %>
-      <%= f.label :email %>
-      <%= f.email_field :email %>
-      <%= f.label :blogtitle %>
-      <%= f.text_field :blogtitle %>
-      <%= f.label :profile_text %>
-      <%= f.text_field :profile_text %>
-      <%= f.label :profile_image %>
-      <%= f.file_field :profile_image,class:"picture-form" %>
-      <%= f.submit "更新する", class: "btn btn-primary" %>
+      <div class="user-edit-form-box">
+        <p>ユーザーネーム</p>
+        <div class="right-form">
+        <%= f.text_field :name,class:"user-edit-name"%><br>
+        </div>
+      </div>
+
+      <div class="user-edit-form-box">
+        <p>メールアドレス</p>
+        <div class="right-form">
+      <%= f.email_field :email,class:"user-edit-email" %><br>
+      </div>
+        </div>
+
+<div class="user-edit-form-box">
+  <p>ブログのタイトル</p>
+  <div class="right-form">
+      <%= f.text_field :blogtitle,class:"user-edit-title" %><br>
+      </div>
+        </div>
+
+<div class="user-edit-form-box">
+  <p>プロフィール文章</p>
+  <div class="right-form">
+      <%= f.text_area :profile_text,class:"user-edit-profile" %><br>
+      </div>
+        </div>
+
+<div class="user-edit-form-box">
+  <p>プロフィール画像</p>
+      <%= f.file_field :profile_image,class:"picture-form" %><br>
+      </div>
+      <%= f.submit "更新する", class:"user-edit-btn" %>
       <% end %>
+
     </div>
-  </div>
-</div>
+    </div>
 </div>

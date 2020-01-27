@@ -1,0 +1,155 @@
+<% provide(:title, "管理ページ") %>
+<div class="contents container">
+  <div class="container">
+      <div class="row">
+  		<div class="col-xs-12">
+  		  <h3>管理ページ</h3>
+  			<!-- tabs -->
+  			<div class="tabbable tabs-left">
+  				<ul class="nav nav-tabs">
+            <li class="active"><a href="#profile" data-toggle="tab">ユーザー情報</a></li>
+  					<li><a href="#home" data-toggle="tab">記事一覧</a></li>
+  					<li><a href="#about" data-toggle="tab">いいねした記事</a></li>
+  					<li><a href="#services" data-toggle="tab">購読中のブログ</a></li>
+  					<li><a href="#theme" data-toggle="tab">ブログテーマの変更</a></li>
+            <li><a href="#csv" data-toggle="tab">csv出力</a></li>
+  				</ul>
+  				<div class="tab-content">
+            <div class="tab-pane active" id="profile">
+                <h1>ユーザー情報</h1>
+                <p><%= "ユーザー名: #{current_user.name}" %></p>
+                <p><%= "Eメール: #{current_user.email}" %></p>
+                <p><%= "ブログ名: #{current_user.blogtitle}" %></p>
+                <p><%= "会員ID: #{current_user.id}" %></p>
+                <p><%= link_to 'ユーザー情報の編集', edit_user_path(current_user) %></p>
+            </div>
+
+  					<div class="tab-pane" id="home">
+
+              <div class="table-responsive">
+                <!--Table-->
+                <table class="table table-striped">
+
+                  <!--Table head-->
+                  <thead>
+                    <tr>
+                      <th>記事タイトル</th>
+
+                      <th>カテゴリ</th>
+                      <th></th>
+                      <th></th>
+                      <th>投稿時間</th>
+                    </tr>
+                  </thead>
+                  <!--Table head-->
+
+                  <!--Table body-->
+                  <tbody>
+                    <% @blogs = current_user.blogs %>
+                    <% @blogs.each do |blog|%>
+                    <tr>
+                      <th scope="row"><%= link_to blog.title, user_blog_path(blog.user,blog) %></th>
+                      <td><%= blog.category %></td>
+                      <td><%= link_to '編集', edit_user_blog_path(blog.user,blog) %></td>
+                      <td><%= link_to '削除', user_blog_path(blog.user,blog), method: :delete %></td>
+                      <td><%= " #{blog.created_at.strftime("%Y/%m/%d(#{%w(日 月 火 水 木 金 土)[blog.created_at.wday]})")}" %></td>
+                    </tr>
+                    <% end %>
+
+                  </tbody>
+                  <!--Table body-->
+                </table>
+                <!--Table-->
+              </div>
+
+  					</div>
+  					<div class="tab-pane" id="about">
+              <div class="table-responsive">
+                <!--Table-->
+                <table class="table table-striped">
+
+                  <!--Table head-->
+                  <thead>
+                    <tr>
+                      <th>記事タイトル</th>
+
+                      <th>ブログタイトル</th>
+                      <th>ユーザー</th>
+                      <th></th>
+                      <th>投稿時間</th>
+                    </tr>
+                  </thead>
+                  <!--Table head-->
+
+                  <!--Table body-->
+                  <tbody>
+                    <% @blogs = current_user.fav_blogs %>
+                    <% @blogs.each do |blog|%>
+                    <tr>
+                      <th scope="row"><%= link_to blog.title, user_blog_path(blog.user,blog) %></th>
+                      <td><%= link_to blog.user.blogtitle,user_blog_path(blog.user,blog) %></td>
+                      <td><%= blog.user.name %></td>
+                      <td>  <div id="likes_buttons_<%= blog.id %>">
+                        <%= render partial: 'likes/like', locals: { blog: blog, likes: @likes} %>
+                        </div></td>
+                      <td><%= " #{blog.created_at.strftime("%Y/%m/%d(#{%w(日 月 火 水 木 金 土)[blog.created_at.wday]})")}" %></td>
+                    </tr>
+                    <% end %>
+
+                  </tbody>
+                  <!--Table body-->
+                </table>
+                <!--Table-->
+              </div>
+
+
+  					</div>
+
+  					<div class="tab-pane" id="services">
+              <div class="table-responsive">
+                <!--Table-->
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th>ブログタイトル</th>
+                      <th>ユーザー名</th>
+                      <th></th>
+                      <th>購読日</th>
+                    </tr>
+                  </thead>
+
+                  <tbody>
+
+
+              <% current_user.following.each do |user|%>
+                <tr>
+                <td><%= link_to user.blogtitle,user_path(user) %></td>
+                <td><%= link_to user.name,user_path(user) %></td>
+                <td><%= (render 'users/follow_form',{user: user}) if current_user %></td>
+                <td><%= " #{user.passive_relationships.find_by(follower_id:current_user.id).created_at.strftime("%Y/%m/%d(#{%w(日 月 火 水 木 金 土)[user.passive_relationships.find_by(follower_id:current_user.id).created_at.wday]})")}" %></td>
+            <%end%>
+
+               <tr>
+                </tbody>
+                </table>
+                </div>
+
+              </div>
+
+              <div class="tab-pane" id="theme">
+                  <div>ブログテーマの選択機能を作ります</div>
+    					</div>
+
+              <div class="tab-pane" id="csv">
+                  <p>あなたの書いた全記事をcsv形式でダウンロードします。</p>
+                  <p><%= link_to "csv出力", user_blogs_path(current_user,format: :csv), class: "btn btn-primary" %></p>
+              </div>
+
+  					</div>
+  				</div>
+  			</div>
+  			<!-- /tabs -->
+  		</div>
+  	</div>
+  </div>
+  </div>
