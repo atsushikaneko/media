@@ -26,6 +26,10 @@ group :development, :test do
   gem 'rb-readline'
   gem 'sqlite3', '~> 1.3.6'
   gem 'byebug',  '9.0.6', platform: :mri
+  gem 'capistrano'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
 end
 
 group :development do
