@@ -1,5 +1,5 @@
 # capistranoのバージョン固定
-lock '3.4.0'
+lock '3.11.2'
 
 # デプロイするアプリケーション名
 set :application, 'media'
@@ -23,7 +23,7 @@ set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', '
 set :keep_releases, 5
 
 # rubyのバージョン
-set :rbenv_ruby, '2.1.3'
+set :rbenv_ruby, '2.6.3'
 
 #出力するログのレベル。
 set :log_level, :debug

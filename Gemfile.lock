@@ -47,6 +47,7 @@ GEM
     autoprefixer-rails (9.7.3)
       execjs
     bcrypt (3.1.12)
+    bcrypt_pbkdf (1.0.1)
     bindex (0.8.1)
     bootstrap-sass (3.3.7)
       autoprefixer-rails (>= 5.2.1)
@@ -86,6 +87,7 @@ GEM
     crass (1.0.6)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
+    ed25519 (1.2.4)
     equalizer (0.0.11)
     erubi (1.9.0)
     excon (0.71.1)
@@ -298,6 +300,7 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt (= 3.1.12)
+  bcrypt_pbkdf
   bootstrap-sass (= 3.3.7)
   bootstrap-will_paginate (= 1.0.0)
   byebug (= 9.0.6)
@@ -307,6 +310,7 @@ DEPENDENCIES
   capistrano-rbenv
   carrierwave (= 1.2.2)
   coffee-rails (= 4.2.2)
+  ed25519
   faker (= 1.9.1)
   fog-aws
   guard (= 2.13.0)
