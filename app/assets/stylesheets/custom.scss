@@ -133,7 +133,6 @@ footer ul li {
 
 /*ボディ*/
 .bodyid{
-
 }
 
 /* コンテンツ*/
@@ -647,7 +646,7 @@ section .test2{
 }
 
 .user-edit-forms-box span{
- color: red; 
+ color: red;
 }
 
 .user-edit-form-box{
@@ -860,4 +859,66 @@ section .test2{
   width: 100%;
   height: 100%;
   z-index: 5;
+}
+
+
+/*ログインフォーム*/
+.login-page{
+  background-color: #dcecf4;
+  height:800px;
+  overflow: hidden;
+}
+.login-form h4{
+  text-align: center;
+}
+
+.login-form{
+  border-radius: 5px;
+  padding: 30px;
+  background-color: white;
+  margin: 150px auto;
+  width:400px;
+}
+
+
+.remember-section{
+  text-align: right;
+}
+
+.btn-flat-border {
+  width: 100%;
+  display: inline-block;
+  padding: 0.3em 1em;
+  text-decoration: none;
+  color: #67c5ff;
+  border: solid 2px #67c5ff;
+  border-radius: 3px;
+  transition: .4s;
+}
+
+.btn-flat-border:hover {
+  background: #67c5ff;
+  color: white;
+}
+
+.new-user-btn-section{
+  padding: 10px;
+  text-align: center;
+  border-top: 1px solid gray;
+}
+
+.btn-gradient-radius {
+  width: 100%;
+  text-align: center;
+  display: inline-block;
+  padding: 7px 20px;
+  border-radius: 25px;
+  text-decoration: none;
+  color: #FFF;
+  background-image: linear-gradient(45deg, #FFC107 0%, #ff8b5f 100%);
+  transition: .4s;
+}
+
+.btn-gradient-radius:hover {
+  background-image: linear-gradient(45deg, #FFC107 0%, #f76a35 100%);
 }

@@ -1,21 +1,23 @@
 <% provide(:title, "ログイン") %>
-<div class="contents container">
-  <div class="main col-lg-8">
-    <%= render partial:'shared/flash' %>
+<div class="login-page">
+<div class="login-form">
+  <h4>ログイン</h4>
   <%= form_for(:session, url: login_path) do |f| %>
-  <%= f.label :email %>
-  <%= f.email_field :email, class: 'form-control' %>
-  <%= f.label :password %>
-  <%= link_to "(forgot password)", new_password_reset_path %>
-  <%= f.password_field :password, class: 'form-control' %>
-  <%= f.submit "Log in", class: "btn btn-primary" %>
+
+  <p><%= f.email_field :email, class: 'form-control' %></p>
+
+
+  <p><%= f.password_field :password, class: 'form-control' %></p>
   <%= f.label :remember_me, class: "checkbox inline" do %>
-<%= f.check_box :remember_me %>
-<span>Remember me on this computer</span>
+<p class="remember-section"><%= f.check_box :remember_me %>次回からメールアドレスとパスワードの入力を省略</p>
 <% end %>
+  <p><%= f.submit "ログイン", class: "btn-flat-border" %></p>
+  <p class="remember-section"><%= link_to "パスワードを忘れた方", new_password_reset_path %></p>
   <% end %>
-  <p>New user?
-    <%= link_to "Sign up now!", signup_path %>
-  </p>
+  <div class="new-user-btn-section">
+  <p>はじめての方はこちら</p>
+    <%= link_to "新規登録", signup_path,class:"btn-gradient-radius" %>
+
+  </div>
 </div>
 </div>
