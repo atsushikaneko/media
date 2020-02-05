@@ -25,6 +25,10 @@ Rails.application.routes.draw do
 
   get "/users/:id/category/:category", to: "users#category"
 
+  get "/users/:id/profile", to: "users#profile"
+  get "/users/:id/about",   to: "users#about"
+  get "/users/:id/contact", to: "users#contact"
+
   get "/tweet", to: "tweets#update"
 
   get    '/login',   to: 'sessions#new'

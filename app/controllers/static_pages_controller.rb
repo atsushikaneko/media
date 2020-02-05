@@ -16,6 +16,4 @@ class StaticPagesController < ApplicationController
   def setting
   end
 
-
-
 end
