@@ -57,6 +57,14 @@ class UsersController < ApplicationController
     @recent_blogs = Blog.where(user_id:@user.id).unscope(:order).order('created_at DESC')
   end
 
+  def about
+  end
+
+  def profile
+  end
+
+  def contact
+  end
 
 #ユーザーフォロー機能関係
 def following

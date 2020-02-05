@@ -1,15 +1,11 @@
-<% provide(:title, "パスワードを忘れた") %>
-<div class="contents container">
-<h1>パスワードを忘れた</h1>
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <%= render partial:'shared/flash' %>
-    <%= form_for(:password_reset, url: password_resets_path) do |f| %>
-      <%= f.label :email %>
-      <%= f.email_field :email, class: 'form-control' %>
+<% provide(:title, "ログイン") %>
+<div class="login-page">
+<div class="login-form">
+  <h4>パスワードの再設定</h4>
+  <%= form_for(:password_reset, url: password_resets_path) do |f| %>
+    <p><%= f.email_field :email, class: 'form-control',placeholder:"メールアドレス" %></p>
 
-      <%= f.submit "Submit", class: "btn btn-primary" %>
-    <% end %>
-  </div>
+    <p><%= f.submit "送信", class:  "btn-flat-border" %></p>
+  <% end %>
 </div>
 </div>

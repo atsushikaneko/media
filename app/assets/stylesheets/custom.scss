@@ -203,6 +203,7 @@ footer ul li {
   margin-bottom: 0;
   font-size: 17px;
   font-weight: 600;
+  word-break: break-word;
 }
 
 .kiji-time{
@@ -302,15 +303,15 @@ align-items: center;
 
 /*　ブログ（users/show) */
 .bloghead{
-  background-image: url(cafe.jpg);
   height: 500px;
-  background-size:cover;
   display: flex;
 justify-content: center;
 align-items: center;
 position: relative;
 z-index: 0;
 overflow: hidden;
+background: linear-gradient(to bottom, transparent 70%, white), url(cafe.jpg);
+background-size:cover;
 }
 
 .bloghead:before{
@@ -411,7 +412,7 @@ input[type="text"]{
   padding-left: 5px;
   color: black;
   text-align: center;
-  font-family: 'Cherry Swash', cursive;
+  font-family: 'Oswald', sans-serif;
   font-size: 22px;
   font-weight: bold;
   padding-top: 8px;
@@ -728,14 +729,14 @@ section .test2{
 /*トップページ*/
 
 /*タブ部分*/
-.tab{
+.top.tab{
     margin-top: 30px;
 }
-.tab .nav-tabs{
+.top.tab .top.nav-tabs{
     border:none;
     border-bottom: 1px solid #e4e4e4;
 }
-.nav-tabs li a{
+.top.nav-tabs li a{
     padding: 15px 40px;
     border:1px solid #ededed;
     border-top: 2px solid #ededed;
@@ -747,48 +748,48 @@ section .test2{
     font-weight: bold;
     transition: all 0.3s ease-in 0s;
 }
-.nav-tabs li a:hover{
+.top.nav-tabs li a:hover{
     border-bottom-color: #ededed;
     border-right: 0px none;
     background: #00b0ad;
     color: #fff;
 }
-.nav-tabs li a i{
+.top.nav-tabs li a i{
     display: inline-block;
     text-align: center;
     margin-right:10px;
 }
-.nav-tabs li:last-child{
+.top.nav-tabs li:last-child{
     border-right:1px solid #ededed;
 }
-.nav-tabs li.active a,
-.nav-tabs li.active a:focus,
-.nav-tabs li.active a:hover{
+.top.nav-tabs li.active a,
+.top.nav-tabs li.active a:focus,
+.top.nav-tabs li.active a:hover{
     border-top: 3px solid #00b0ad;
     border-right: 1px solid #d3d3d3;
     margin-top: -15px;
     color: #444;
     padding: 22px 40px;
 }
-.tab .tab-content{
+.top.tab .top.tab-content{
     padding: 20px;
     line-height: 22px;
     box-shadow:0px 1px 0px #808080;
 }
-.tab .tab-content h3{
+.top.tab .top.tab-content h3{
     margin-top: 0;
 }
 @media only screen and (max-width: 767px){
-    .nav-tabs li{
+    .top.nav-tabs li{
         width:100%;
         margin-bottom: 10px;
     }
-    .nav-tabs li a{
+    .top.nav-tabs li a{
         padding: 15px;
     }
-    .nav-tabs li.active a,
-    .nav-tabs li.active a:focus,
-    .nav-tabs li.active a:hover{
+    .top.nav-tabs li.active a,
+    .top.nav-tabs li.active a:focus,
+    .top.nav-tabs li.active a:hover{
         padding: 15px;
         margin-top: 0;
     }
@@ -865,7 +866,7 @@ section .test2{
 /*ログインフォーム*/
 .login-page{
   background-color: #dcecf4;
-  height:800px;
+  height:1000px;
   overflow: hidden;
 }
 .login-form h4{
@@ -921,4 +922,57 @@ section .test2{
 
 .btn-gradient-radius:hover {
   background-image: linear-gradient(45deg, #FFC107 0%, #f76a35 100%);
+}
+
+
+
+/*ブログページのnavbar*/
+
+.bloghead-menu.nav ul {
+  list-style: none;
+  background-color: #444;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+.bloghead-menu.nav li {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.2em;
+  line-height: 40px;
+  height: 40px;
+  border-bottom: 1px solid #888;
+}
+
+.bloghead-menu.nav a {
+  text-decoration: none;
+  color: #fff;
+  display: block;
+  transition: .3s background-color;
+}
+
+.bloghead-menu.nav a:hover {
+  background-color: #005f5f;
+}
+
+.bloghead-menu.nav a.active {
+  background-color: #fff;
+  color: #444;
+  cursor: default;
+}
+
+@media screen and (min-width: 600px) {
+  .bloghead-menu.nav li {
+    width: 120px;
+    border-bottom: none;
+    height: 50px;
+    line-height: 50px;
+    font-size: 1.4em;
+  }
+
+  /* Option 1 - Display Inline */
+  .bloghead-menu.nav li {
+    display: inline-block;
+    margin-right: -4px;
+  }
+
 }

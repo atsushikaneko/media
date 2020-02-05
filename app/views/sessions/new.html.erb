@@ -4,10 +4,10 @@
   <h4>ログイン</h4>
   <%= form_for(:session, url: login_path) do |f| %>
 
-  <p><%= f.email_field :email, class: 'form-control' %></p>
+  <p><%= f.email_field :email, class: 'form-control',placeholder:"メールアドレス" %></p>
 
 
-  <p><%= f.password_field :password, class: 'form-control' %></p>
+  <p><%= f.password_field :password, class: 'form-control' ,placeholder:"パスワード"%></p>
   <%= f.label :remember_me, class: "checkbox inline" do %>
 <p class="remember-section"><%= f.check_box :remember_me %>次回からメールアドレスとパスワードの入力を省略</p>
 <% end %>

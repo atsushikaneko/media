@@ -3,6 +3,16 @@
   <h1><%= @user.blogtitle %></h1>
   <%= link_to("", "#{user_path(@user)}",class:"bloghead-link") %>
 </div>
+
+<div class="bloghead-menu nav">
+  <ul>
+    <li class="home"><a href="/users/<%= @user.id %>">Home</a></li>
+    <li class="about"><a href="/users/<%= @user.id %>/about">About</a></li>
+    <li class="profile"><a href="/users/<%= @user.id %>/profile">Profile</a></li>
+    <li class="contact"><a href="/users/<%= @user.id %>/contact">Contact</a></li>
+  </ul>
+</div>
+
 <div class="contents container">
 <div class="row">
   <div class="main col-lg-8">
