@@ -26,7 +26,7 @@ class Blog < ApplicationRecord
 
   validates :user_id, presence: true
   validates :content, presence: true, length: { maximum: 100000 }
-  #validates :picture, presence: true
+  validates :picture, presence: true
   validates :category, presence: true, length: { maximum: 30 }
   validates :title, presence: true, length: { maximum: 50 }
 

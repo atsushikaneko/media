@@ -6,10 +6,10 @@
 
 <div class="bloghead-menu nav">
   <ul>
-    <li class="home"><a class="active" href="#">Home</a></li>
-    <li class="about"><a href="/users/:id/about">About</a></li>
-    <li class="profile"><a href="/users/:id/profile">Profile</a></li>
-    <li class="contact"><a href="/users/:id/contact">Contact</a></li>
+    <li class="home"><a class="active" href="/users/<%= @user.id %>">Home</a></li>
+    <li class="about"><a href="/users/<%= @user.id %>/about">About</a></li>
+    <li class="profile"><a href="/users/<%= @user.id %>/profile">Profile</a></li>
+    <li class="contact"><a href="/users/<%= @user.id %>/contact">Contact</a></li>
   </ul>
 </div>
 
