@@ -1,10 +1,23 @@
-<h1>Sample App</h1>
+<div style="background-color: #f4f4f4; padding-top:30px; padding-bottom:30px;">
+<h1 style="color:#03A9F4; text-align:center;">Simple Blog Platform</h1>
 
-<p>Hi <%= @user.name %>,</p>
+<div style="background-color:white; width: 500px; margin:0 auto; padding:30px;">
+
+<p><%= @user.name %>さん、こんにちは。</p>
 
 <p>
-Welcome to the Sample App! Click on the link below to activate your account:
+Simple Blog Platformへようこそ。</p>
+<p>
+アカウントを有効化するには以下のボタンをクリックしてください。
 </p>
 
-<%= link_to "Activate", edit_account_activation_url(@user.activation_token,
-                                                    email: @user.email) %>
+<a style="position: relative; display: block; width:130; margin: 0 auto; padding: 0.25em 0.5em; text-decoration: none; color: #FFF; background: #03A9F4;/*色*/ border: solid 1px #0f9ada;/*線色*/ border-radius: 4px; box-shadow: inset 0 1px 0 rgba(255,255,255,0.2); text-shadow: 0 1px 0 rgba(0,0,0,0.2);" href="#{<%= edit_account_activation_url(@user.activation_token, email: @user.email) %>}">アカウントの有効化</a>
+
+<p>うまく機能しない場合は、リンクをブラウザのアドレスバーにコピーして貼り付けてやり直してください。</p>
+<p><%= edit_account_activation_url(@user.activation_token, email: @user.email) %></p>
+<br>
+<p>Simple Blog Platformをご利用いただき、ありがとうございます。</p>
+<p>- Atsushi Kaneko</p>
+</div>
+
+</div>
