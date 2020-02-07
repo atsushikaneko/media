@@ -12,26 +12,31 @@
     <li class="contact"><a href="/users/<%= @user.id %>/contact">Contact</a></li>
   </ul>
 </div>
-
-<div class="contents container">
+<div class="usershow-background">
+<div class="usershow  contents container">
 <div class="row">
   <div class="main col-lg-8">
     <div class="articles row">
 
       <% @blogs.each do |blog|%>
-      <div class="kiji col-xs-12 col-lg-6">
-        <div class="kiji-shadow">
-          <div class="kiji-photo" style="background-image: url(<%= blog.picture.url %>); background-size: cover;"></div>
-          <p class="kiji-category">
-            <%= blog.category %>
-          </p>
-          <p class="kiji-title">
+      <div class="usershow-kiji col-xs-12 col-lg-6">
+
+          <div class="usershow-kiji-photo" style="background-image: url(<%= blog.picture.url %>); background-size: cover;"></div>
+
+
+          <p class="usershow-kiji-title">
             <%= blog.title %>
           </p>
-          <div class="kiji-time">
-            <%= "#{time_ago_in_words(blog.created_at)}前"%>
-          </div>
-        </div>
+          <p class="usershow-kiji-category">
+            <%= blog.category %>
+          </p>
+
+          <p class="usershow-kiji-time">
+            <%= "#{ (blog.created_at.strftime("%Y/%m/%d(#{%w(日 月 火 水 木 金 土)[blog.created_at.wday]})")) }"%>
+          </p>
+
+
+
       </div>
       <% end %>
 
@@ -43,5 +48,6 @@
   <div class="sidebar col-lg-4">
   <%= render 'shared/right_menu' %> <!-- ライトメニューです -->
   </div>
+</div>
 </div>
 </div>
