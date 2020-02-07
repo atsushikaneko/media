@@ -11,9 +11,9 @@ Simple Blog Platformへようこそ。</p>
 アカウントを有効化するには以下のボタンをクリックしてください。
 </p>
 
-<a style="position: relative; display: block; width:130; margin: 0 auto; padding: 0.25em 0.5em; text-decoration: none; color: #FFF; background: #03A9F4;/*色*/ border: solid 1px #0f9ada;/*線色*/ border-radius: 4px; box-shadow: inset 0 1px 0 rgba(255,255,255,0.2); text-shadow: 0 1px 0 rgba(0,0,0,0.2);" href="#{<%= edit_account_activation_url(@user.activation_token, email: @user.email) %>}">アカウントの有効化</a>
+<a class="activate-btn" style="position: relative; display: block; width:130px; margin: 0 auto; padding: 0.25em 0.5em; text-decoration: none; color: #FFF; background: #03A9F4;/*色*/ border: solid 1px #0f9ada;/*線色*/ border-radius: 4px; box-shadow: inset 0 1px 0 rgba(255,255,255,0.2); text-shadow: 0 1px 0 rgba(0,0,0,0.2);" href="<%= edit_account_activation_url(@user.activation_token, email: @user.email) %>">アカウントの有効化</a>
 
-<p>うまく機能しない場合は、リンクをブラウザのアドレスバーにコピーして貼り付けてやり直してください。</p>
+<p>うまく機能しない場合は、以下のリンクをブラウザのアドレスバーにコピーして貼り付けてやり直してください。</p>
 <p><%= edit_account_activation_url(@user.activation_token, email: @user.email) %></p>
 <br>
 <p>Simple Blog Platformをご利用いただき、ありがとうございます。</p>
