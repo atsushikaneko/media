@@ -101,14 +101,14 @@ header{
 /* フッター */
 
 footer {
-  margin-top: 45px;
-  padding-top: 5px;
+  height: 300px;
+  background-color: black;
   border-top: 1px solid #eaeaea;
-  color: #777;
+  color: white;
 }
 
 footer a {
-  color: #555;
+  color: white;
 }
 
 footer a:hover {
@@ -203,7 +203,6 @@ footer ul li {
   margin-bottom: 0;
   font-size: 17px;
   font-weight: 600;
-  word-break: break-word;
 }
 
 .kiji-time{
@@ -425,6 +424,8 @@ input[type="text"]{
   filter:brightness(50%);
 }
 
+
+
 .side-blog-box{
   position: relative;
   width: 260px;
@@ -480,14 +481,20 @@ input[type="text"]{
 .categories .hidari{
   float:left;
   width: 80%;
-  margin-bottom: 5px;
+  margin-bottom: 0;
 }
+
 
 .categories .fas{
   width: 20%;
   text-align: right;
   z-index: 5;
   margin-bottom: 5px;
+}
+
+.categories.folder{
+   text-align: left;
+   width: auto;
 }
 
 section .test1{
@@ -930,12 +937,13 @@ section .test2{
 
 .bloghead-menu.nav ul {
   list-style: none;
-  background-color: #444;
+  background-color: #344c64;
   text-align: center;
   padding: 0;
   margin: 0;
 }
 .bloghead-menu.nav li {
+  color: #797c74;
   font-family: 'Oswald', sans-serif;
   font-size: 1.2em;
   line-height: 40px;
@@ -975,4 +983,70 @@ section .test2{
     margin-right: -4px;
   }
 
+}
+
+
+
+/* ブログページの記事一覧の表示 */
+.usershow-kiji{
+  padding: 10px;
+}
+
+.usershow-kiji-photo{
+  height:230px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  margin: 5px 0px;
+}
+
+.usershow-kiji-time{
+  background-color: #204c94;
+  height: 30px;
+  color: white;
+  width: 120px;
+  text-align: center;
+}
+
+.usershow-kiji-title{
+  font-size: 18px;
+  word-break: break-word;
+  font-weight: 500;
+}
+
+.usershow-kiji-category{
+ font-size: 8px;
+}
+
+.usershow-kiji-contents{
+font-size: 12px;
+}
+
+.usershow.contents{
+  background: #f4f4f4;
+}
+
+.usershow-background{
+  background: #f4f4f4;
+}
+
+
+/* footer */
+.footer-lists{
+  margin:30px 30px 0 30px;
+  height: 50px;
+  text-align: left;
+  border-bottom: 1px solid #444444;
+}
+
+.footer-lists-contents{
+  display: block;
+  float: left;
+  font-family: "Avenir Next";
+}
+
+.copyright{
+  margin-top: 20px;
+  font-family: "Avenir Next";
+  text-align: center;
 }
