@@ -1,4 +1,5 @@
 Rails.application.configure do
+  config.eager_load = true
   config.action_mailer.default_url_options = { host: "3.137.8.21" }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
