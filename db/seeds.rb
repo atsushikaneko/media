@@ -25,6 +25,18 @@
 #end
 
 # ユーザー
+User.create!(name:  "ゲストユーザー",
+             email: "guest-user@example.com",
+             blogtitle: "Guest user's Blog",
+             password:              "password",
+             password_confirmation: "password",
+            # admin:     true,
+             activated: true,
+             activated_at: Time.zone.now,
+             profile_text: "I am guest user",
+             profile_image: open("#{Rails.root}/app/assets/images/profile.jpg"))
+
+
 User.create!(name:  "Example User",
              email: "example@railstutorial.org",
              blogtitle: "ブログタイトルがここにきます",

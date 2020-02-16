@@ -5,6 +5,9 @@
     <h3 class="title2">powered by Ruby on Rails</h3>
     <h3 class="title2">さあ、あなたのアイデアを世界に発信しよう</h3>
     <div class="hero-btn"><a href="/users/new" class="btn-border">ブログを作成</a></div>
-    </div>
+    <link href='https://fonts.googleapis.com/css?family=Lato|Roboto:400,900' rel='stylesheet' type='text/css'>
+ <p class="mataha">または</p>
+  <div class="hero-btn"><%= link_to "ゲストユーザーとしてログイン", login_path( params:{ session:{email: "guest-user@example.com", password: "password"}}), class:"guest-user btn-border", method:"post"%></div>
+    </div> 
   </div>
 </div>
