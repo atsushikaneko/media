@@ -19,24 +19,23 @@
     <div class="articles row">
 
       <% @blogs.each do |blog|%>
-      <div class="usershow-kiji col-xs-12 col-lg-6">
-
-          <div class="usershow-kiji-photo" style="background-image: url(<%= blog.picture.url %>); background-size: cover;"></div>
-
-
-          <p class="usershow-kiji-title">
-            <%= blog.title %>
-          </p>
-          <p class="usershow-kiji-category">
+      <div class="kiji col-xs-12 col-lg-6">
+        <div class="kiji-shadow">
+          <div class="kiji-photo" style="background-image: url(<%= blog.picture.url %>); background-size: cover;"></div>
+          <p class="kiji-category">
             <%= blog.category %>
           </p>
-
-          <p class="usershow-kiji-time">
-            <%= "#{ (blog.created_at.strftime("%Y/%m/%d(#{%w(日 月 火 水 木 金 土)[blog.created_at.wday]})")) }"%>
+          <p class="kiji-title">
+            <%= blog.title %>
           </p>
-
-
-
+          <div class="kiji-time">
+            <%= "#{time_ago_in_words(blog.created_at)}前"%>
+          </div>
+          <div class="kiji-blogtitle">
+            <%= blog.user.blogtitle %>
+          </div>
+          <%= link_to("","#{user_blog_path(@user,blog)}",class:"kiji-link") %>
+        </div>
       </div>
       <% end %>
 
