@@ -2,6 +2,8 @@
       <h4 class="side-section-title">PLOFILE</h4>
     <img class="profile-image" src="<%= @user.profile_image.url ? @user.profile_image.url : "../assets/profile.jpg" %>" alt="">
     <div class="profile-text"><p><%= @user.name %></p>
+      <div class="aiueo<%=@user.name %>"></div>
+      <div class="<%="aiueo#{@user.name}"%>"></div>
     <p><%= @user.profile_text %></p>
     <p><%= link_to "プロフィールを編集する",(edit_user_path @user) if current_user == @user %></p>
     <%= render 'users/follow_form' if current_user %>
