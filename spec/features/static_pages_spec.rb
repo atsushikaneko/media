@@ -27,3 +27,16 @@ RSpec.describe "Abotu" do
   end
 
 end
+
+
+#テストのテスト
+Rspec.discribe User do
+ before do
+   @params = {name:"asdfdcvf",email:"atsuhi.kaneacdscko@vitalize.co.jp",password:"sadfbds",blogtitle:"afbgfds"}
+  end
+  context "usertest" do
+     it "ううううん" do
+ 　    expect(User.new(@params)).to eq "aa"
+     end
+  end
+end
