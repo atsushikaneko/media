@@ -18,10 +18,10 @@ Gem::Specification.new do |s|
   s.homepage = "https://github.com/net-ssh/bcrypt_pbkdf-ruby".freeze
   s.licenses = ["MIT".freeze]
   s.rdoc_options = ["--title".freeze, "bcrypt_pbkdf".freeze, "--line-numbers".freeze, "--inline-source".freeze, "--main".freeze, "README.md".freeze]
-  s.rubygems_version = "2.7.3".freeze
+  s.rubygems_version = "2.7.6.2".freeze
   s.summary = "OpenBSD's bcrypt_pdkfd (a variant of PBKDF2 with bcrypt-based PRF)".freeze
 
-  s.installed_by_version = "2.7.3" if s.respond_to? :installed_by_version
+  s.installed_by_version = "2.7.6.2" if s.respond_to? :installed_by_version
 
   if s.respond_to? :specification_version then
     s.specification_version = 4

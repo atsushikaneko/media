@@ -1,0 +1,20 @@
+current directory: /Users/atsushi/Desktop/media/vendor/bundle/ruby/2.6.0/gems/bcrypt_pbkdf-1.0.1/ext/mri
+/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/bin/ruby -I /System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/lib/ruby/2.6.0 -r ./siteconf20200613-28472-1c6ftg8.rb extconf.rb
+creating Makefile
+
+current directory: /Users/atsushi/Desktop/media/vendor/bundle/ruby/2.6.0/gems/bcrypt_pbkdf-1.0.1/ext/mri
+make "DESTDIR=" clean
+
+current directory: /Users/atsushi/Desktop/media/vendor/bundle/ruby/2.6.0/gems/bcrypt_pbkdf-1.0.1/ext/mri
+make "DESTDIR="
+compiling bcrypt_pbkdf.c
+compiling bcrypt_pbkdf_ext.c
+compiling blowfish.c
+compiling explicit_bzero.c
+compiling hash_sha512.c
+linking shared-object bcrypt_pbkdf_ext.bundle
+ld: warning: directory not found for option '-L/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.Internal.sdk/usr/local/lib'
+
+current directory: /Users/atsushi/Desktop/media/vendor/bundle/ruby/2.6.0/gems/bcrypt_pbkdf-1.0.1/ext/mri
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 bcrypt_pbkdf_ext.bundle ./.gem.20200613-28472-ntelrs

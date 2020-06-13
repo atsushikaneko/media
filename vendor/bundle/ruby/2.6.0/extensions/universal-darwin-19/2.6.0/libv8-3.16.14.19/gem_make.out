@@ -1,0 +1,13 @@
+current directory: /Users/atsushi/Desktop/media/vendor/bundle/ruby/2.6.0/gems/libv8-3.16.14.19/ext/libv8
+/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/bin/ruby -I /System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/lib/ruby/2.6.0 -r ./siteconf20200613-43706-h0lete.rb extconf.rb --with-system-v8
+creating Makefile
+
+current directory: /Users/atsushi/Desktop/media/vendor/bundle/ruby/2.6.0/gems/libv8-3.16.14.19/ext/libv8
+make "DESTDIR=" clean
+
+current directory: /Users/atsushi/Desktop/media/vendor/bundle/ruby/2.6.0/gems/libv8-3.16.14.19/ext/libv8
+make "DESTDIR="
+make: Nothing to be done for `all'.
+
+current directory: /Users/atsushi/Desktop/media/vendor/bundle/ruby/2.6.0/gems/libv8-3.16.14.19/ext/libv8
+make "DESTDIR=" install

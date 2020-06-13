@@ -19,10 +19,10 @@ Gem::Specification.new do |s|
   s.homepage = "https://bogomips.org/unicorn/".freeze
   s.licenses = ["GPL-2.0+".freeze, "Ruby-1.8".freeze]
   s.required_ruby_version = Gem::Requirement.new("< 3.0".freeze)
-  s.rubygems_version = "2.7.3".freeze
+  s.rubygems_version = "2.7.6.2".freeze
   s.summary = "Rack HTTP server for fast clients and Unix".freeze
 
-  s.installed_by_version = "2.7.3" if s.respond_to? :installed_by_version
+  s.installed_by_version = "2.7.6.2" if s.respond_to? :installed_by_version
 
   if s.respond_to? :specification_version then
     s.specification_version = 4
