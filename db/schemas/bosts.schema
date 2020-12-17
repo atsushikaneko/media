@@ -1,0 +1,8 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+create_table "bosts", force: :cascade do |t|
+  t.text "body"
+  t.string "youtube_url"
+  t.datetime "created_at", null: false
+  t.datetime "updated_at", null: false
+end

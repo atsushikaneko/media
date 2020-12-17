@@ -1,0 +1,14 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+require 'blogs.schema'
+require 'bosts.schema'
+require 'comments.schema'
+require 'favorites.schema'
+require 'images.schema'
+require 'impressions.schema'
+require 'likes.schema'
+require 'posts.schema'
+require 'relationships.schema'
+require 'topics.schema'
+require 'users.schema'
+require 'youtube_posts.schema'

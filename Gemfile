@@ -23,6 +23,7 @@ gem 'jbuilder',     '2.7.0'
 gem 'rake',         '13.0.1'
 gem 'whenever', require: false
 gem 'nokogiri'
+gem 'ridgepole'
 
 group :development, :test do
   gem 'rb-readline'
