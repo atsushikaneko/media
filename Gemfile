@@ -24,6 +24,8 @@ gem 'rake',         '13.0.1'
 gem 'whenever', require: false
 gem 'nokogiri'
 gem 'ridgepole'
+gem 'react-rails'
+gem 'webpacker'
 
 group :development, :test do
   gem 'rb-readline'
