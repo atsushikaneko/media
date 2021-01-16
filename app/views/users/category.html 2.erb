@@ -1,0 +1,51 @@
+<% provide(:title, @user.blogtitle) %>
+<div class="bloghead">
+  <h1><%= @user.blogtitle %></h1>
+  <%= link_to("", "#{user_path(@user)}",class:"bloghead-link") %>
+</div>
+
+<div class="bloghead-menu nav">
+  <ul>
+    <li class="home"><a href="/users/<%= @user.id %>">Home</a></li>
+    <li class="about"><a href="/users/<%= @user.id %>/about">About</a></li>
+    <li class="profile"><a href="/users/<%= @user.id %>/profile">Profile</a></li>
+    <li class="contact"><a href="/users/<%= @user.id %>/contact">Contact</a></li>
+  </ul>
+</div>
+
+<div class="contents container">
+<div class="row">
+  <div class="main col-lg-8">
+    <div class="articles row">
+
+      <% @category_blogs.each do |blog|%>
+      <div class="kiji col-xs-12 col-lg-6">
+        <div class="kiji-shadow">
+          <div class="kiji-photo" style="background-image: url(<%= blog.picture.url %>); background-size: cover;"></div>
+          <p class="kiji-category">
+            <%= blog.category %>
+          </p>
+          <p class="kiji-title">
+            <%= blog.title %>
+          </p>
+          <div class="kiji-time">
+            <%= "#{time_ago_in_words(blog.created_at)}前"%>
+          </div>
+          <div class="kiji-blogtitle">
+            <%= blog.user.blogtitle %>
+          </div>
+          <%= link_to("","#{user_blog_path(@user,blog)}",class:"kiji-link") %>
+        </div>
+      </div>
+      <% end %>
+
+      <div class="pagenate col-xs-12">
+        <%= will_paginate @category_blogs, :previous_label => ' &lt 前へ', :next_label => '次へ &gt' %>
+      </div>
+    </div>
+  </div>
+  <div class="sidebar col-lg-4">
+  <%= render 'shared/right_menu' %> <!-- ライトメニューです -->
+  </div>
+</div>
+</div>

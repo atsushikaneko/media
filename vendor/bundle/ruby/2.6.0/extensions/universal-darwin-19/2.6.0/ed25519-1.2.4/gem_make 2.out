@@ -1,0 +1,34 @@
+current directory: /Users/atsushi/Desktop/media/vendor/bundle/ruby/2.6.0/gems/ed25519-1.2.4/ext/ed25519_ref10
+/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/bin/ruby -I /System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/lib/ruby/2.6.0 -r ./siteconf20200613-28472-ndfk3y.rb extconf.rb
+creating Makefile
+
+current directory: /Users/atsushi/Desktop/media/vendor/bundle/ruby/2.6.0/gems/ed25519-1.2.4/ext/ed25519_ref10
+make "DESTDIR=" clean
+
+current directory: /Users/atsushi/Desktop/media/vendor/bundle/ruby/2.6.0/gems/ed25519-1.2.4/ext/ed25519_ref10
+make "DESTDIR="
+compiling ed25519_ref10.c
+In file included from ed25519_ref10.c:1:
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby.h:33:
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:2492:20: warning: 'diagnose_if' is a clang extension [-Wgcc-compat]
+    __attribute__((diagnose_if(rb_scan_args_count(fmt,varc)==0,"bad scan arg format","error")))
+                   ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:2493:20: warning: 'diagnose_if' is a clang extension [-Wgcc-compat]
+    __attribute__((diagnose_if(rb_scan_args_count(fmt,varc)!=varc,"variable argument length doesn't match","error")))
+                   ^
+2 warnings generated.
+compiling fe.c
+compiling ge.c
+compiling keypair.c
+compiling open.c
+compiling sc_muladd.c
+compiling sc_reduce.c
+compiling sha512.c
+compiling sign.c
+compiling verify.c
+linking shared-object ed25519_ref10.bundle
+ld: warning: directory not found for option '-L/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.Internal.sdk/usr/local/lib'
+
+current directory: /Users/atsushi/Desktop/media/vendor/bundle/ruby/2.6.0/gems/ed25519-1.2.4/ext/ed25519_ref10
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 ed25519_ref10.bundle ./.gem.20200613-28472-1bp503e

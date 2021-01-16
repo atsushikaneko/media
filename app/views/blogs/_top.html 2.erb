@@ -1,0 +1,38 @@
+<div>
+  <% blogs[0..2].each do |blog|%>
+  <div class="kiji col-xs-12 col-lg-4">
+    <div class="kiji-shadow">
+      <div class="kiji-photo" style="background-image: url(<%= blog.picture.url %>); background-size: cover;"></div>
+      <p class="kiji-category">
+        <%= blog.category %>
+      </p>
+      <p class="kiji-title">
+        <%= blog.title %>
+      </p>
+      <div class="kiji-time">
+        <%= "#{time_ago_in_words(blog.created_at)}前"%>
+      </div>
+      <div class="kiji-blogtitle">
+        <%= blog.user.blogtitle %>
+      </div>
+      <%= link_to("", "#{user_blog_path(blog.user,blog)}",class:"kiji-link") %>
+    </div>
+  </div>
+  <% end %>
+
+    <% if blogs[3..8] %>
+    <% blogs[3..8].each do |blog|%>
+    <div class="smallkiji col-xs-12 col-lg-6">
+      <div class="smallkiji-shadow">
+        <p class="smallkiji-title">
+          <%= blog.title %>
+        </p>
+        <p class="smallkiji-blogtitle">
+          <%= blog.user.blogtitle %>
+        </p>
+          <%= link_to("","#{user_blog_path(blog.user,blog)}",class:"smallkiji-link") %>
+        </div>
+        </div>
+      <% end %>
+        <% end %>
+</div>

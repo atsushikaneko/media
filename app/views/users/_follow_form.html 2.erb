@@ -1,0 +1,10 @@
+<% @user = user if defined? user %>
+<% unless current_user?(@user) %>
+  <div id="follow_form<%= @user.id %>">
+  <% if current_user.following?(@user) %>
+    <%= render 'users/unfollow' %>
+  <% else %>
+    <%= render 'users/follow' %>
+  <% end %>
+  </div>
+<% end %>
